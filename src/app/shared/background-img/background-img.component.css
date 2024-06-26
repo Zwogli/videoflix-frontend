@@ -1,0 +1,32 @@
+.btn-prim {
+  border-radius: 4px;
+  border: none;
+  background-color: #e50914;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.background {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+}
+.background img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.background--shade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 20, 20, 0.5);
+}/*# sourceMappingURL=background-img.component.css.map */

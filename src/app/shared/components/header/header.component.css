@@ -4,12 +4,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 5rem;
-  img {
-    height: 32px;
-    cursor: pointer;
-  }
+}
+header img {
+  height: 32px;
+  cursor: pointer;
 }
 
 button {
   height: 32px;
-}
+}/*# sourceMappingURL=header.component.css.map */
