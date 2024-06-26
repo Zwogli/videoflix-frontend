@@ -1,0 +1,17 @@
+@import "../../../../styles/main";
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  height: 100%;
+  background: $color-primary-70;
+  span {
+    cursor: default;
+    color: $color-white;
+  }
+  .span--click {
+    cursor: pointer;
+  }
+}
