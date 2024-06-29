@@ -17,6 +17,7 @@ button {
 @media (min-width: 600px) {
   header {
     height: calc(92px - 4rem);
+    max-width: calc(1920px - 20% - 4rem);
     margin: 0 10%;
     img {
       height: 40px;
