@@ -25,16 +25,18 @@ app-footer {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  &-container{
+  &-container {
     background-color: $color-black-70;
     padding: 3rem;
     border: $border-radius-base;
+    margin: 2rem;
     &-text {
       color: $color-white;
       max-width: 500px;
     }
     &-interaction {
       display: flex;
+      justify-content: center;
       flex-direction: row;
       gap: 1rem;
       width: 100%;
@@ -44,5 +46,9 @@ app-footer {
 }
 
 input {
-  width: calc(100% - 1rem - 105px);
+  width: calc(100% - 3rem - 150px);
+}
+
+button {
+  font-size: $font-size-medium;
 }
