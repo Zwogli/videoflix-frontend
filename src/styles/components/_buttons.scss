@@ -13,7 +13,7 @@
 
 .btn-prim {
   @include btn;
-  background-color: $color-secondary;
+  background-color: $color-primary;
   padding: 1rem;
   color: $color-white;
 }
