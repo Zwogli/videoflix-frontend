@@ -1,0 +1,19 @@
+@import "../abstracts/variables";
+
+// Reusable mixins
+@mixin btn {
+  border-radius: 4px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.btn-prim {
+  @include btn;
+  background-color: $color-secondary;
+  padding: 1rem;
+  color: $color-white;
+}
