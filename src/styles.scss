@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./styles/main";
+@import "./styles/fonts/roboto.scss";
 
 /* Reset browser style */
 html,
@@ -9,4 +10,8 @@ body {
   box-sizing: border-box;
   width: 100dvw;
   height: 100dvh;
+}
+
+body {
+  font-family: Roboto, Helvetica, sans-serif;
 }
