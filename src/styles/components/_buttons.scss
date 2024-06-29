@@ -16,4 +16,11 @@
   background-color: $color-primary;
   padding: 1rem;
   color: $color-white;
+  height: 58px;
+}
+
+@media (max-width: 600px) {
+  .btn-prim {
+    height: 48px;
+  }
 }
