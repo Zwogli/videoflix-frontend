@@ -20,18 +20,25 @@ main {
   align-items: center;
   flex-direction: column;
 
-  .content {
-    color: $color-white;
-    background-color: $color-black-70;
-    margin: 2rem;
-    padding: 1rem;
-    width: calc(100% - 6rem);
-    border-radius: $border-radius-base;
-    text-align: center;
-  }
   app-footer {
     display: flex;
     height: 20dvh;
     width: 100dvw;
+  }
+}
+
+.card {
+  color: $color-white;
+  background-color: $color-black-70;
+  margin: 2rem;
+  padding: 1rem;
+  width: calc(100% - 6rem);
+  border-radius: $border-radius-base;
+  text-align: center;
+
+  &-container-interaction {
+    input {
+      width: 100%;
+    }
   }
 }
