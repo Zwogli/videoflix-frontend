@@ -25,16 +25,21 @@ app-footer {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  &-text {
-    color: $color-white;
-    max-width: 500px;
-  }
-  &-interaction {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    width: 100%;
-    max-width: 500px;
+  &-container{
+    background-color: $color-primary-70;
+    padding: 3rem;
+    border: $border-radius-base;
+    &-text {
+      color: $color-white;
+      max-width: 500px;
+    }
+    &-interaction {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      width: 100%;
+      max-width: 500px;
+    }
   }
 }
 
