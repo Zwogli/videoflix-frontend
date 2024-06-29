@@ -1,6 +1,6 @@
 @import "../../../../../styles/main";
 
-.container-landingpage{
+.container-landingpage {
   position: relative;
   top: 0;
   left: 0;
@@ -26,6 +26,13 @@ main {
   align-items: center;
   flex-direction: column;
 
+  .content {
+    min-height: calc(100dvh - 20dvh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   app-footer {
     display: flex;
     height: 20dvh;
@@ -37,14 +44,60 @@ main {
   color: $color-white;
   background-color: $color-black-70;
   margin: 2rem;
-  padding: 1rem;
-  width: calc(100% - 6rem);
+  padding: 2rem;
+  width: calc(100% - 8rem);
   border-radius: $border-radius-base;
   text-align: center;
+  &-container-text {
+    h1 {
+      margin: 0 0 2rem 0;
+    }
+  }
 
   &-container-interaction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     input {
-      width: 100%;
+      width: calc(100% - 2rem - 2px);
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  main {
+    top: 92px;
+    .content {
+      min-height: calc(100dvh - 20dvh - 92px);
+    }
+  }
+
+  .card {
+    width: 600px;
+    &-container-interaction {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: unset;
+      input {
+        width: calc(100% - 200px);
+      }
+      button {
+        text-wrap: unset;
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .card-container-text {
+    h1 {
+      font-size: 3rem;
+    }
+    .font-mid {
+      font-size: 24px;
+    }
+    .font-small {
+      font-size: 20px;
     }
   }
 }
