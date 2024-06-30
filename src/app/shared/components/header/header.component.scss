@@ -1,8 +1,8 @@
+@import "../../../../styles/main";
+
 header {
-  height: calc(80px - 4rem);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-center(row, space-between);
+  height: calc(#{$header-height-small} - 4rem);
   padding: 2rem;
   width: 100%;
   img {
@@ -12,13 +12,13 @@ header {
 }
 
 button {
-  height: 32px;
+  height: 32px !important;
 }
 
 @media (min-width: 600px) {
   header {
-    height: calc(92px - 4rem);
-    width: calc(1920px - 20% - 4rem);
+    height: calc(#{$header-height-large} - 4rem);
+    width: calc(#{$view-desktop-max-width} - 20% - 4rem);
     margin: 0 10%;
     img {
       height: 40px;
