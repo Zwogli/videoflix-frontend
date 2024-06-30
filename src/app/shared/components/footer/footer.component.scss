@@ -1,13 +1,11 @@
 @import "../../../../styles/main";
 
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: $color-black-70;
+  @include flex-center();
   gap: 2rem;
   height: 100%;
   width: 100%;
-  background: $color-black-70;
   text-align: center;
   span {
     cursor: default;
