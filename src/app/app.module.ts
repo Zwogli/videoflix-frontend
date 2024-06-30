@@ -10,6 +10,7 @@ import { HomePageComponent } from './features/home-page/components/home-page/hom
 import { BackgroundImgComponent } from './shared/components/background-img/background-img.component';
 import { CardLandingComponent } from './features/card-landing/components/card-landing/card-landing.component';
 import { LoginPageComponent } from './features/login-page/components/login-page/login-page.component';
+import { CardLoginComponent } from './features/card-login/components/card-login/card-login.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LoginPageComponent } from './features/login-page/components/login-page/
     BackgroundImgComponent,
     CardLandingComponent,
     LoginPageComponent,
+    CardLoginComponent,
   ],
   imports: [
     BrowserModule,

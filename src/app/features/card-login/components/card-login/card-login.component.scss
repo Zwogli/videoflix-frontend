@@ -1,0 +1,25 @@
+@import "../../../../../styles/main";
+
+.card {
+  width: calc(100% - 8rem);
+}
+
+form{
+
+    input {
+      width: calc(100% - 2rem - 2px);
+    }
+}
+
+@media (min-width: $view-mobile-max-width) {
+  .card {
+    width: 600px;
+
+    input {
+      width: calc(100% - 200px);
+    }
+    button {
+      font-size: 1.5rem;
+    }
+  }
+}
