@@ -32,7 +32,9 @@ main {
 }
 
 @media (min-width: $view-mobile-max-width) {
-  .content {
-    min-height: calc(100dvh - #{$footer-height} - #{$header-height-large});
+  main {
+    .content {
+      min-height: calc(100dvh - #{$footer-height} - #{$header-height-large});
+    }
   }
 }
