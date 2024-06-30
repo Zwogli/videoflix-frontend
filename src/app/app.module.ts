@@ -9,6 +9,7 @@ import { LandingPageComponent } from './features/landing-page/components/landing
 import { HomePageComponent } from './features/home-page/components/home-page/home-page.component';
 import { BackgroundImgComponent } from './shared/components/background-img/background-img.component';
 import { CardLandingComponent } from './features/card-landing/components/card-landing/card-landing.component';
+import { LoginPageComponent } from './features/login-page/components/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CardLandingComponent } from './features/card-landing/components/card-la
     HomePageComponent,
     BackgroundImgComponent,
     CardLandingComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,

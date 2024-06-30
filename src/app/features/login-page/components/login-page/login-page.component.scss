@@ -1,0 +1,40 @@
+@import "../../../../../styles/main";
+
+.container-landingpage {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+app-header {
+  @include flex-center();
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+}
+
+main {
+  @include flex-center(column);
+  @include responsive-main($header-height-small, $header-height-large);
+
+  .content {
+    @include flex-center(column);
+    min-height: calc(100dvh - #{$footer-height} - #{$header-height-small});
+  }
+
+  app-footer {
+    display: flex;
+    height: 20dvh;
+    width: 100dvw;
+    max-width: $view-desktop-max-width;
+  }
+}
+
+@media (min-width: $view-mobile-max-width) {
+  main {
+    .content {
+      min-height: calc(100dvh - #{$footer-height} - #{$header-height-large});
+    }
+  }
+}
