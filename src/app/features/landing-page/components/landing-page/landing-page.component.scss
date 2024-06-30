@@ -15,31 +15,20 @@ app-header {
   justify-content: center;
 }
 
-app-footer {
-  height: 20dvh;
-  max-width: 1920px;
-}
-
 main {
-  position: absolute;
-  top: 80px;
-  width: 100dvw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  @include flex-center(column);
+  @include responsive-main($header-height-small, $header-height-large);
 
   .content {
-    min-height: calc(100dvh - 20dvh - 80px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center(column);
+    min-height: calc(100vh - #{$footer-height} - #{$header-height-small});
   }
 
   app-footer {
     display: flex;
     height: 20dvh;
     width: 100dvw;
+    max-width: 1920px;
   }
 }
 
@@ -58,10 +47,7 @@ main {
   }
 
   &-container-interaction {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex-center(column);
     gap: 1rem;
     input {
       width: calc(100% - 2rem - 2px);
@@ -70,28 +56,23 @@ main {
 }
 
 @media (min-width: 600px) {
-  main {
-    top: 92px;
-    .content {
-      min-height: calc(100dvh - 20dvh - 92px);
-    }
+  .content {
+    min-height: calc(100vh - #{$footer-height} - #{$header-height-large});
   }
 
   .card {
     width: 600px;
     &-container-interaction {
-      flex-direction: row;
-      justify-content: space-between;
-      gap: unset;
+      @include flex-center(row, space-between);
       input {
         width: calc(100% - 200px);
       }
       button {
-        text-wrap: unset;
         font-size: 1.5rem;
       }
     }
   }
+  
   .card-container-text {
     h1 {
       font-size: 3rem;
@@ -103,10 +84,4 @@ main {
       font-size: 20px;
     }
   }
-}
-
-@media (min-width: 1920px) {
-  // app-header {
-
-  // }
 }
