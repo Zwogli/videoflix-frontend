@@ -7,7 +7,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { LandingPageComponent } from './features/landing-page/components/landing-page/landing-page.component';
 import { HomePageComponent } from './features/home-page/components/home-page/home-page.component';
-import { BackgroundImgComponent } from './shared/background-img/background-img.component';
+import { BackgroundImgComponent } from './shared/components/background-img/background-img.component';
 import { CardLandingComponent } from './features/card-landing/components/card-landing/card-landing.component';
 
 @NgModule({
