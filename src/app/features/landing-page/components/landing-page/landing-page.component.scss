@@ -11,10 +11,13 @@ app-header {
   top: 0;
   left: 0;
   width: 100dvw;
+  display: flex;
+  justify-content: center;
 }
 
 app-footer {
   height: 20dvh;
+  max-width: 1920px;
 }
 
 main {
@@ -104,6 +107,6 @@ main {
 
 @media (min-width: 1920px) {
   // app-header {
-    
+
   // }
 }
