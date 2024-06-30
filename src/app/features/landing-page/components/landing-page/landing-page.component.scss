@@ -54,7 +54,7 @@ main {
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: $view-mobile-max-width) {
   .content {
     min-height: calc(100dvh - #{$footer-height} - #{$header-height-large});
   }

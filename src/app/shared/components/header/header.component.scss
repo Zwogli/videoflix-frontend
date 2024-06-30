@@ -15,7 +15,7 @@ button {
   height: 32px !important;
 }
 
-@media (min-width: 600px) {
+@media (min-width: $view-mobile-max-width) {
   header {
     height: calc(#{$header-height-large} - 4rem);
     width: calc(#{$view-desktop-max-width} - 20% - 4rem);
