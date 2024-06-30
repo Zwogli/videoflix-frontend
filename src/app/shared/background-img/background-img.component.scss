@@ -1,33 +1,29 @@
 @import "../../../styles/main";
 
 .background {
-  position: fixed;
-  top: 0;
-  left: 0;
+  @include position-corner(fixed, 0, 0);
   width: 100dvw;
-  // max-width: 1920px;
   height: 100dvh;
 
   img {
+    max-width: $view-desktop-max-width;
     width: 100%;
     height: 100%;
-    max-width: 1920px;
     position: absolute;
     object-fit: cover;
   }
   &--shade {
+    background-color: $color-black-50;
+    max-width: $view-desktop-max-width;
     position: absolute;
     width: 100%;
     height: 100%;
-    max-width: 1920px;
-    background-color: $color-black-50;
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: $view-desktop-max-width) {
   .background {
+    @include flex-center();
     left: unset;
-    display: flex;
-    justify-content: center;
   }
 }

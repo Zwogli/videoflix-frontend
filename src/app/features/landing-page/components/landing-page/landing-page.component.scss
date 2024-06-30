@@ -7,12 +7,11 @@
 }
 
 app-header {
+  @include flex-center();
   position: absolute;
   top: 0;
   left: 0;
   width: 100dvw;
-  display: flex;
-  justify-content: center;
 }
 
 main {
@@ -35,10 +34,10 @@ main {
 .card {
   color: $color-white;
   background-color: $color-black-70;
+  border-radius: $border-radius-base;
   margin: 2rem;
   padding: 2rem;
   width: calc(100% - 8rem);
-  border-radius: $border-radius-base;
   text-align: center;
   &-container-text {
     h1 {

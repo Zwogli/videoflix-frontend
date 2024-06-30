@@ -5,6 +5,12 @@
     align-items: $align;
   }
 
+@mixin position-corner($position: absolute, $pos-top: unset, $pos-left: unset){
+    position: $position;
+    top: $pos-top;
+    left: $pos-left;
+}
+
 @mixin responsive-main($top-small, $top-large){
     position:absolute;
     top: $top-small;
