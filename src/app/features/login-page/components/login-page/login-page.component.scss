@@ -30,8 +30,9 @@ main {
   }
 
   app-footer {
+    border-top: 1px solid $color-white-70;
     display: flex;
-    height: 20dvh;
+    height: calc(20dvh - 1px);
     width: 100dvw;
     max-width: $view-desktop-max-width;
   }
@@ -41,6 +42,11 @@ main {
   main {
     .content {
       min-height: calc(100dvh - #{$footer-height} - #{$header-height-large});
+    }
+
+    app-footer {
+      border-top: 0;
+      height: 20dvh;
     }
   }
 }
