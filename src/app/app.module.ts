@@ -11,6 +11,8 @@ import { BackgroundImgComponent } from './shared/components/background-img/backg
 import { CardLandingComponent } from './features/card-landing/components/card-landing/card-landing.component';
 import { LoginPageComponent } from './features/login-page/components/login-page/login-page.component';
 import { CardLoginComponent } from './features/card-login/components/card-login/card-login.component';
+import { ImpressComponent } from './shared/components/impress/impress.component';
+import { DataPrivacyComponent } from './shared/components/data-privacy/data-privacy.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { CardLoginComponent } from './features/card-login/components/card-login/
     CardLandingComponent,
     LoginPageComponent,
     CardLoginComponent,
+    ImpressComponent,
+    DataPrivacyComponent,
   ],
   imports: [
     BrowserModule,

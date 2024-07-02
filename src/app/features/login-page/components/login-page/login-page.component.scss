@@ -20,12 +20,23 @@ main {
 
   .content {
     @include flex-center(column);
+    position: relative;
     min-height: calc(100dvh - #{$footer-height} - #{$header-height-small});
     width: 100%;
 
     app-card-login {
       width: 100%;
       @include flex-center();
+    }
+
+    app-impress {
+      position: absolute;
+      padding: 2rem;
+      @include flex-center(column);
+      max-width: calc($view-desktop-max-width - 4rem);
+      background-color: $color-black-70;
+      color: $color-white;
+      height: calc(100% - 4rem);
     }
   }
 
