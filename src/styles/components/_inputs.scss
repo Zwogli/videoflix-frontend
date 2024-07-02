@@ -7,20 +7,6 @@ input[type="password"] {
   color: $color-white-70;
   font-size: $font-size-medium;
   padding: 0 1rem;
-
-  &::placeholder {
-    color: $color-white-70 !important; // Placeholder-Farbe
-  }
-
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0px 1000px $color-black-50 inset !important;
-    box-shadow: 0 0 0px 1000px $color-black-50 inset !important;
-    -webkit-text-fill-color: $color-white-70 !important;
-    caret-color: $color-black-50 !important;
-  }
 }
 
 @media (max-width: 600px) {
