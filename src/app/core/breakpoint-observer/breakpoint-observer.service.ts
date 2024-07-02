@@ -10,8 +10,15 @@ export class BreakpointObserverService {
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 
-  isHandset(): Observable<boolean> {
-    return this.breakpointObserver.observe([Breakpoints.Handset])
+  isXSmall(): Observable<boolean> {
+    return this.breakpointObserver.observe([Breakpoints.XSmall])
+      .pipe(
+        map(result => result.matches)
+      );
+  }
+
+  isXLarge(): Observable<boolean> {
+    return this.breakpointObserver.observe([Breakpoints.XLarge])
       .pipe(
         map(result => result.matches)
       );

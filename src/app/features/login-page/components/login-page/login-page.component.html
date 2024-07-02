@@ -1,4 +1,4 @@
-<app-background-img></app-background-img>
+<app-background-img *ngIf="!(isXSmall$ | async)"></app-background-img>
 
 <div class="container-landingpage">
   <app-header></app-header>
