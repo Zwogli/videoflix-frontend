@@ -21,6 +21,12 @@ main {
   .content {
     @include flex-center(column);
     min-height: calc(100dvh - #{$footer-height} - #{$header-height-small});
+    width: 100%;
+
+    app-card-login {
+      width: 100%;
+      @include flex-center();
+    }
   }
 
   app-footer {

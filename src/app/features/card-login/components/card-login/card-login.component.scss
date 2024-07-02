@@ -12,7 +12,9 @@ a {
 }
 
 .card {
-  width: calc(100% - 8rem);
+  // width: calc(100% - 8rem);
+  width: calc(100% - 4rem);
+  margin: unset;
 }
 
 form {
