@@ -4,25 +4,33 @@
   position: relative;
   top: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 app-header {
   @include flex-center();
-  position: absolute;
+  // position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  width: 100dvw;
+  // width: 100dvw;
+  width: 100%;
 }
 
 main {
   @include flex-center(column);
   @include responsive-main($header-height-small, $header-height-large);
+  flex: 1;
+  width: 100%;
 
   .content {
     @include flex-center(column);
     position: relative;
-    min-height: calc(100dvh - #{$footer-height} - #{$header-height-small});
+    // min-height: calc(100dvh - #{$footer-height} - #{$header-height-small});
     width: 100%;
+    flex: 1;
 
     app-card-login {
       width: 100%;
@@ -30,21 +38,22 @@ main {
     }
 
     app-impress {
-      position: absolute;
+      // position: absolute;
       padding: 2rem;
       @include flex-center(column);
-      max-width: calc($view-desktop-max-width - 4rem);
+      max-width: $view-desktop-max-width;
       background-color: $color-black-70;
       color: $color-white;
-      height: calc(100% - 4rem);
+      // height: calc(100% - 4rem);
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 
   app-footer {
-    border-top: 1px solid $color-white-70;
     display: flex;
-    height: calc(20dvh - 1px);
-    width: 100dvw;
+    border-top: 1px solid $color-white-70;
+    width: 100%;
     max-width: $view-desktop-max-width;
   }
 }
