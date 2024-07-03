@@ -6,21 +6,31 @@ A Fontend project based on Netflix that works together with the videoflix-backen
 
 ### 1. Inspiration and planing
 
-#### task definition
+#### Task definition
 
 The first step was to get an overview of the functions and tasks of my front end.
 
-#### design inspiration
+#### Design inspiration
 
 For the design, I analyzed Netflix and was also inspired by fellow students and their projects.
 
-#### design draft (Figma)
+#### Design draft (Figma)
 
 To get a better overview of the design, I took the time to express my ideas in Figma.
 The advantage here was that I immediately recognized repeatable code and saved it as general elements.
 
 Design decisions I couldn't think of right away I read on the page first. The goal was to integrate Figma as a flexible tool if I wanted to make design optimizations or changes without working on the whole code.
-Translated with DeepL.com (free version)
+
+### 2. Start to Code
+
+#### The co-operation
+
+To make the basic structure better and clearer, I took inspiration from other projects and used ChatGPT to share my thoughts. This gave me new insights into how to structure a project.
+
+#### The beginning
+
+My plan for programming was to leave logic and functions out of the equation for the time being. The individual parts were divided into reusable components and stand-alone components. 
+This created the foundation of the front end.
 
 ## Angular
 
