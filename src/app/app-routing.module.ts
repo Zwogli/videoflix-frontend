@@ -4,16 +4,18 @@ import { LandingPageComponent } from './features/landing-page/components/landing
 import { HomePageComponent } from './features/home-page/components/home-page/home-page.component';
 
 import { LoginPageComponent } from './features/login-page/components/login-page/login-page.component';
+import { ImpressComponent } from './features/impress/components/impress/impress.component';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent },  // Standardroute zur Landing-Page
+  { path: '', component: LandingPageComponent }, // Standardroute zur Landing-Page
   { path: 'login', component: LoginPageComponent },
   { path: 'home', component: HomePageComponent }, // Route zur Home-Page
-  { path: '**', redirectTo: '' }  // Fallback route, wenn keine Route übereinstimmt
+  { path: 'immpress', component: ImpressComponent },
+  { path: '**', redirectTo: '' }, // Fallback route, wenn keine Route übereinstimmt
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
