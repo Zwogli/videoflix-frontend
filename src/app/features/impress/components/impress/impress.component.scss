@@ -1,2 +1,13 @@
 @import "../../../../../styles/main";
 
+.page-content {
+  background-color: $color-black-70;
+  padding: 2rem;
+  max-width: $view-desktop-max-width;
+  color: $color-white;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+a {
+  color: $color-white;
+}
