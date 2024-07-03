@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent }, // Standardroute zur Landing-Page
   { path: 'login', component: LoginPageComponent },
   { path: 'home', component: HomePageComponent }, // Route zur Home-Page
-  { path: 'immpress', component: ImpressComponent },
+  { path: 'impress', component: ImpressComponent },
   { path: '**', redirectTo: '' }, // Fallback route, wenn keine Route übereinstimmt
 ];
 
