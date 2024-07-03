@@ -13,6 +13,7 @@ import { LoginPageComponent } from './features/login-page/components/login-page/
 import { CardLoginComponent } from './features/card-login/components/card-login/card-login.component';
 import { ImpressComponent } from './features/impress/components/impress/impress.component';
 import { DataPrivacyComponent } from './shared/components/data-privacy/data-privacy.component';
+import { PrivacyPolicyComponent } from './features/privacy-policy/components/privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DataPrivacyComponent } from './shared/components/data-privacy/data-priv
     CardLoginComponent,
     ImpressComponent,
     DataPrivacyComponent,
+    PrivacyPolicyComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
