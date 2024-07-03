@@ -1,61 +1,6 @@
 @import "../../../../../styles/main";
 
-.content-container {
-  position: relative;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100dvh;
-}
-
-app-header {
+app-card-login {
+  width: 100%;
   @include flex-center();
-  // position: absolute;
-  position: relative;
-  top: 0;
-  left: 0;
-  // width: 100dvw;
-  width: 100%;
-}
-
-.main-content {
-  @include flex-center(column);
-  @include responsive-main($header-height-small, $header-height-large);
-  flex: 1;
-  width: 100%;
-
-  .page-content {
-    @include flex-center(column);
-    position: relative;
-    // min-height: calc(100dvh - #{$footer-height} - #{$header-height-small});
-    width: 100%;
-    flex: 1;
-
-    app-card-login {
-      width: 100%;
-      @include flex-center();
-    }
-  }
-
-  app-footer {
-    display: flex;
-    border-top: 1px solid $color-white-70;
-    width: 100%;
-    height: 20dvh;
-    max-width: $view-desktop-max-width;
-  }
-}
-
-@media (min-width: $view-mobile-max-width) {
-  .main-content {
-    .page-content {
-      min-height: calc(100dvh - #{$footer-height} - #{$header-height-large});
-    }
-
-    app-footer {
-      border-top: 0;
-      height: 20dvh;
-    }
-  }
 }
