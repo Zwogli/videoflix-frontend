@@ -1,6 +1,6 @@
 @import "../../../../../styles/main";
 
-.container-landingpage {
+.content-container {
   position: relative;
   top: 0;
   left: 0;
@@ -14,11 +14,11 @@ app-header {
   width: 100dvw;
 }
 
-main {
+.main-content {
   @include flex-center(column);
   @include responsive-main($header-height-small, $header-height-large);
 
-  .content {
+  .page-content {
     @include flex-center(column);
     min-height: calc(100dvh - #{$footer-height} - #{$header-height-small});
   }
@@ -32,8 +32,8 @@ main {
 }
 
 @media (min-width: $view-mobile-max-width) {
-  main {
-    .content {
+  .main-content {
+    .page-content {
       min-height: calc(100dvh - #{$footer-height} - #{$header-height-large});
     }
   }
