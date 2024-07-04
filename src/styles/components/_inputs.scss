@@ -1,5 +1,6 @@
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
   height: calc(58px - 2px);
   border: 1px solid $color-white-70;
   border-radius: $border-radius-base;

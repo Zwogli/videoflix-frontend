@@ -21,7 +21,8 @@ form {
   @include flex-center(column, center, flex-start);
   gap: 1rem;
   input[type="email"],
-  input[type="password"] {
+  input[type="password"],
+  input[type="text"] {
     width: calc(100% - 2rem - 2px);
   }
 
