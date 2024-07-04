@@ -17,9 +17,10 @@ button {
 
 @media (min-width: $view-mobile-max-width) {
   header {
-    height: calc(#{$header-height-large} - 4rem);
-    width: calc(#{$view-desktop-max-width} - 20% - 4rem);
-    margin: 0 10%;
+    height: $header-height-large;
+    width: $view-desktop-max-width;
+    padding: 0 10%;
+    box-sizing: border-box;
     img {
       height: 40px;
     }

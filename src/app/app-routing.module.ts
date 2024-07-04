@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'home', component: HomePageComponent }, // Route zur Home-Page
   { path: 'impress', component: ImpressComponent },
-  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'privacy', component: PrivacyPolicyComponent },
   { path: '**', redirectTo: '' }, // Fallback route, wenn keine Route übereinstimmt
 ];
 
