@@ -21,12 +21,14 @@
   @media (min-width: $view-mobile-max-width){
     .card {
         width: 600px;
+
         &-container-interaction {
           @include flex-center(row, space-between);
           input {
             width: calc(100% - 200px);
           }
           button {
+            flex-shrink: 0;
             font-size: 1.5rem;
           }
         }
