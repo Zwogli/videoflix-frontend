@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent }, // Standardroute zur Landing-Page
   { path: 'login', component: LoginPageComponent },
   { path: 'home', component: HomePageComponent }, // Route zur Home-Page
-  { path: 'impress', component: ImpressComponent },
-  { path: 'privacy', component: PrivacyPolicyComponent },
+  { path: 'legal/impress', component: ImpressComponent },
+  { path: 'legal/privacy', component: PrivacyPolicyComponent },
   { path: '**', redirectTo: '' }, // Fallback route, wenn keine Route übereinstimmt
 ];
 
