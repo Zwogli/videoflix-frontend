@@ -7,11 +7,20 @@ footer {
   height: 100%;
   width: 100%;
   text-align: center;
-  span {
-    cursor: default;
-    color: $color-white;
-  }
-  .span--click {
-    cursor: pointer;
-  }
+}
+
+ul {
+  list-style: none;
+  @include flex-center;
+  gap: 0.5rem;
+}
+
+span,
+a {
+  color: $color-white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
