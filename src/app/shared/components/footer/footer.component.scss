@@ -10,6 +10,7 @@ footer {
 }
 
 ul {
+  padding: unset;
   list-style: none;
   @include flex-center;
   gap: 0.5rem;
