@@ -29,6 +29,17 @@ app-header {
   width: 100%;
 }
 
+.legals{
+  background-color: $color-black-70;
+  padding: 2rem;
+  max-width: $view-desktop-max-width;
+  color: $color-white;
+  align-items: flex-start;
+  box-sizing: border-box;
+  border-top: 1px solid $color-white-70;
+  border-bottom: 1px solid $color-white-70;
+}
+
 app-footer {
   border-top: 1px solid $color-white-70;
   display: flex;

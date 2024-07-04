@@ -1,23 +1,13 @@
 @import "../../../../../styles/main";
 
-.page-content {
-  background-color: $color-black-70;
-  padding: 2rem;
-  max-width: $view-desktop-max-width;
-  color: $color-white;
-  align-items: flex-start;
-  box-sizing: border-box;
-  border-top: 1px solid $color-white-70;
-  border-bottom: 1px solid $color-white-70;
-}
 a {
   color: $color-white;
 }
 
-app-footer {
-  border-top: unset;
-}
-
 .breakable-link {
   word-break: break-all;
+}
+
+app-footer {
+  border-top: unset;
 }
