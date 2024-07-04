@@ -11,7 +11,7 @@ import { RegisterPageComponent } from './features/register-page/components/regis
 const routes: Routes = [
   { path: '', component: LandingPageComponent }, // Standardroute zur Landing-Page
   { path: 'login', component: LoginPageComponent },
-  { path: 'signin', component: RegisterPageComponent },
+  { path: 'register', component: RegisterPageComponent },
   { path: 'home', component: HomePageComponent }, // Route zur Home-Page
   { path: 'legal/impress', component: ImpressComponent },
   { path: 'legal/privacy', component: PrivacyPolicyComponent },
