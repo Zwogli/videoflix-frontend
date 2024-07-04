@@ -12,7 +12,6 @@ import { CardLandingComponent } from './features/card-landing/components/card-la
 import { LoginPageComponent } from './features/login-page/components/login-page/login-page.component';
 import { CardLoginComponent } from './features/card-login/components/card-login/card-login.component';
 import { ImpressComponent } from './features/impress/components/impress/impress.component';
-import { DataPrivacyComponent } from './shared/components/data-privacy/data-privacy.component';
 import { PrivacyPolicyComponent } from './features/privacy-policy/components/privacy-policy/privacy-policy.component';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { PrivacyPolicyComponent } from './features/privacy-policy/components/pri
     LoginPageComponent,
     CardLoginComponent,
     ImpressComponent,
-    DataPrivacyComponent,
     PrivacyPolicyComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
