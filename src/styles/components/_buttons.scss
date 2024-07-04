@@ -17,6 +17,14 @@
   padding: 1rem;
   color: $color-white;
   height: 58px;
+
+  &:hover {
+    background-color: $color-primary-hover;
+  }
+
+  &:active {
+    background-color: $color-primary-active;
+  }
 }
 
 @media (max-width: 600px) {
