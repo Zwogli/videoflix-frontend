@@ -2,6 +2,12 @@
   <img src="../../../../assets/logos/logo_long.png" alt="videoflix-logo" />
 
   <div>
-    <button class="btn-prim" [routerLink]="['/login']">Einloggen</button>
+    <button
+      *ngIf="shouldDisplayLoginButton()"
+      class="btn-prim"
+      [routerLink]="['/login']"
+    >
+      Einloggen
+    </button>
   </div>
 </header>
