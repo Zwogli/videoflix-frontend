@@ -3,7 +3,7 @@
 
   <div>
     <button
-      *ngIf="shouldDisplayLoginButton()"
+      *ngIf="isInvisibleLoginBtn()"
       class="btn-prim"
       [routerLink]="['/login']"
     >

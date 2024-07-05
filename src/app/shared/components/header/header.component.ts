@@ -11,7 +11,7 @@ export class HeaderComponent {
 
   constructor(private router: Router) {}
 
-  shouldDisplayLoginButton(): boolean {
+  isInvisibleLoginBtn(): boolean {
     const currentRoute = this.router.routerState.snapshot.url;
     const excludedRoutes = this.listExcludedRoutes;
 
