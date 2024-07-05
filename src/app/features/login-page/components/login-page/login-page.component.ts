@@ -16,6 +16,5 @@ export class LoginPageComponent {
   ngOnInit(): void {
     this.isXSmall$ = this.breakpointObserverService.isXSmall();
     this.isXLarge$ = this.breakpointObserverService.isXLarge();
-    console.log('isXSmall$', this.isXSmall$);
   }
 }
