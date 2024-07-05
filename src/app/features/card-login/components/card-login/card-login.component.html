@@ -2,7 +2,13 @@
   <form class="card-container">
     <h1>Einloggen</h1>
 
-    <input type="email" placeholder="E-Mail-Adresse" />
+    <input
+      [(ngModel)]="email"
+      [ngModelOptions]="{ standalone: true }"
+      name="email"
+      type="email"
+      placeholder="E-Mail-Adresse"
+    />
     <input type="password" placeholder="Passwort" />
 
     <button class="btn-prim">Einloggen ></button>
