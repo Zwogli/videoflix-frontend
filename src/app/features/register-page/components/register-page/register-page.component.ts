@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BreakpointObserverService } from 'src/app/core/breakpoint-observer/breakpoint-observer.service';
+import { BreakpointObserverService } from 'src/app/core/services/breakpoint-observer/breakpoint-observer.service';
 
 @Component({
   selector: 'app-register-page',

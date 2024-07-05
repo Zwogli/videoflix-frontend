@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BreakpointObserverService } from '../../../../core/breakpoint-observer/breakpoint-observer.service';
+import { BreakpointObserverService } from '../../../../core/services/breakpoint-observer/breakpoint-observer.service';
 import { Observable } from 'rxjs';
 
 @Component({
