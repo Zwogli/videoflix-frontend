@@ -1,14 +1,23 @@
 <div class="card">
-  <form class="card-container" autocomplete="off">
+  <form
+    class="card-container"
+    autocomplete="off"
+    (ngSubmit)="onSubmit()"
+    #registerForm="ngForm"
+  >
     <h1>Anmelden</h1>
 
     <div>
       <input
+        name="email"
         type="email"
         placeholder="Deine E-Mail-Adresse"
         autocomplete="off"
+        [(ngModel)]="email"
+        [ngClass]="{ 'input-error': emailError }"
+        required
       />
-      <label class="errors" for="email">
+      <label class="errors" for="email" *ngIf="emailError">
         <img src="../../../../../assets/icons/error-16.png" alt="error" />
         Hmm..., etwas stimmt mit deinem E-Mail-Adressen Format nicht.
       </label>
@@ -17,25 +26,38 @@
     <input type="text" placeholder="Benutzername" autocomplete="off" />
 
     <div>
-      <input type="password" placeholder="Passwort" autocomplete="off" />
-      <label class="errors" for="email">
+      <input
+        name="password"
+        type="password"
+        placeholder="Passwort"
+        autocomplete="off"
+        [(ngModel)]="password"
+        [ngClass]="{ 'input-error': passwordError }"
+        required
+      />
+      <label class="errors" for="email" *ngIf="passwordError">
         <img src="../../../../../assets/icons/error-16.png" alt="error" />
         Ein zu leichtes Passwort unter 6 Zeichen ist leicht zu entschlüsseln.
       </label>
-      <label class="errors" for="email">
+      <label class="errors" for="email" *ngIf="passwordComplexityError">
         <img src="../../../../../assets/icons/error-16.png" alt="error" />
-        Ohne Groß- und Kleinschreibung sowie Buchstaben und Zahlen ist dein Passwort einfach zu entschlüsseln.
+        Ohne Groß- und Kleinschreibung sowie Buchstaben und Zahlen ist dein
+        Passwort einfach zu entschlüsseln.
       </label>
     </div>
 
     <div>
       <input
+        name="confirmPassword"
         type="password"
         placeholder="Passwort wiederholen"
         autocomplete="off"
         autocomplete="new-password"
+        [(ngModel)]="confirmPassword"
+        [ngClass]="{ 'input-error': confirmPasswordError }"
+        required
       />
-      <label class="errors" for="email">
+      <label class="errors" for="email" *ngIf="confirmPasswordError">
         <img src="../../../../../assets/icons/error-16.png" alt="error" />
         Hm, deine Passwörter stimmen nicht überein. Vielleicht ein Tippfehler?
       </label>
