@@ -26,6 +26,12 @@ form {
     width: calc(100% - 2rem - 2px);
   }
 
+  div {
+    @include flex-center(column, center, flex-start);
+    gap: 0.5rem;
+    width: 100%;
+  }
+
   button {
     width: 100%;
     font-size: 1rem;

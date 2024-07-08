@@ -2,15 +2,44 @@
   <form class="card-container" autocomplete="off">
     <h1>Anmelden</h1>
 
-    <input type="email" placeholder="Deine E-Mail-Adresse" autocomplete="off" />
+    <div>
+      <input
+        type="email"
+        placeholder="Deine E-Mail-Adresse"
+        autocomplete="off"
+      />
+      <label class="errors" for="email">
+        <img src="../../../../../assets/icons/error-16.png" alt="error" />
+        Hmm..., etwas stimmt mit deinem E-Mail-Adressen Format nicht.
+      </label>
+    </div>
+
     <input type="text" placeholder="Benutzername" autocomplete="off" />
-    <input type="password" placeholder="Passwort" autocomplete="off" />
-    <input
-      type="password"
-      placeholder="Passwort wiederholen"
-      autocomplete="off"
-      autocomplete="new-password"
-    />
+
+    <div>
+      <input type="password" placeholder="Passwort" autocomplete="off" />
+      <label class="errors" for="email">
+        <img src="../../../../../assets/icons/error-16.png" alt="error" />
+        Ein zu leichtes Passwort unter 6 Zeichen ist leicht zu entschlüsseln.
+      </label>
+      <label class="errors" for="email">
+        <img src="../../../../../assets/icons/error-16.png" alt="error" />
+        Ohne Groß- und Kleinschreibung sowie Buchstaben und Zahlen ist dein Passwort einfach zu entschlüsseln.
+      </label>
+    </div>
+
+    <div>
+      <input
+        type="password"
+        placeholder="Passwort wiederholen"
+        autocomplete="off"
+        autocomplete="new-password"
+      />
+      <label class="errors" for="email">
+        <img src="../../../../../assets/icons/error-16.png" alt="error" />
+        Hm, deine Passwörter stimmen nicht überein. Vielleicht ein Tippfehler?
+      </label>
+    </div>
 
     <button class="btn-prim">Jetzt Registrieren</button>
 
