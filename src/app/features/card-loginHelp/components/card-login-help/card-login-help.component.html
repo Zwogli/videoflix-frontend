@@ -1,1 +1,28 @@
-<p>card-login-help works!</p>
+<div class="card">
+  <form class="card-container" (submit)="sendMail()">
+    <h1>Passwort vergessen?</h1>
+
+    <p>
+      Kein Problem, geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen eine
+      E-Mail um Ihr Passwort zurück zu setzen.
+    </p>
+
+    <div>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="E-Mail-Adresse"
+        [(ngModel)]="email"
+        [ngClass]="{ 'input-error': emailError }"
+        required
+      />
+      <label class="errors" for="email" *ngIf="emailError"
+        ><img src="../../../../../assets/icons/error-16.png" alt="error" /> Ups,
+        etwas lief schief. Überprüfen SIe nochmal Ihre E-Mail-Adresse.</label
+      >
+    </div>
+
+    <button class="btn-prim">Schicke Sie mir eine E-mail</button>
+  </form>
+</div>
