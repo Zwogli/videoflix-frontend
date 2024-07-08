@@ -16,6 +16,8 @@ import { ImpressComponent } from './features/impress/components/impress/impress.
 import { PrivacyPolicyComponent } from './features/privacy-policy/components/privacy-policy/privacy-policy.component';
 import { CardRegisterComponent } from './features/card-register/components/card-register/card-register.component';
 import { RegisterPageComponent } from './features/register-page/components/register-page/register-page.component';
+import { LoginHelpPageComponent } from './features/loginHelp-page/components/login-help-page/login-help-page.component';
+import { CardLoginHelpComponent } from './features/card-loginHelp/components/card-login-help/card-login-help.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { RegisterPageComponent } from './features/register-page/components/regis
     PrivacyPolicyComponent,
     CardRegisterComponent,
     RegisterPageComponent,
+    LoginHelpPageComponent,
+    CardLoginHelpComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
