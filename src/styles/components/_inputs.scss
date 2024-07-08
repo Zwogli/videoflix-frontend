@@ -15,3 +15,7 @@ input[type="text"] {
     height: 48px;
   }
 }
+
+.input-error {
+  border: 1px solid $color-error !important;
+}

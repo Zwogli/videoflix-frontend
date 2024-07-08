@@ -11,16 +11,25 @@
       </p>
     </div>
 
-    <form class="card-container-interaction" (submit)="navigateToLogin()">
+    <form
+      class="card-container-interaction"
+      (submit)="navigateToLogin()"
+    >
       <div>
         <input
-          [(ngModel)]="email"
           id="name"
           name="email"
           type="email"
           placeholder="E-Mail-Adresse"
+          [(ngModel)]="email"
+          [ngClass]="{'input-error': emailError}"
+          required
         />
-        <label class="errors" for="email">
+        <label
+          *ngIf="emailError"
+          class="errors"
+          for="email"
+        >
           <img src="../../../../../assets/icons/error-16.png" alt="error" />
           Gib bitte eine gültige E-Mail-Adresse ein.
         </label>
