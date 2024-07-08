@@ -12,12 +12,19 @@
     </div>
 
     <form class="card-container-interaction" (submit)="navigateToLogin()">
-      <input
-        [(ngModel)]="email"
-        name="email"
-        type="email"
-        placeholder="E-Mail-Adresse"
-      />
+      <div>
+        <input
+          [(ngModel)]="email"
+          id="name"
+          name="email"
+          type="email"
+          placeholder="E-Mail-Adresse"
+        />
+        <label class="errors" for="email">
+          <img src="../../../../../assets/icons/error-16.png" alt="error" />
+          Gib bitte eine gültige E-Mail-Adresse ein.
+        </label>
+      </div>
       <button class="btn-prim">Loslegen ></button>
     </form>
   </div>

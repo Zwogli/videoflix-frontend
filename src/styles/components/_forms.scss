@@ -1,0 +1,10 @@
+.errors {
+  font-size: 14px;
+  color: $color-error;
+  display: flex;
+  gap: 0.5rem;
+  img {
+    width: 14px;
+    height: 14px;
+  }
+}
