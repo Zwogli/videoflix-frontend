@@ -22,9 +22,26 @@ export class CardRegisterComponent {
     this.validateForm();
 
     if (this.isValidForm()) {
-      // Form is valid, proceed with the registration process
-      console.log('Form is valid, proceed with registration');
+      const authenticationUser = this.createFormObject();
+      console.log(
+        'Form is valid, proceed with registration',
+        authenticationUser
+      );
+      // Hier kannst du deinen Service aufrufen, um die Daten an das Backend zu senden
+      // this.authService.register(authenticationUser).subscribe(response => {
+      //   console.log('Registration successful', response);
+      // }, error => {
+      //   console.error('Registration failed', error);
+      // });
     }
+  }
+
+  resetErrors(): void {
+    this.emailError = false;
+    this.userNameError = false;
+    this.passwordError = false;
+    this.passwordComplexityError = false;
+    this.confirmPasswordError = false;
   }
 
   validateForm(): void {
@@ -49,12 +66,12 @@ export class CardRegisterComponent {
     }
   }
 
-  resetErrors(): void {
-    this.emailError = false;
-    this.userNameError = false;
-    this.passwordError = false;
-    this.passwordComplexityError = false;
-    this.confirmPasswordError = false;
+  createFormObject() {
+    return {
+      email: this.email,
+      userName: this.userName,
+      password: this.password,
+    };
   }
 
   isValidEmail(email: string): boolean {
