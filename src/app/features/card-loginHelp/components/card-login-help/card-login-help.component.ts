@@ -12,6 +12,7 @@ export class CardLoginHelpComponent {
 
   sendMail() {
     if (this.isValidEmail(this.email)) {
+      this.emailError = false;
       console.log('Email confirmed');
       // todo send mail
     } else {
