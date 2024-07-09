@@ -23,7 +23,21 @@
       </label>
     </div>
 
-    <input type="text" placeholder="Benutzername" autocomplete="off" />
+    <div>
+      <input
+        name="userName"
+        type="text"
+        placeholder="Benutzername"
+        autocomplete="off"
+        [(ngModel)]="userName"
+        [ngClass]="{ 'input-error': userNameError }"
+        required
+      />
+      <label class="errors" for="email" *ngIf="userNameError">
+        <img src="../../../../../assets/icons/error-16.png" alt="error" />
+        Ein Name damit wir dich Ansprechen können wäre doch nett.
+      </label>
+    </div>
 
     <div>
       <input

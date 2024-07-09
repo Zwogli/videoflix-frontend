@@ -7,20 +7,33 @@ import { Component } from '@angular/core';
 })
 export class CardRegisterComponent {
   email: string = '';
-  username: string = '';
+  userName: string = '';
   password: string = '';
   confirmPassword: string = '';
 
   emailError: boolean = false;
+  userNameError: boolean = false;
   passwordError: boolean = false;
   passwordComplexityError: boolean = false;
   confirmPasswordError: boolean = false;
 
   onSubmit(): void {
     this.resetErrors();
+    this.validateForm();
 
+    if (this.isValidForm()) {
+      // Form is valid, proceed with the registration process
+      console.log('Form is valid, proceed with registration');
+    }
+  }
+
+  validateForm(): void {
     if (!this.isValidEmail(this.email)) {
       this.emailError = true;
+    }
+
+    if (!this.isVAlidUserName(this.userName)) {
+      this.userNameError = true;
     }
 
     if (!this.isValidPassword(this.password)) {
@@ -34,20 +47,11 @@ export class CardRegisterComponent {
     if (this.password !== this.confirmPassword) {
       this.confirmPasswordError = true;
     }
-
-    if (
-      !this.emailError &&
-      !this.passwordError &&
-      !this.passwordComplexityError &&
-      !this.confirmPasswordError
-    ) {
-      // Form is valid, proceed with the registration process
-      console.log('Form is valid, proceed with registration');
-    }
   }
 
   resetErrors(): void {
     this.emailError = false;
+    this.userNameError = false;
     this.passwordError = false;
     this.passwordComplexityError = false;
     this.confirmPasswordError = false;
@@ -58,6 +62,10 @@ export class CardRegisterComponent {
     return emailPattern.test(email);
   }
 
+  isVAlidUserName(userName: string): boolean {
+    return userName.length >= 2;
+  }
+
   isValidPassword(password: string): boolean {
     return password.length >= 6;
   }
@@ -65,5 +73,14 @@ export class CardRegisterComponent {
   isComplexPassword(password: string): boolean {
     const complexityPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
     return complexityPattern.test(password);
+  }
+
+  isValidForm() {
+    return (
+      !this.emailError &&
+      !this.passwordError &&
+      !this.passwordComplexityError &&
+      !this.confirmPasswordError
+    );
   }
 }
