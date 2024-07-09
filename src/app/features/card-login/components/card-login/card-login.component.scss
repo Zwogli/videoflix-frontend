@@ -20,6 +20,13 @@ a {
 form {
   @include flex-center(column, center, flex-start);
   gap: 1rem;
+
+  div {
+    width: 100%;
+    @include flex-center(column, center, flex-start);
+    gap: 0.5rem;
+  }
+  
   input[type="email"],
   input[type="password"] {
     width: calc(100% - 2rem - 2px);
