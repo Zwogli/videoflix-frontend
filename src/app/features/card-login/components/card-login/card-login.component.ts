@@ -18,6 +18,23 @@ export class CardLoginComponent {
 
   ngOnInit(): void {
     this.email = this.dataSharingService.getEmail(); // Get the email-address from service
+    this.loadUserData();
+  }
+
+  loadUserData(): void {
+    const savedEmail = localStorage.getItem('email');
+    const savedPassword = localStorage.getItem('password');
+    const savedSaveUserData = localStorage.getItem('saveUserData');
+
+    if (savedEmail) {
+      this.email = savedEmail;
+    }
+    if (savedPassword) {
+      this.password = savedPassword;
+    }
+    if (savedSaveUserData) {
+      this.saveUserData = savedSaveUserData === 'true';
+    }
   }
 
   login() {
@@ -27,6 +44,11 @@ export class CardLoginComponent {
       if (this.saveUserData) {
         localStorage.setItem('email', this.email);
         localStorage.setItem('password', this.password);
+        localStorage.setItem('saveUserData', String(this.saveUserData));
+      }else {
+        localStorage.removeItem('email');
+        localStorage.removeItem('password');
+        localStorage.removeItem('saveUserData');
       }
       const authenticationUser = {
         email: this.email,
@@ -69,13 +91,5 @@ export class CardLoginComponent {
 
   isValidPassword(password: string): boolean {
     return password.length >= 6;
-  }
-
-  toogleCheckbox() {
-    if (this.saveUserData) {
-      console.log('Checkbox state true ');
-    } else {
-      console.log('Checkbox state false');
-    }
   }
 }
