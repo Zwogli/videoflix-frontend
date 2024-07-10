@@ -12,6 +12,7 @@ export class CardLoginComponent {
 
   emailError: boolean = false;
   passwordError: boolean = false;
+  saveUserData: boolean = false;
 
   constructor(private dataSharingService: DataSharingService) {}
 
@@ -21,6 +22,33 @@ export class CardLoginComponent {
 
   login() {
     this.resetErrors();
+    this.validateForm();
+    if (this.isValidateForm()) {
+      if (this.saveUserData) {
+        localStorage.setItem('email', this.email);
+        localStorage.setItem('password', this.password);
+      }
+      const authenticationUser = {
+        email: this.email,
+        password: this.password,
+      };
+      console.log(
+        'Test login: ',
+        authenticationUser,
+        'checkbox state: ',
+        this.saveUserData
+      );
+    } else {
+      console.error('Login failed form incorrect');
+    }
+  }
+
+  resetErrors(): void {
+    this.emailError = false;
+    this.passwordError = false;
+  }
+
+  validateForm(): void {
     if (!this.isValidEmail(this.email)) {
       this.emailError = true;
     }
@@ -30,9 +58,8 @@ export class CardLoginComponent {
     }
   }
 
-  resetErrors(): void {
-    this.emailError = false;
-    this.passwordError = false;
+  isValidateForm() {
+    return !this.emailError && !this.passwordError;
   }
 
   isValidEmail(email: string): boolean {
@@ -42,5 +69,13 @@ export class CardLoginComponent {
 
   isValidPassword(password: string): boolean {
     return password.length >= 6;
+  }
+
+  toogleCheckbox() {
+    if (this.saveUserData) {
+      console.log('Checkbox state true ');
+    } else {
+      console.log('Checkbox state false');
+    }
   }
 }

@@ -20,9 +20,9 @@
 
     <div>
       <input
-        name="password"
         type="password"
         placeholder="Passwort"
+        name="password"
         [(ngModel)]="password"
         [ngClass]="{ 'input-error': passwordError }"
         required
@@ -38,7 +38,13 @@
     <a href="/loginHelp">Passwort vergessen?</a>
 
     <div class="checkbox">
-      <input id="save-user-data" type="checkbox" />
+      <input
+        id="save-user-data"
+        type="checkbox"
+        name="saveUserData"
+        [(ngModel)]="saveUserData"
+        (change)="toogleCheckbox()"
+      />
       <label for="save-user-data">Benutzerdaten merken?</label>
     </div>
 
