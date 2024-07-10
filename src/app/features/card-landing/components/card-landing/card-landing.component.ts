@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataSharingService } from 'src/app/shared/services/data-sharing/data-sharing.service';
+import { ValidationService } from 'src/app/shared/validation/validation.service';
 
 @Component({
   selector: 'app-card-landing',
@@ -13,11 +14,12 @@ export class CardLandingComponent {
 
   constructor(
     private router: Router,
-    private dataSharingService: DataSharingService
+    private dataSharingService: DataSharingService,
+    private validationService: ValidationService
   ) {}
 
   navigateToLogin(): void {
-    if (this.isValidEmail(this.email) || this.isEmptyEmail(this.email)) {
+    if (this.isValidForm()) {
       this.dataSharingService.setEmail(this.email); // Set the e-mail address in the service
       this.router.navigate(['/login']); // Navigate to login-page
     } else {
@@ -25,13 +27,10 @@ export class CardLandingComponent {
     }
   }
 
-  isValidEmail(email: string): boolean {
-    // Simple regex for email validation
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-  }
-
-  isEmptyEmail(email: string) {
-    return email === '';
+  isValidForm() {
+    return (
+      this.validationService.isValidEmail(this.email) ||
+      this.validationService.isEmptyEmail(this.email)
+    );
   }
 }

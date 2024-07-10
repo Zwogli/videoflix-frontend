@@ -12,6 +12,10 @@ export class ValidationService {
     return emailPattern.test(email);
   }
 
+  isEmptyEmail(email: string) {
+    return email === '';
+  }
+
   isVAlidUserName(userName: string): boolean {
     return userName.length >= 2;
   }
