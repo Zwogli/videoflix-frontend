@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataSharingService } from 'src/app/shared/services/data-sharing/data-sharing.service';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
 
@@ -16,6 +17,7 @@ export class CardLoginComponent {
   saveUserData: boolean = false;
 
   constructor(
+    private router: Router,
     private dataSharingService: DataSharingService,
     private validService: ValidationService
   ) {}
@@ -49,6 +51,7 @@ export class CardLoginComponent {
         this.saveUserData
       );
       // todo backend-connection
+      this.router.navigate(['/home']);
     } else {
       console.error('Login failed form incorrect');
     }
