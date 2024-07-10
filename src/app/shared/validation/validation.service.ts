@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ValidationService {
-
-  constructor() { }
+  constructor() {}
 
   isValidEmail(email: string): boolean {
+    // Simple regex for email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
   }

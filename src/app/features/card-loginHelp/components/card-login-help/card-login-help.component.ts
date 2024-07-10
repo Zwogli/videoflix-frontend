@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ValidationService } from 'src/app/shared/validation/validation.service';
 
 @Component({
   selector: 'app-card-login-help',
@@ -10,19 +11,15 @@ export class CardLoginHelpComponent {
 
   emailError: boolean = false;
 
+  constructor(private validationService: ValidationService) {}
+
   sendMail() {
-    if (this.isValidEmail(this.email)) {
+    if (this.validationService.isValidEmail(this.email)) {
       this.emailError = false;
       console.log('Email confirmed');
       // todo send mail
     } else {
       this.emailError = true;
     }
-  }
-
-  isValidEmail(email: string): boolean {
-    // Simple regex for email validation
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
   }
 }
