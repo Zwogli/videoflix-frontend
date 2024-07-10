@@ -15,7 +15,10 @@ export class CardLoginComponent {
   passwordError: boolean = false;
   saveUserData: boolean = false;
 
-  constructor(private dataSharingService: DataSharingService, private validationService: ValidationService) {}
+  constructor(
+    private dataSharingService: DataSharingService,
+    private validationService: ValidationService
+  ) {}
 
   ngOnInit(): void {
     this.email = this.dataSharingService.getEmail(); // Get the email-address from service
@@ -46,7 +49,7 @@ export class CardLoginComponent {
         localStorage.setItem('email', this.email);
         localStorage.setItem('password', this.password);
         localStorage.setItem('saveUserData', String(this.saveUserData));
-      }else {
+      } else {
         localStorage.removeItem('email');
         localStorage.removeItem('password');
         localStorage.removeItem('saveUserData');

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ValidationService } from 'src/app/shared/validation/validation.service';
 
 @Component({
   selector: 'app-card-register',
@@ -16,6 +17,8 @@ export class CardRegisterComponent {
   passwordError: boolean = false;
   passwordComplexityError: boolean = false;
   confirmPasswordError: boolean = false;
+
+  constructor(private validationService: ValidationService){}
 
   onSubmit(): void {
     this.resetErrors();
@@ -45,19 +48,19 @@ export class CardRegisterComponent {
   }
 
   validateForm(): void {
-    if (!this.isValidEmail(this.email)) {
+    if (!this.validationService.isValidEmail(this.email)) {
       this.emailError = true;
     }
 
-    if (!this.isVAlidUserName(this.userName)) {
+    if (!this.validationService.isVAlidUserName(this.userName)) {
       this.userNameError = true;
     }
 
-    if (!this.isValidPassword(this.password)) {
+    if (!this.validationService.isValidPassword(this.password)) {
       this.passwordError = true;
     }
 
-    if (!this.isComplexPassword(this.password)) {
+    if (!this.validationService.isComplexPassword(this.password)) {
       this.passwordComplexityError = true;
     }
 
@@ -72,24 +75,6 @@ export class CardRegisterComponent {
       userName: this.userName,
       password: this.password,
     };
-  }
-
-  isValidEmail(email: string): boolean {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-  }
-
-  isVAlidUserName(userName: string): boolean {
-    return userName.length >= 2;
-  }
-
-  isValidPassword(password: string): boolean {
-    return password.length >= 6;
-  }
-
-  isComplexPassword(password: string): boolean {
-    const complexityPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-    return complexityPattern.test(password);
   }
 
   isValidForm() {
