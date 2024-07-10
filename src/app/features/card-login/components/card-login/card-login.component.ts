@@ -26,44 +26,29 @@ export class CardLoginComponent {
   }
 
   loadUserData(): void {
-    const savedEmail = localStorage.getItem('email');
-    const savedPassword = localStorage.getItem('password');
+    const savedEmail: string | null = localStorage.getItem('email');
+    const savedPassword: string | null = localStorage.getItem('password');
     const savedSaveUserData = localStorage.getItem('saveUserData');
 
-    if (savedEmail) {
-      this.email = savedEmail;
-    }
-    if (savedPassword) {
-      this.password = savedPassword;
-    }
-    if (savedSaveUserData) {
-      this.saveUserData = savedSaveUserData === 'true';
-    }
+    // Nullish Coalescing Operator (??), Ternary Operators (condition ? valueIfTrue : valueIfFalse)
+    this.email = savedEmail !== null ? savedEmail : this.email;
+    this.password = savedPassword !== null ? savedPassword : this.password;
+    this.saveUserData = savedSaveUserData === 'true';
   }
 
   login() {
     this.resetErrors();
     this.validateForm();
     if (this.isValidateForm()) {
-      if (this.saveUserData) {
-        localStorage.setItem('email', this.email);
-        localStorage.setItem('password', this.password);
-        localStorage.setItem('saveUserData', String(this.saveUserData));
-      } else {
-        localStorage.removeItem('email');
-        localStorage.removeItem('password');
-        localStorage.removeItem('saveUserData');
-      }
-      const authenticationUser = {
-        email: this.email,
-        password: this.password,
-      };
+      this.manageSaveUserData();
+      const authenticationUser = this.createAuthenticationUser();
       console.log(
         'Test login: ',
         authenticationUser,
         'checkbox state: ',
         this.saveUserData
       );
+      // todo backend-connection
     } else {
       console.error('Login failed form incorrect');
     }
@@ -86,5 +71,32 @@ export class CardLoginComponent {
 
   isValidateForm() {
     return !this.emailError && !this.passwordError;
+  }
+
+  manageSaveUserData() {
+    if (this.saveUserData) {
+      this.setLocalStorage();
+    } else {
+      this.removeLocalStorage();
+    }
+  }
+
+  setLocalStorage() {
+    localStorage.setItem('email', this.email);
+    localStorage.setItem('password', this.password);
+    localStorage.setItem('saveUserData', String(this.saveUserData));
+  }
+
+  removeLocalStorage() {
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+    localStorage.removeItem('saveUserData');
+  }
+
+  createAuthenticationUser() {
+    return {
+      email: this.email,
+      password: this.password,
+    };
   }
 }
