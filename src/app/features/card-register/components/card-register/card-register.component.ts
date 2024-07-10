@@ -18,7 +18,7 @@ export class CardRegisterComponent {
   passwordComplexityError: boolean = false;
   confirmPasswordError: boolean = false;
 
-  constructor(private validationService: ValidationService){}
+  constructor(private validationService: ValidationService) {}
 
   onSubmit(): void {
     this.resetErrors();
@@ -30,12 +30,15 @@ export class CardRegisterComponent {
         'Form is valid, proceed with registration',
         authenticationUser
       );
-      // Hier kannst du deinen Service aufrufen, um die Daten an das Backend zu senden
-      // this.authService.register(authenticationUser).subscribe(response => {
-      //   console.log('Registration successful', response);
-      // }, error => {
-      //   console.error('Registration failed', error);
-      // });
+      // todo backend-connection
+      /* 
+      Hier kannst du deinen Service aufrufen, um die Daten an das Backend zu senden
+      this.authService.register(authenticationUser).subscribe(response => {
+        console.log('Registration successful', response);
+      }, error => {
+        console.error('Registration failed', error);
+      }); 
+      */
     }
   }
 
