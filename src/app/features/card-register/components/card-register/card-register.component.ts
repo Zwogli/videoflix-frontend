@@ -18,7 +18,7 @@ export class CardRegisterComponent {
   passwordComplexityError: boolean = false;
   confirmPasswordError: boolean = false;
 
-  constructor(private validationService: ValidationService) {}
+  constructor(private validService: ValidationService) {}
 
   onSubmit(): void {
     this.resetErrors();
@@ -51,19 +51,19 @@ export class CardRegisterComponent {
   }
 
   validateForm(): void {
-    if (!this.validationService.isValidEmail(this.email)) {
+    if (!this.validService.isValidEmail(this.email)) {
       this.emailError = true;
     }
 
-    if (!this.validationService.isVAlidUserName(this.userName)) {
+    if (!this.validService.isVAlidUserName(this.userName)) {
       this.userNameError = true;
     }
 
-    if (!this.validationService.isValidPassword(this.password)) {
+    if (!this.validService.isValidPassword(this.password)) {
       this.passwordError = true;
     }
 
-    if (!this.validationService.isComplexPassword(this.password)) {
+    if (!this.validService.isComplexPassword(this.password)) {
       this.passwordComplexityError = true;
     }
 

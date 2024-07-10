@@ -17,7 +17,7 @@ export class CardLoginComponent {
 
   constructor(
     private dataSharingService: DataSharingService,
-    private validationService: ValidationService
+    private validService: ValidationService
   ) {}
 
   ngOnInit(): void {
@@ -75,11 +75,11 @@ export class CardLoginComponent {
   }
 
   validateForm(): void {
-    if (!this.validationService.isValidEmail(this.email)) {
+    if (!this.validService.isValidEmail(this.email)) {
       this.emailError = true;
     }
 
-    if (!this.validationService.isValidPassword(this.password)) {
+    if (!this.validService.isValidPassword(this.password)) {
       this.passwordError = true;
     }
   }

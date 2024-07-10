@@ -11,10 +11,10 @@ export class CardLoginHelpComponent {
 
   emailError: boolean = false;
 
-  constructor(private validationService: ValidationService) {}
+  constructor(private validService: ValidationService) {}
 
   sendMail() {
-    if (this.validationService.isValidEmail(this.email)) {
+    if (this.validService.isValidEmail(this.email)) {
       this.emailError = false;
       console.log('Email confirmed');
       // todo send mail

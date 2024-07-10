@@ -15,7 +15,7 @@ export class CardLandingComponent {
   constructor(
     private router: Router,
     private dataSharingService: DataSharingService,
-    private validationService: ValidationService
+    private validService: ValidationService
   ) {}
 
   navigateToLogin(): void {
@@ -29,8 +29,8 @@ export class CardLandingComponent {
 
   isValidForm() {
     return (
-      this.validationService.isValidEmail(this.email) ||
-      this.validationService.isEmptyEmail(this.email)
+      this.validService.isValidEmail(this.email) ||
+      this.validService.isEmptyEmail(this.email)
     );
   }
 }
