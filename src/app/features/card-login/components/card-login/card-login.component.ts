@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataSharingService } from 'src/app/shared/services/data-sharing/data-sharing.service';
+import { ValidationService } from 'src/app/shared/validation/validation.service';
 
 @Component({
   selector: 'app-card-login',
@@ -14,7 +15,7 @@ export class CardLoginComponent {
   passwordError: boolean = false;
   saveUserData: boolean = false;
 
-  constructor(private dataSharingService: DataSharingService) {}
+  constructor(private dataSharingService: DataSharingService, private validationService: ValidationService) {}
 
   ngOnInit(): void {
     this.email = this.dataSharingService.getEmail(); // Get the email-address from service
@@ -71,25 +72,16 @@ export class CardLoginComponent {
   }
 
   validateForm(): void {
-    if (!this.isValidEmail(this.email)) {
+    if (!this.validationService.isValidEmail(this.email)) {
       this.emailError = true;
     }
 
-    if (!this.isValidPassword(this.password)) {
+    if (!this.validationService.isValidPassword(this.password)) {
       this.passwordError = true;
     }
   }
 
   isValidateForm() {
     return !this.emailError && !this.passwordError;
-  }
-
-  isValidEmail(email: string): boolean {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-  }
-
-  isValidPassword(password: string): boolean {
-    return password.length >= 6;
   }
 }
