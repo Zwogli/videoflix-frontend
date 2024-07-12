@@ -25,7 +25,7 @@ export class CardRegisterComponent {
     this.validateForm();
 
     if (this.isValidForm()) {
-      const authenticationUser = this.createFormObject();
+      const authenticationUser = this.createUser();
       console.log(
         'Form is valid, proceed with registration',
         authenticationUser
@@ -72,7 +72,7 @@ export class CardRegisterComponent {
     }
   }
 
-  createFormObject() {
+  createUser() {
     return {
       email: this.email,
       userName: this.userName,
