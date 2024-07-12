@@ -89,7 +89,7 @@ export class CardRegisterComponent {
   createUser() {
     return {
       email: this.email,
-      userName: this.userName,
+      user_name: this.userName,
       password: this.password,
     };
   }
