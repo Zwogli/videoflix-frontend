@@ -30,15 +30,29 @@ export class CardRegisterComponent {
         'Form is valid, proceed with registration',
         authenticationUser
       );
-      // todo backend-connection
-      /* 
-      Hier kannst du deinen Service aufrufen, um die Daten an das Backend zu senden
-      this.authService.register(authenticationUser).subscribe(response => {
-        console.log('Registration successful', response);
-      }, error => {
-        console.error('Registration failed', error);
-      }); 
-      */
+
+      fetch('http://localhost:8000/auth/create/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(authenticationUser),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error(
+              'Fehler bei der Benutzererstellung: ' + response.statusText
+            );
+          }
+        })
+        .then((data) => {
+          console.log('Benutzer erstellt:', data);
+        })
+        .catch((error) => {
+          console.error('Fehler bei der Benutzererstellung:', error.message);
+        });
     }
   }
 
