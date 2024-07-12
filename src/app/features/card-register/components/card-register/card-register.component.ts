@@ -31,7 +31,7 @@ export class CardRegisterComponent {
         authenticationUser
       );
 
-      fetch('http://localhost:8000/auth/create/', {
+      fetch('http://localhost:8000/auth/registration/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
