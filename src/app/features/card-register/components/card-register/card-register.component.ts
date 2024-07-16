@@ -22,13 +22,14 @@ export class CardRegisterComponent {
   constructor(private validService: ValidationService) {}
 
   onSubmit(): void {
+    const url = environment.baseUrl + '/auth/registration/';
     this.resetErrors();
     this.validateForm();
 
     if (this.isValidForm()) {
       const authenticationUser = this.createUser();
 
-      fetch(`${environment}/auth/registration/`, {
+      fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
