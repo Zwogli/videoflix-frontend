@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
 import { HttpService } from 'src/app/shared/services/http/http.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-card-register',
@@ -31,7 +32,7 @@ export class CardRegisterComponent {
     if (this.isValidForm()) {
       const authenticationUser = this.createUser();
 
-      this.httpService.post<any>('auth/registration/', authenticationUser)
+      this.httpService.post<User>('auth/registration/', authenticationUser)
         .subscribe({
           next: (data) => {
             console.log('Benutzer erstellt:', data);
@@ -73,7 +74,7 @@ export class CardRegisterComponent {
     }
   }
 
-  createUser() {
+  createUser(): User {
     return {
       email: this.email,
       user_name: this.userName,
