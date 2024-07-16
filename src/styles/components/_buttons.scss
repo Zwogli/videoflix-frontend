@@ -27,6 +27,21 @@
   }
 }
 
+.btn-prim.loading {
+  pointer-events: none; /* Deaktiviert Maus-Ereignisse während des Ladens */
+  opacity: 0.6; /* Reduziert die Opazität des Buttons während des Ladens */
+}
+
+.btn-prim.loading:hover,
+.btn-prim.loading:active {
+  /* Stil für :hover und :active während des Ladens */
+  /* Setze die Eigenschaften zurück oder auf einen neutralen Zustand */
+  background-color: inherit; /* Beispiel: Hintergrundfarbe auf den Standardwert setzen */
+  color: inherit; /* Beispiel: Textfarbe auf den Standardwert setzen */
+  border-color: inherit; /* Beispiel: Randfarbe auf den Standardwert setzen */
+  /* Weitere Eigenschaften nach Bedarf zurücksetzen */
+}
+
 @media (max-width: 600px) {
   .btn-prim {
     height: 48px;
