@@ -26,10 +26,6 @@ export class CardRegisterComponent {
 
     if (this.isValidForm()) {
       const authenticationUser = this.createUser();
-      console.log(
-        'Form is valid, proceed with registration',
-        authenticationUser
-      );
 
       fetch('http://localhost:8000/auth/registration/', {
         method: 'POST',
