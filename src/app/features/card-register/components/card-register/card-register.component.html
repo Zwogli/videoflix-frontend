@@ -78,12 +78,7 @@
     </div>
 
     <!-- <button class="btn-prim">Jetzt Registrieren</button> -->
-    <button
-      class="btn-prim"
-      [class.loading]="loading"
-      [disabled]="loading"
-      (click)="simulateLoading()"
-    >
+    <button class="btn-prim" [class.loading]="loading" [disabled]="loading">
       <span *ngIf="!loading">Jetzt Registrieren</span>
       <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
     </button>
