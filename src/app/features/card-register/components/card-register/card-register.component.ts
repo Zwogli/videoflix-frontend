@@ -30,17 +30,7 @@ export class CardRegisterComponent {
     this.validateForm();
 
     if (this.isValidForm()) {
-      const authenticationUser = this.createUser();
-
-      this.httpService.post<User>('auth/registration/', authenticationUser)
-        .subscribe({
-          next: (data) => {
-            console.log('Benutzer erstellt:', data);
-          },
-          error: (error) => {
-            console.error('Fehler bei der Benutzererstellung:', error.message);
-          }
-        });
+      this.postRegistration();
     }
   }
 
@@ -74,20 +64,35 @@ export class CardRegisterComponent {
     }
   }
 
-  createUser(): User {
-    return {
-      email: this.email,
-      user_name: this.userName,
-      password: this.password,
-    };
-  }
-
-  isValidForm() {
+  isValidForm(): boolean {
     return (
       !this.emailError &&
       !this.passwordError &&
       !this.passwordComplexityError &&
       !this.confirmPasswordError
     );
+  }
+
+  postRegistration(): void {
+    const authenticationUser = this.createUser();
+
+    this.httpService
+      .post<User>('auth/registration/', authenticationUser)
+      .subscribe({
+        next: (data) => {
+          console.log('Benutzer erstellt:', data);
+        },
+        error: (error) => {
+          console.error('Fehler bei der Benutzererstellung:', error.message);
+        },
+      });
+  }
+
+  createUser(): User {
+    return {
+      email: this.email,
+      user_name: this.userName,
+      password: this.password,
+    };
   }
 }
