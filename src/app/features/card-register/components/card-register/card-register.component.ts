@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { ValidationService } from 'src/app/shared/validation/validation.service';
 import { HttpService } from 'src/app/shared/services/http/http.service';
 import { User } from 'src/app/models/user.model';
@@ -19,10 +21,12 @@ export class CardRegisterComponent {
   passwordError: boolean = false;
   passwordComplexityError: boolean = false;
   confirmPasswordError: boolean = false;
+  loading: boolean = false;
 
   constructor(
     private validService: ValidationService,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private router: Router
   ) {}
 
   onSubmit(): void {
@@ -30,6 +34,7 @@ export class CardRegisterComponent {
     this.validateForm();
 
     if (this.isValidForm()) {
+      this.loading = true;
       this.postRegistration();
     }
   }
@@ -81,11 +86,31 @@ export class CardRegisterComponent {
       .subscribe({
         next: (data) => {
           console.log('Benutzer erstellt:', data);
+          this.loading = false;
+          this.showVerificationEmailMessage();
+          this.navigateToLoginWithMessage('registrationSuccess');
         },
         error: (error) => {
           console.error('Fehler bei der Benutzererstellung:', error.message);
+          this.loading = false; // Ladezustand beenden
+          this.showErrorSnackbar('Es gab einen Fehler bei der Registrierung.');
         },
       });
+  }
+
+  showVerificationEmailMessage(): void {
+    // Hier kannst du eine Snackbar, Toast-Nachricht oder ähnliches anzeigen
+    console.log('Eine E-Mail zur Verifizierung wurde gesendet.');
+  }
+
+  navigateToLoginWithMessage(messageKey: string): void {
+    // Nachricht über URL an Login-Seite senden
+    this.router.navigate(['/login'], { queryParams: { message: messageKey } });
+  }
+
+  showErrorSnackbar(message: string): void {
+    // Hier kannst du eine Snackbar, Toast-Nachricht oder ähnliches anzeigen
+    console.error(message);
   }
 
   createUser(): User {

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { CardRegisterComponent } from './features/card-register/components/card-
 import { RegisterPageComponent } from './features/register-page/components/register-page/register-page.component';
 import { LoginHelpPageComponent } from './features/loginHelp-page/components/login-help-page/login-help-page.component';
 import { CardLoginHelpComponent } from './features/card-loginHelp/components/card-login-help/card-login-help.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import { CardLoginHelpComponent } from './features/card-loginHelp/components/car
     LoginHelpPageComponent,
     CardLoginHelpComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, MatProgressSpinnerModule,],
   providers: [],
   bootstrap: [AppComponent],
 })

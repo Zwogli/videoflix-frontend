@@ -72,12 +72,17 @@
         required
       />
       <label class="errors" for="email" *ngIf="confirmPasswordError">
+        
         <img src="../../../../../assets/icons/error-16.png" alt="error" />
         Hm, deine Passwörter stimmen nicht überein. Vielleicht ein Tippfehler?
       </label>
     </div>
 
-    <button class="btn-prim">Jetzt Registrieren</button>
+    <!-- <button class="btn-prim">Jetzt Registrieren</button> -->
+    <button class="btn-prim" [disabled]="loading" (click)="onSubmit()">
+      <span *ngIf="!loading">Jetzt Registrieren</span>
+      <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+    </button>
 
     <p>Du hast bereits ein Account? <a href="/login">Hier Einloggen</a></p>
   </form>
