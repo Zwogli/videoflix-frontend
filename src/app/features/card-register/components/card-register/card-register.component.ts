@@ -120,4 +120,13 @@ export class CardRegisterComponent {
       password: this.password,
     };
   }
+
+  simulateLoading(): void {
+    this.loading = true;
+
+    // Künstliche Verzögerung von 2 Sekunden
+    setTimeout(() => {
+      this.loading = false; // Beende den Spinner nach 2 Sekunden
+    }, 2000);
+  }
 }
