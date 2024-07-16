@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-card-register',
@@ -27,7 +28,7 @@ export class CardRegisterComponent {
     if (this.isValidForm()) {
       const authenticationUser = this.createUser();
 
-      fetch('http://localhost:8000/auth/registration/', {
+      fetch(`${environment}/auth/registration/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
