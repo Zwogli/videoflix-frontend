@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
-import { environment } from 'src/environments/environment';
+import { HttpService } from 'src/app/shared/services/http/http.service';
 
 @Component({
   selector: 'app-card-register',
@@ -19,37 +19,26 @@ export class CardRegisterComponent {
   passwordComplexityError: boolean = false;
   confirmPasswordError: boolean = false;
 
-  constructor(private validService: ValidationService) {}
+  constructor(
+    private validService: ValidationService,
+    private httpService: HttpService
+  ) {}
 
   onSubmit(): void {
-    const url = environment.baseUrl + '/auth/registration/';
     this.resetErrors();
     this.validateForm();
 
     if (this.isValidForm()) {
       const authenticationUser = this.createUser();
 
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(authenticationUser),
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error(
-              'Fehler bei der Benutzererstellung: ' + response.statusText
-            );
+      this.httpService.post<any>('auth/registration/', authenticationUser)
+        .subscribe({
+          next: (data) => {
+            console.log('Benutzer erstellt:', data);
+          },
+          error: (error) => {
+            console.error('Fehler bei der Benutzererstellung:', error.message);
           }
-        })
-        .then((data) => {
-          console.log('Benutzer erstellt:', data);
-        })
-        .catch((error) => {
-          console.error('Fehler bei der Benutzererstellung:', error.message);
         });
     }
   }
