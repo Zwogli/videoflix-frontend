@@ -92,20 +92,24 @@ export class CardRegisterComponent {
         next: (data) => {
           console.log('Benutzer erstellt:', data);
           this.loading = false;
-          this.navigateToLoginWithMessage(this.verificationMessage());
+          this.navigateToLoginWithMessage(this.messageVerification());
         },
         error: (error) => {
           console.error('Fehler bei der Benutzererstellung:', error.message);
           this.loading = false;
-          this.shwoErrorSnackbar('Es gab einen Fehler bei der Registrierung.');
+          this.shwoErrorSnackbar(this.messageError());
         },
       });
   }
 
-  verificationMessage(): string {
+  messageVerification(): string {
     return `Die Registrierung war erfolgreich.<br>
     Eine Verifizierungs Email wurde an dich gesendet.<br>
     Der Login wird erst freigeschalten wenn du deine Email verifizierst.`;
+  }
+
+  messageError() {
+    return 'Es gab einen Fehler bei der Registrierung.';
   }
 
   navigateToLoginWithMessage(messageKey: string): void {
