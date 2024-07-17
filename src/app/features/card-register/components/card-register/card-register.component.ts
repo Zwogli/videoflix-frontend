@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
 import { HttpService } from 'src/app/shared/services/http/http.service';
 import { User } from 'src/app/models/user.model';
+import { MatDialog } from '@angular/material/dialog';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-card-register',
@@ -26,7 +29,9 @@ export class CardRegisterComponent {
   constructor(
     private validService: ValidationService,
     private httpService: HttpService,
-    private router: Router
+    private router: Router,
+
+    private snackBar: MatSnackBar
   ) {}
 
   onSubmit(): void {
@@ -87,20 +92,20 @@ export class CardRegisterComponent {
         next: (data) => {
           console.log('Benutzer erstellt:', data);
           this.loading = false;
-          this.showVerificationEmailMessage();
-          this.navigateToLoginWithMessage('registrationSuccess');
+          this.navigateToLoginWithMessage(this.verificationMessage());
         },
         error: (error) => {
           console.error('Fehler bei der Benutzererstellung:', error.message);
-          this.loading = false; // Ladezustand beenden
-          this.showErrorSnackbar('Es gab einen Fehler bei der Registrierung.');
+          this.loading = false;
+          this.shwoErrorSnackbar('Es gab einen Fehler bei der Registrierung.');
         },
       });
   }
 
-  showVerificationEmailMessage(): void {
-    // Hier kannst du eine Snackbar, Toast-Nachricht oder ähnliches anzeigen
-    console.log('Eine E-Mail zur Verifizierung wurde gesendet.');
+  verificationMessage(): string {
+    return `Die Registrierung war erfolgreich.<br>
+    Eine Verifizierungs Email wurde an dich gesendet.<br>
+    Der Login wird erst freigeschalten wenn du deine Email verifizierst.`;
   }
 
   navigateToLoginWithMessage(messageKey: string): void {
@@ -108,9 +113,11 @@ export class CardRegisterComponent {
     this.router.navigate(['/login'], { queryParams: { message: messageKey } });
   }
 
-  showErrorSnackbar(message: string): void {
-    // Hier kannst du eine Snackbar, Toast-Nachricht oder ähnliches anzeigen
-    console.error(message);
+  shwoErrorSnackbar(message: string): void {
+    this.snackBar.open(message, 'Schließen', {
+      duration: 5000,
+      panelClass: ['error-snackbar'],
+    });
   }
 
   createUser(): User {
