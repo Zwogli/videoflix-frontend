@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Information</h1>
+<h1 mat-dialog-title>{{ data.title}}</h1>
 <div mat-dialog-content>
-  {{ data.message }}
+    <p [innerHTML]="safeHtmlMessage"></p>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onClose()">OK</button>

@@ -105,7 +105,7 @@ export class CardRegisterComponent {
   messageVerification(): string {
     return `Die Registrierung war erfolgreich.<br>
     Eine Verifizierungs Email wurde an dich gesendet.<br>
-    Der Login wird erst freigeschalten wenn du deine Email verifizierst.`;
+    Verifiziere dich innerhalb 30 min sonst wird der Account entfernt.`;
   }
 
   messageError() {
