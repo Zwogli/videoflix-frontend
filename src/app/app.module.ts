@@ -28,6 +28,7 @@ import { RegisterPageComponent } from './features/register-page/components/regis
 import { LoginHelpPageComponent } from './features/loginHelp-page/components/login-help-page/login-help-page.component';
 import { CardLoginHelpComponent } from './features/card-loginHelp/components/card-login-help/card-login-help.component';
 import { DialogComponent } from './shared/components/dialog/dialog/dialog.component';
+import { VerificationPageComponent } from './features/verification-page/components/verification-page/verification-page.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { DialogComponent } from './shared/components/dialog/dialog/dialog.compon
     LoginHelpPageComponent,
     CardLoginHelpComponent,
     DialogComponent,
+    VerificationPageComponent,
   ],
   imports: [
     BrowserModule,
