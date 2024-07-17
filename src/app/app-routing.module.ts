@@ -8,12 +8,17 @@ import { LoginHelpPageComponent } from './features/loginHelp-page/components/log
 import { ImpressComponent } from './features/impress/components/impress/impress.component';
 import { PrivacyPolicyComponent } from './features/privacy-policy/components/privacy-policy/privacy-policy.component';
 import { RegisterPageComponent } from './features/register-page/components/register-page/register-page.component';
+import { VerificationPageComponent } from './features/verification-page/components/verification-page/verification-page.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent }, // Standardroute zur Landing-Page
   { path: 'login', component: LoginPageComponent },
   { path: 'loginHelp', component: LoginHelpPageComponent },
   { path: 'register', component: RegisterPageComponent },
+  {
+    path: 'verification/:user_id/:token',
+    component: VerificationPageComponent,
+  },
   { path: 'home', component: HomePageComponent }, // Route zur Home-Page
   { path: 'legal/impress', component: ImpressComponent },
   { path: 'legal/privacy', component: PrivacyPolicyComponent },

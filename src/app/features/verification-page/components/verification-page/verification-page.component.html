@@ -1,1 +1,28 @@
-<p>verification-page works!</p>
+<app-background-img></app-background-img>
+
+<div class="content-container">
+  <app-header></app-header>
+
+  <main class="main-content">
+    <div class="page-content">
+      <div class="card">
+        <form class="card-container" autocomplete="off">
+          <h1>Verifizierung</h1>
+          <div *ngIf="verificationSuccess; else errorTemplate">
+            <p>Ihre E-Mail-Adresse wurde erfolgreich verifiziert.</p>
+            <button class="btn-prim" (click)="navigateToLogin()">
+              Zum Login
+            </button>
+          </div>
+          <ng-template #errorTemplate>
+            <p>
+              Die Verifizierung ist fehlgeschlagen oder der Link ist abgelaufen.
+            </p>
+          </ng-template>
+        </form>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </main>
+</div>
