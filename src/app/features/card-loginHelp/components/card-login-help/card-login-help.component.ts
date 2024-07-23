@@ -17,21 +17,24 @@ export class CardLoginHelpComponent {
     private httpService: HttpService
   ) {}
 
-  sendMail() {
+  submitSendMail() {
     if (this.validService.isValidEmail(this.email)) {
       this.emailError = false;
-      console.log('Email confirmed');
-      this.httpService.post('auth/send-reset-email/', this.email).subscribe({
-        next: (response) => {
-          console.log('E-Mail zum Zurücksetzen des Passworts gesendet:', response);
-        },
-        error: (error) => {
-          console.error('Fehler beim Senden der E-Mail zum Zurücksetzen des Passworts:', error);
-          this.emailError = true;
-        }
-      });
+      this.sendMail();
     } else {
       this.emailError = true;
     }
+  }
+
+  sendMail(){
+    this.httpService.post('auth/send-reset-email/', this.email).subscribe({
+      next: (response) => {
+        console.log('E-Mail zum Zurücksetzen des Passworts gesendet:', response);
+      },
+      error: (error) => {
+        console.error('Fehler beim Senden der E-Mail zum Zurücksetzen des Passworts:', error);
+        this.emailError = true;
+      }
+    });
   }
 }
