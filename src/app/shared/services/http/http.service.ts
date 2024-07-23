@@ -22,12 +22,23 @@ export class HttpService {
       // Add other headers if necessary
     });
 
-    const csrfToken = this.csrfTokenService.getToken();
+    // const csrfToken = this.csrfTokenService.getToken();
+    const csrfToken = this.getCookie('csrftoken');
+    console.log('Show cookie csrfToken: ', csrfToken);
+    console.log('Show all Cookies: ', document.cookie);
+
     if (csrfToken) {
       headers = headers.set('X-CSRFToken', csrfToken);
     }
 
     return headers;
+  }
+
+  private getCookie(name: string): string | null {
+    const match = document.cookie.match(
+      new RegExp('(^| )' + name + '=([^;]+)')
+    );
+    return match ? decodeURIComponent(match[2]) : null;
   }
 
   get<T>(endpoint: string): Observable<T> {
@@ -39,6 +50,7 @@ export class HttpService {
   post<T>(endpoint: string, body: any): Observable<T> {
     return this.http.post<T>(`${this.baseUrl}/${endpoint}`, body, {
       headers: this.getHeaders(),
+      withCredentials: true,
     });
   }
 
