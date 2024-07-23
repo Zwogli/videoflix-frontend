@@ -26,15 +26,23 @@ export class CardLoginHelpComponent {
     }
   }
 
-  sendMail(){
-    this.httpService.post('auth/send-reset-email/', this.email).subscribe({
-      next: (response) => {
-        console.log('E-Mail zum Zurücksetzen des Passworts gesendet:', response);
-      },
-      error: (error) => {
-        console.error('Fehler beim Senden der E-Mail zum Zurücksetzen des Passworts:', error);
-        this.emailError = true;
-      }
-    });
+  sendMail() {
+    this.httpService
+      .post('auth/send-reset-email/', { email: this.email })
+      .subscribe({
+        next: (response) => {
+          console.log(
+            'E-Mail zum Zurücksetzen des Passworts gesendet:',
+            response
+          );
+        },
+        error: (error) => {
+          console.error(
+            'Fehler beim Senden der E-Mail zum Zurücksetzen des Passworts:',
+            error
+          );
+          this.emailError = true;
+        },
+      });
   }
 }
