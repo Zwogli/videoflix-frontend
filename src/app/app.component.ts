@@ -22,16 +22,18 @@ export class AppComponent {
   }
 
   private loadCsrfToken() {
-    this.http
-      .get(`${this.baseUrl}/auth/get-csrf-token/`, { responseType: 'text' })
-      .subscribe({
-        next: (token) => {
-          this.csrfTokenService.setToken(token);
-        },
-        error: (error) => {
-          console.error('Error loading CSRF token:', error);
-        },
-      });
+    const csrfToken = this.csrfTokenService.getToken();
+    if (!csrfToken) {
+      this.http
+        .get(`${this.baseUrl}/auth/get-csrf-token/`, { responseType: 'text' })
+        .subscribe({
+          next: (token) => {
+            this.csrfTokenService.setToken(token);
+          },
+          error: (error) => {
+            console.error('Error loading CSRF token:', error);
+          },
+        });
+    }
   }
-
 }
