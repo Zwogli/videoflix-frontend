@@ -33,12 +33,5 @@ export class AppComponent {
         },
       });
   }
-  // (token: string) => {
-  //   this.csrfTokenService.setToken(token);
-  // },
-  // (error) => {
-  //   console.error('Error loading CSRF token:', error);
-  // }
-  // );
-  // }
+
 }
