@@ -30,11 +30,11 @@ export class CardLoginHelpComponent {
 
   async sendMail() {
     try {
-      const csrfToken = this.createCsrfToken();
-      console.log('CSRF Token:', csrfToken);
+      const csrfToken = this.csrfTokenService.getCsrfToken();
+      console.log('SendMail token: ', csrfToken);
 
-      const response = this.postMail;
-      console.log('E-Mail zum Zurücksetzen des Passworts gesendet:', response);
+      // const response = this.postMail;
+      // console.log('E-Mail zum Zurücksetzen des Passworts gesendet:', response);
     } catch (error) {
       console.error(
         'Fehler beim Senden der E-Mail zum Zurücksetzen des Passworts:',
@@ -44,15 +44,7 @@ export class CardLoginHelpComponent {
     }
   }
 
-  async createCsrfToken() {
-    try {
-      return await firstValueFrom(this.csrfTokenService.getCsrfToken());
-    } catch (error) {
-      return console.error('Fehler beim erhalten des Csrf-Tokens:', error);
-    }
-  }
-
-  async postMail(){
+  async postMail() {
     return await firstValueFrom(
       this.httpService.post('auth/send-reset-email/', { email: this.email })
     );

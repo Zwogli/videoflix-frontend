@@ -17,10 +17,10 @@ export class HttpService {
       'Content-Type': 'application/json',
     });
 
-    const csrfToken = sessionStorage.getItem('csrfToken');
-    if (csrfToken) {
-      headers = headers.set('X-CSRFToken', csrfToken);
-    }
+    // const csrfToken = sessionStorage.getItem('csrfToken');
+    // if (csrfToken) {
+    //   headers = headers.set('X-CSRFToken', csrfToken);
+    // }
     return headers;
   }
 
