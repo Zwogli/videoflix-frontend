@@ -1,7 +1,7 @@
 // Imports:
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -60,6 +60,10 @@ import { VerificationPageComponent } from './features/verification-page/componen
     MatDialogModule,
     MatButtonModule,
     MatSnackBarModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'csrftoken',
+      headerName: 'X-CSRFToken'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

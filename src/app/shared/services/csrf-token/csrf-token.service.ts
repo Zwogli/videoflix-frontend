@@ -1,31 +1,42 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { map, Observable } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CsrfTokenService {
-  private tokenKey = 'csrftoken';
-
+  private csrfTokenKey = 'csrftoken';
   private baseUrl: string = environment.baseUrl;
 
   constructor(private http: HttpClient) {}
 
-  // setToken(token: string): void {
-  //   localStorage.setItem(this.tokenKey, token);
-  // }
-
-  // getToken(): string | null {
-  //   return localStorage.getItem(this.tokenKey);
-  // }
-
   getCsrfToken(): Observable<string> {
-    return this.http
-      .get<{ csrfToken: string }>(`${this.baseUrl}/auth/get-csrf-token/`, {
-        withCredentials: true,
+    const url = `${this.baseUrl}/auth/get-csrf-token/`;
+
+    return this.http.get<{ csrfToken: string }>(url, { withCredentials: true }).pipe(
+      map(response => {
+        const token = response.csrfToken;
+        if (token) {
+          this.storeToken(token); // Falls Sie den Token im Speicher halten wollen
+        }
+        console.log('Test token:', token);
+        return token;
+      }),
+      catchError(error => {
+        console.error('Fehler beim Abrufen des CSRF-Tokens:', error);
+        return of(''); // Geben Sie einen leeren String zurück, wenn ein Fehler auftritt
       })
-      .pipe(map((response) => response.csrfToken));
+    );
+  }
+
+  private getTokenFromStorage(): string | null {
+    return sessionStorage.getItem(this.csrfTokenKey);
+  }
+
+  private storeToken(token: string): void {
+    sessionStorage.setItem(this.csrfTokenKey, token);
   }
 }
