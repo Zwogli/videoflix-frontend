@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
 import { HttpService } from 'src/app/shared/services/http/http.service';
-import { CsrfTokenService } from 'src/app/shared/services/csrf-token/csrf-token.service';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
@@ -16,36 +15,29 @@ export class CardLoginHelpComponent {
   constructor(
     private validService: ValidationService,
     private httpService: HttpService,
-    private csrfTokenService: CsrfTokenService
   ) {}
 
   submitSendMail() {
     if (this.validService.isValidEmail(this.email)) {
       this.emailError = false;
-      this.getCsrfToken();
+      this.postMail();
     } else {
       this.emailError = true;
     }
   }
 
-
-  getCsrfToken() {
-    this.httpService.get('auth/get-csrf-token/').subscribe({
+  postMail() {
+    this.httpService.post('auth/send-reset-email/', { email: this.email }).subscribe({
       next: (response: any) => {
-        const csrfToken = response.csrfToken;
-        if (csrfToken) {
-          this.csrfTokenService.storeToken(csrfToken);
-          this.postMail();
-        }
+        console.log('E-Mail zum Zurücksetzen des Passworts gesendet:', response);
       },
       error: (error) => {
-        console.error('Fehler beim Abrufen des CSRF-Tokens:', error);
+        console.error('Fehler beim Senden der E-Mail:', error);
         this.emailError = true;
-      }}
-    );
-  }
-
-  postMail() {
-    this.httpService.post('auth/send-reset-email/', { email: this.email });
+      },
+      complete: () => {
+        console.log('POST-Anfrage zum Senden der E-Mail abgeschlossen.');
+      }
+    });
   }
 }

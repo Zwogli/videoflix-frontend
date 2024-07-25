@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { User } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,10 +16,6 @@ export class HttpService {
       'Content-Type': 'application/json',
     });
 
-    const csrfToken = sessionStorage.getItem('csrftoken');
-    if (csrfToken) {
-      headers = headers.set('X-CSRFToken', csrfToken);
-    }
     return headers;
   }
 
@@ -33,7 +28,6 @@ export class HttpService {
   post<T>(endpoint: string, body: any): Observable<T> {
     return this.http.post<T>(`${this.baseUrl}/${endpoint}`, body, {
       headers: this.getHeaders(),
-      // withCredentials: true,
     });
   }
 
@@ -41,7 +35,6 @@ export class HttpService {
     const headers = this.getHeaders();
     return this.http.put<T>(`${this.baseUrl}/${endpoint}`, body, {
       headers,
-      withCredentials: true,
     });
   }
 
