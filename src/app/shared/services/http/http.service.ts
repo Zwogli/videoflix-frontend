@@ -17,10 +17,10 @@ export class HttpService {
       'Content-Type': 'application/json',
     });
 
-    // const csrfToken = sessionStorage.getItem('csrfToken');
-    // if (csrfToken) {
-    //   headers = headers.set('X-CSRFToken', csrfToken);
-    // }
+    const csrfToken = sessionStorage.getItem('csrftoken');
+    if (csrfToken) {
+      headers = headers.set('X-CSRFToken', csrfToken);
+    }
     return headers;
   }
 
@@ -33,7 +33,7 @@ export class HttpService {
   post<T>(endpoint: string, body: any): Observable<T> {
     return this.http.post<T>(`${this.baseUrl}/${endpoint}`, body, {
       headers: this.getHeaders(),
-      withCredentials: true,
+      // withCredentials: true,
     });
   }
 

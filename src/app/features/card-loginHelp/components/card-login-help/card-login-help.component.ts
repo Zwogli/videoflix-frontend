@@ -22,31 +22,30 @@ export class CardLoginHelpComponent {
   submitSendMail() {
     if (this.validService.isValidEmail(this.email)) {
       this.emailError = false;
-      this.sendMail();
+      this.getCsrfToken();
     } else {
       this.emailError = true;
     }
   }
 
-  async sendMail() {
-    try {
-      const csrfToken = this.csrfTokenService.getCsrfToken();
-      console.log('SendMail token: ', csrfToken);
 
-      // const response = this.postMail;
-      // console.log('E-Mail zum Zurücksetzen des Passworts gesendet:', response);
-    } catch (error) {
-      console.error(
-        'Fehler beim Senden der E-Mail zum Zurücksetzen des Passworts:',
-        error
-      );
-      this.emailError = true;
-    }
+  getCsrfToken() {
+    this.httpService.get('auth/get-csrf-token/').subscribe({
+      next: (response: any) => {
+        const csrfToken = response.csrfToken;
+        if (csrfToken) {
+          this.csrfTokenService.storeToken(csrfToken);
+          this.postMail();
+        }
+      },
+      error: (error) => {
+        console.error('Fehler beim Abrufen des CSRF-Tokens:', error);
+        this.emailError = true;
+      }}
+    );
   }
 
-  async postMail() {
-    return await firstValueFrom(
-      this.httpService.post('auth/send-reset-email/', { email: this.email })
-    );
+  postMail() {
+    this.httpService.post('auth/send-reset-email/', { email: this.email });
   }
 }

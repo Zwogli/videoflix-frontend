@@ -43,15 +43,15 @@ export class CsrfTokenService {
       );
   }
 
-  private getTokenFromStorage(): string | null {
+  getTokenFromStorage(): string | null {
     return sessionStorage.getItem(this.csrfTokenKey);
   }
 
-  private storeToken(token: string): void {
+  storeToken(token: string): void {
     sessionStorage.setItem(this.csrfTokenKey, token);
   }
 
-  private removeToken(): void {
+  removeToken(): void {
     sessionStorage.removeItem(this.csrfTokenKey);
   }
 }
