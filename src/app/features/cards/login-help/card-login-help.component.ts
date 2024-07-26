@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
 import { HttpService } from 'src/app/shared/services/http/http.service';
-import { firstValueFrom } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-card-login-help',
@@ -15,7 +15,8 @@ export class CardLoginHelpComponent {
 
   constructor(
     private validService: ValidationService,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private snackBar: MatSnackBar
   ) {}
 
   submitSendMail() {
@@ -38,16 +39,28 @@ export class CardLoginHelpComponent {
             response
           );
           this.loading = false;
+          this.showSnackbar('E-Mail wurde erfolgreich gesendet.', false);
         },
         error: (error) => {
           console.error('Fehler beim Senden der E-Mail:', error);
           this.emailError = true;
           this.loading = false;
+          this.showSnackbar(
+            'Fehler beim Senden der E-Mail. Bitte erneut versuchen.',
+            true
+          );
         },
         complete: () => {
           console.log('POST-Anfrage zum Senden der E-Mail abgeschlossen.');
           this.loading = false;
         },
       });
+  }
+
+  showSnackbar(message: string, isError: boolean) {
+    this.snackBar.open(message, 'Schließen', {
+      duration: 0, //5000
+      panelClass: isError ? 'error-snackbar' : 'success-snackbar',
+    });
   }
 }
