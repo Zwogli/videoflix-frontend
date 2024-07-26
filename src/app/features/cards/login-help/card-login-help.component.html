@@ -23,6 +23,11 @@
       >
     </div>
 
-    <button class="btn-prim" type="submit">Schicke Sie mir eine E-mail</button>
+    <!-- <button class="btn-prim" type="submit">Schicke Sie mir eine E-mail</button> -->
+
+    <button class="btn-prim" [class.loading]="loading" [disabled]="loading">
+      <span *ngIf="!loading">Schicke Sie mir eine E-mail</span>
+      <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+    </button>
   </form>
 </div>
