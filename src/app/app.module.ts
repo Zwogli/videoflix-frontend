@@ -29,6 +29,7 @@ import { LoginHelpPageComponent } from './features/loginHelp-page/components/log
 import { CardLoginHelpComponent } from './features/card-loginHelp/components/card-login-help/card-login-help.component';
 import { DialogComponent } from './shared/components/dialog/dialog/dialog.component';
 import { VerificationPageComponent } from './features/verification-page/components/verification-page/verification-page.component';
+import { ResetPasswordComponent } from './features/pages/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { VerificationPageComponent } from './features/verification-page/componen
     CardLoginHelpComponent,
     DialogComponent,
     VerificationPageComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

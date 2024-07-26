@@ -9,6 +9,7 @@ import { ImpressComponent } from './features/impress/components/impress/impress.
 import { PrivacyPolicyComponent } from './features/privacy-policy/components/privacy-policy/privacy-policy.component';
 import { RegisterPageComponent } from './features/register-page/components/register-page/register-page.component';
 import { VerificationPageComponent } from './features/verification-page/components/verification-page/verification-page.component';
+import { ResetPasswordComponent } from './features/pages/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent }, // Standardroute zur Landing-Page
@@ -19,6 +20,7 @@ const routes: Routes = [
     path: 'verification/:user_id/:token',
     component: VerificationPageComponent,
   },
+  { path: 'reset-password/:user_id/:token', component: ResetPasswordComponent },
   { path: 'home', component: HomePageComponent }, // Route zur Home-Page
   { path: 'legal/impress', component: ImpressComponent },
   { path: 'legal/privacy', component: PrivacyPolicyComponent },
