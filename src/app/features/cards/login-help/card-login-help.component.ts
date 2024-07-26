@@ -59,7 +59,7 @@ export class CardLoginHelpComponent {
 
   showSnackbar(message: string, isError: boolean) {
     this.snackBar.open(message, 'Schließen', {
-      duration: 0, //5000
+      duration: 5000,
       panelClass: isError ? 'error-snackbar' : 'success-snackbar',
     });
   }
