@@ -15,41 +15,41 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { LandingPageComponent } from './features/landing-page/components/landing-page/landing-page.component';
-import { HomePageComponent } from './features/home-page/components/home-page/home-page.component';
+import { LandingComponent } from './features/pages/auth/landing/landing.component';
+import { HomeComponent } from './features/pages/home/home.component';
 import { BackgroundImgComponent } from './shared/components/background-img/background-img.component';
-import { CardLandingComponent } from './features/card-landing/components/card-landing/card-landing.component';
-import { LoginPageComponent } from './features/login-page/components/login-page/login-page.component';
-import { CardLoginComponent } from './features/card-login/components/card-login/card-login.component';
-import { ImpressComponent } from './features/impress/components/impress/impress.component';
-import { PrivacyPolicyComponent } from './features/privacy-policy/components/privacy-policy/privacy-policy.component';
-import { CardRegisterComponent } from './features/card-register/components/card-register/card-register.component';
-import { RegisterPageComponent } from './features/register-page/components/register-page/register-page.component';
-import { LoginHelpPageComponent } from './features/loginHelp-page/components/login-help-page/login-help-page.component';
-import { CardLoginHelpComponent } from './features/card-loginHelp/components/card-login-help/card-login-help.component';
+import { CardLandingComponent } from './features/cards/landing/card-landing.component';
+import { LoginComponent } from './features/pages/auth/login/login.component';
+import { CardLoginComponent } from './features/cards/login/card-login.component';
+import { ImpressComponent } from './features/pages/legals/impress/impress.component';
+import { PrivacyPolicyComponent } from './features/pages/legals/privacy-policy/privacy-policy.component';
+import { CardRegisterComponent } from './features/cards/register/card-register.component';
+import { RegisterComponent } from './features/pages/auth/register/register.component';
+import { LoginHelpComponent } from './features/pages/auth/login-help-page/login-help.component';
+import { CardLoginHelpComponent } from './features/cards/login-help/card-login-help.component';
 import { DialogComponent } from './shared/components/dialog/dialog/dialog.component';
-import { VerificationPageComponent } from './features/verification-page/components/verification-page/verification-page.component';
-import { ResetPasswordComponent } from './features/pages/reset-password/reset-password.component';
+import { VerificationComponent } from './features/pages/auth/verification/verification.component';
+import { ResetPasswordComponent } from './features/pages/auth/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LandingPageComponent,
-    HomePageComponent,
+    LandingComponent,
+    HomeComponent,
     BackgroundImgComponent,
     CardLandingComponent,
-    LoginPageComponent,
+    LoginComponent,
     CardLoginComponent,
     ImpressComponent,
     PrivacyPolicyComponent,
     CardRegisterComponent,
-    RegisterPageComponent,
-    LoginHelpPageComponent,
+    RegisterComponent,
+    LoginHelpComponent,
     CardLoginHelpComponent,
     DialogComponent,
-    VerificationPageComponent,
+    VerificationComponent,
     ResetPasswordComponent,
   ],
   imports: [
@@ -64,8 +64,8 @@ import { ResetPasswordComponent } from './features/pages/reset-password/reset-pa
     MatSnackBarModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'csrftoken',
-      headerName: 'X-CSRFToken'
-    })
+      headerName: 'X-CSRFToken',
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

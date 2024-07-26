@@ -1,27 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './features/landing-page/components/landing-page/landing-page.component';
-import { HomePageComponent } from './features/home-page/components/home-page/home-page.component';
+import { LandingComponent } from './features/pages/auth/landing/landing.component';
+import { HomeComponent } from './features/pages/home/home.component';
 
-import { LoginPageComponent } from './features/login-page/components/login-page/login-page.component';
-import { LoginHelpPageComponent } from './features/loginHelp-page/components/login-help-page/login-help-page.component';
-import { ImpressComponent } from './features/impress/components/impress/impress.component';
-import { PrivacyPolicyComponent } from './features/privacy-policy/components/privacy-policy/privacy-policy.component';
-import { RegisterPageComponent } from './features/register-page/components/register-page/register-page.component';
-import { VerificationPageComponent } from './features/verification-page/components/verification-page/verification-page.component';
-import { ResetPasswordComponent } from './features/pages/reset-password/reset-password.component';
+import { LoginComponent } from './features/pages/auth/login/login.component';
+import { LoginHelpComponent } from './features/pages/auth/login-help-page/login-help.component';
+import { ImpressComponent } from './features/pages/legals/impress/impress.component';
+import { PrivacyPolicyComponent } from './features/pages/legals/privacy-policy/privacy-policy.component';
+import { RegisterComponent } from './features/pages/auth/register/register.component';
+import { VerificationComponent } from './features/pages/auth/verification/verification.component';
+import { ResetPasswordComponent } from './features/pages/auth/reset-password/reset-password.component';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent }, // Standardroute zur Landing-Page
-  { path: 'login', component: LoginPageComponent },
-  { path: 'loginHelp', component: LoginHelpPageComponent },
-  { path: 'register', component: RegisterPageComponent },
+  { path: '', component: LandingComponent }, // Standardroute zur Landing-Page
+  { path: 'login', component: LoginComponent },
+  { path: 'loginHelp', component: LoginHelpComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: 'verification/:user_id/:token',
-    component: VerificationPageComponent,
+    component: VerificationComponent,
   },
   { path: 'reset-password/:user_id/:token', component: ResetPasswordComponent },
-  { path: 'home', component: HomePageComponent }, // Route zur Home-Page
+  { path: 'home', component: HomeComponent }, // Route zur Home-Page
   { path: 'legal/impress', component: ImpressComponent },
   { path: 'legal/privacy', component: PrivacyPolicyComponent },
   { path: '**', redirectTo: '' }, // Fallback route, wenn keine Route übereinstimmt
