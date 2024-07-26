@@ -20,7 +20,7 @@ const routes: Routes = [
     path: 'verification/:user_id/:token',
     component: VerificationComponent,
   },
-  { path: 'reset-password/:user_id/:token', component: ResetPasswordComponent },
+  { path: 'resetPassword', component: ResetPasswordComponent }, // 'reset-password/:user_id/:token'
   { path: 'home', component: HomeComponent }, // Route zur Home-Page
   { path: 'legal/impress', component: ImpressComponent },
   { path: 'legal/privacy', component: PrivacyPolicyComponent },
