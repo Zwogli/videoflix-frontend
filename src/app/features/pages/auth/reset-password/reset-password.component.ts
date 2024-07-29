@@ -34,13 +34,19 @@ export class ResetPasswordComponent {
   }
 
   checkPassword() {
-    if (!this.validService.isValidPassword(this.password)) {
-      console.log('Passwortlänge: ', this.passwordErrorLength);
+    this.checkPasswordLength();
+    this.checkPasswordComplex();
+  }
 
+  checkPasswordLength() {
+    if (!this.validService.isValidPassword(this.password)) {
       this.passwordErrorLength = true;
     } else {
       this.passwordErrorLength = false;
     }
+  }
+
+  checkPasswordComplex() {
     if (!this.validService.isComplexPassword(this.password)) {
       this.passwordErrorComplex = true;
     } else {
@@ -54,6 +60,6 @@ export class ResetPasswordComponent {
 
   submitChangePassword(): void {
     // Hier können Sie Ihre Logik zum Ändern des Passworts hinzufügen
-    console.log('Passwörter stimmen überein. Passwort ändern.');
+    console.log('Passwörter stimmen überein. Passwort ändern.', this.password);
   }
 }
