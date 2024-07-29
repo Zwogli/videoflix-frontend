@@ -9,7 +9,7 @@ import { HttpService } from 'src/app/shared/services/http/http.service';
 })
 export class ResetPasswordComponent {
   password: string = '';
-  passwordRepeat: string = '';
+  confirmPassword: string = '';
   passwordsMatch: boolean = false;
 
   constructor(
@@ -18,7 +18,7 @@ export class ResetPasswordComponent {
   ) {}
 
   checkPasswords(): void {
-    this.passwordsMatch = this.password === this.passwordRepeat;
+    this.passwordsMatch = this.password === this.confirmPassword;
   }
 
   submitChangePassword(): void {
