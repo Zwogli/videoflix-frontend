@@ -16,7 +16,7 @@ export class ValidationService {
     return email === '';
   }
 
-  isVAlidUserName(userName: string): boolean {
+  isValidUserName(userName: string): boolean {
     return userName.length >= 2;
   }
 

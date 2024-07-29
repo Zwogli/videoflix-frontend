@@ -57,7 +57,7 @@ export class CardRegisterComponent {
       this.emailError = true;
     }
 
-    if (!this.validService.isVAlidUserName(this.userName)) {
+    if (!this.validService.isValidUserName(this.userName)) {
       this.userNameError = true;
     }
 
