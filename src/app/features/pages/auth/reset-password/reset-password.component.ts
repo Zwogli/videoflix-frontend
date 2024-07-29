@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
 import { HttpService } from 'src/app/shared/services/http/http.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -17,6 +18,7 @@ export class ResetPasswordComponent {
   passwordErrorComplex: boolean = false;
 
   constructor(
+    private route: ActivatedRoute,
     private validService: ValidationService,
     private httpService: HttpService
   ) {}
@@ -59,7 +61,24 @@ export class ResetPasswordComponent {
   }
 
   submitChangePassword(): void {
-    // Hier können Sie Ihre Logik zum Ändern des Passworts hinzufügen
-    console.log('Passwörter stimmen überein. Passwort ändern.', this.password);
+    this.route.paramMap.subscribe((params) => {
+      const userId = params.get('user_id');
+      const token = params.get('token');
+
+      this.httpService
+        .put(`auth/reset-password/${userId}/${token}/`, {
+          password: this.password,
+        })
+        .subscribe({
+          next: (response: any) => {
+            console.log('Passwort erfolgreich geändert.', response);
+            // todo Eventuell eine Snackbar oder eine Umleitung zum Login hier
+          },
+          error: (error) => {
+            console.error('Fehler beim Ändern des Passworts:', error);
+            // todo Eventuell eine Fehlermeldung anzeigen
+          },
+        });
+    });
   }
 }
