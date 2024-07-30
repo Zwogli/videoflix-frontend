@@ -50,7 +50,8 @@ export class CardLoginComponent {
         'checkbox state: ',
         this.saveUserData
       );
-      // todo backend-connection
+      // todo backend-connection connect user
+      // todo implement interceptor
       this.router.navigate(['/home']);
     } else {
       console.error('Login failed form incorrect');
