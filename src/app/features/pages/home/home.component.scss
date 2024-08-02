@@ -3,3 +3,15 @@
 h1 {
   color: $color-white;
 }
+
+.vid-content {
+  @include flex-center(column);
+  width: 100%;
+  height: calc(100dvh - #{$header-height-small});
+}
+
+@media (min-width: $view-mobile-max-width) {
+  .page-content {
+    min-height: calc(100dvh - #{$header-height-large});
+  }
+}
