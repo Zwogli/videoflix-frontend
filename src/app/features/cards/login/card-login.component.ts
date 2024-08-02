@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataSharingService } from 'src/app/shared/services/data-sharing/data-sharing.service';
+import { HttpService } from 'src/app/shared/services/http/http.service';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-card-login',
@@ -15,11 +17,13 @@ export class CardLoginComponent {
   emailError: boolean = false;
   passwordError: boolean = false;
   saveUserData: boolean = false;
+  loading: boolean = false;
 
   constructor(
     private router: Router,
     private dataSharingService: DataSharingService,
-    private validService: ValidationService
+    private validService: ValidationService,
+    private httpService: HttpService
   ) {}
 
   ngOnInit(): void {
@@ -38,24 +42,40 @@ export class CardLoginComponent {
     this.saveUserData = savedSaveUserData === 'true';
   }
 
-  login() {
+  submitLogin() {
+    this.loading = true;
     this.resetErrors();
     this.validateForm();
     if (this.isValidateForm()) {
       this.manageSaveUserData();
       const authenticationUser = this.createAuthenticationUser();
-      console.log(
-        'Test login: ',
-        authenticationUser,
-        'checkbox state: ',
-        this.saveUserData
-      );
-      // todo backend-connection connect user
-      // todo implement interceptor
-      this.router.navigate(['/home']);
+
+      this.login(authenticationUser);
     } else {
       console.error('Login failed form incorrect');
     }
+  }
+
+  login(authenticationUser: { email: string; password: string }) {
+    console.log(
+      'Test login: ',
+      authenticationUser,
+      'checkbox state: ',
+      this.saveUserData
+    );
+
+    this.httpService.post<User>('auth/login/', authenticationUser).subscribe({
+      next: (data) => {
+        console.log('Benutzer eingeloggt:', data);
+        this.loading = false;
+        this.router.navigate(['/home']);
+      },
+      error: (error) => {
+        console.error('Fehler beim einloggen:', error.message);
+        this.loading = false;
+        // this.shwoErrorSnackbar(this.messageError());
+      },
+    });
   }
 
   resetErrors(): void {
