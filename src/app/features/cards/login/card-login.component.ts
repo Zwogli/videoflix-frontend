@@ -4,6 +4,7 @@ import { DataSharingService } from 'src/app/shared/services/data-sharing/data-sh
 import { HttpService } from 'src/app/shared/services/http/http.service';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
 import { User } from 'src/app/models/user.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-card-login',
@@ -23,7 +24,8 @@ export class CardLoginComponent {
     private router: Router,
     private dataSharingService: DataSharingService,
     private validService: ValidationService,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -57,14 +59,7 @@ export class CardLoginComponent {
   }
 
   login(authenticationUser: { email: string; password: string }) {
-    console.log(
-      'Test login: ',
-      authenticationUser,
-      'checkbox state: ',
-      this.saveUserData
-    );
-
-    this.httpService.post<User>('auth/login/', authenticationUser).subscribe({
+    this.httpService.post<User>('auth/login', authenticationUser).subscribe({
       next: (data) => {
         console.log('Benutzer eingeloggt:', data);
         this.loading = false;
@@ -73,8 +68,19 @@ export class CardLoginComponent {
       error: (error) => {
         console.error('Fehler beim einloggen:', error.message);
         this.loading = false;
-        // this.shwoErrorSnackbar(this.messageError());
+        this.showErrorSnackbar(this.messageError());
       },
+    });
+  }
+
+  messageError() {
+    return 'Login fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten.';
+  }
+
+  showErrorSnackbar(message: string): void {
+    this.snackBar.open(message, 'Schließen', {
+      duration: 5000,
+      panelClass: ['error-snackbar'],
     });
   }
 
