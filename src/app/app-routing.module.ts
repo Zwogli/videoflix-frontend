@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './features/pages/auth/landing/landing.component';
 import { HomeComponent } from './features/pages/home/home.component';
+import { AuthGuard } from './core/guard/auth/auth.guard';
 
 import { LoginComponent } from './features/pages/auth/login/login.component';
 import { LoginHelpComponent } from './features/pages/auth/login-help-page/login-help.component';
@@ -21,7 +22,7 @@ const routes: Routes = [
     component: VerificationComponent,
   },
   { path: 'reset-password/:user_id/:token', component: ResetPasswordComponent }, // 'reset-password/:user_id/:token'
-  { path: 'home', component: HomeComponent }, // Route zur Home-Page
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }, // Route zur Home-Page
   { path: 'legal/impress', component: ImpressComponent },
   { path: 'legal/privacy', component: PrivacyPolicyComponent },
   { path: '**', redirectTo: '' }, // Fallback route, wenn keine Route übereinstimmt
