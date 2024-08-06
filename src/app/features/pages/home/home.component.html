@@ -4,7 +4,15 @@
   <main class="main-content">
     <div class="vid-content">
       <div class="vid-content-info"></div>
-      <div class="vid-content-slider"></div>
+      <div class="video-gallery">
+        <div *ngFor="let video of videos" class="video-card">
+          <img [src]="video.thumbnail" [alt]="video.title" class="video-thumbnail" />
+          <div class="video-info">
+            <h3>{{ video.title }}</h3>
+            <p>{{ video.description }}</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <app-footer></app-footer>

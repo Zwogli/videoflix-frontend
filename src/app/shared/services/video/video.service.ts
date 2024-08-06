@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Video } from '../../models/video.models';  // Importiere das Video-Interface
+import { Video } from '../../../models/video.models';  // Importiere das Video-Interface
 
 @Injectable({
   providedIn: 'root',
