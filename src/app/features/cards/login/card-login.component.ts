@@ -5,6 +5,7 @@ import { HttpService } from 'src/app/shared/services/http/http.service';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
 import { User } from 'src/app/models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../../../shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-card-login',
@@ -21,6 +22,7 @@ export class CardLoginComponent {
   loading: boolean = false;
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private dataSharingService: DataSharingService,
     private validService: ValidationService,
@@ -55,11 +57,12 @@ export class CardLoginComponent {
       this.login(authenticationUser);
     } else {
       console.error('Login failed form incorrect');
+      this.loading = false;
     }
   }
 
   login(authenticationUser: { email: string; password: string }) {
-    this.httpService.post<User>('auth/login', authenticationUser).subscribe({
+    this.authService.login(authenticationUser).subscribe({
       next: (data) => {
         console.log('Benutzer eingeloggt:', data);
         this.loading = false;
