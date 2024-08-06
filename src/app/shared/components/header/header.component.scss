@@ -44,13 +44,27 @@ button {
 }
 
 .dropdown-menu {
+  z-index: 10;
   position: absolute;
   top: 80px;
-  background-color: #fff;
-  color: #000;
+  background-color: $color-black-50;
+  color: $color-white;
   list-style: none;
   padding: 10px;
-  border: 1px solid #ddd;
+  li {
+    margin-bottom: 1rem;
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      color: $color-white;
+    }
+    a:hover {
+      color: $color-primary-hover;
+    }
+  }
+  li:last-of-type {
+    margin-bottom: unset;
+  }
 }
 
 @media (min-width: $view-mobile-max-width) {

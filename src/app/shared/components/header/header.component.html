@@ -12,7 +12,7 @@
 
     <ul class="nav-menu">
       <li *ngIf="isAuthenticated()">
-        <button class="menu-btn" (click)="toggleDropdown()">
+        <button class="menu-btn" (click)="toggleDropdown($event)">
           <img src="../../../../assets/icons/profil.png" alt="Profile img" />
           <img
             id="dropdown-arrow"

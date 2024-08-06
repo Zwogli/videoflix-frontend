@@ -24,11 +24,17 @@ export class HeaderComponent {
     return this.authService.isAuthenticated();
   }
 
-  toggleDropdown(): void {
+  toggleDropdown(event: Event): void {
+    event.stopPropagation();
     this.dropdownOpen = !this.dropdownOpen;
   }
 
   logout(): void {
     this.authService.logout();
+  }
+
+
+  closeDropdown(): void {
+    this.dropdownOpen = false;
   }
 }
