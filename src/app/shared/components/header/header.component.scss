@@ -15,6 +15,44 @@ button {
   height: 32px !important;
 }
 
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-menu li {
+  margin: 0 1rem;
+}
+
+#dropdown-arrow.rotate {
+  transform: rotate(0turn);
+}
+#dropdown-arrow.starting-position {
+  transform: rotate(0.5turn);
+}
+
+.menu-btn {
+  @include flex-center();
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+  #dropdown-arrow {
+    margin-left: 1rem;
+    height: 1rem;
+    transition: transform 0.3s ease;
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 80px;
+  background-color: #fff;
+  color: #000;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
 @media (min-width: $view-mobile-max-width) {
   header {
     height: $header-height-large;

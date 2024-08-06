@@ -9,5 +9,30 @@
     >
       Einloggen
     </button>
+
+    <ul class="nav-menu">
+      <li *ngIf="isAuthenticated()">
+        <button class="menu-btn" (click)="toggleDropdown()">
+          <img src="../../../../assets/icons/profil.png" alt="Profile img" />
+          <img
+            id="dropdown-arrow"
+            src="../../../../assets/icons/arrow-16.png"
+            alt="Menu arrow"
+            [ngClass]="{
+              rotate: dropdownOpen,
+              'starting-position': !dropdownOpen
+            }"
+          />
+        </button>
+        <ul
+          *ngIf="dropdownOpen"
+          class="dropdown-menu"
+          [ngClass]="{ 'dropdown-menu': true, show: dropdownOpen }"
+        >
+          <li><a routerLink="/profile">Profile</a></li>
+          <li><a (click)="logout()">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </header>
