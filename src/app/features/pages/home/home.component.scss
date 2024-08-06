@@ -10,6 +10,27 @@ h1 {
   height: calc(100dvh - #{$header-height-small});
 }
 
+.video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.video-card {
+  width: 200px;
+  cursor: pointer;
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.video-info {
+  padding: 8px;
+}
+
 @media (min-width: $view-mobile-max-width) {
   .page-content {
     min-height: calc(100dvh - #{$header-height-large});

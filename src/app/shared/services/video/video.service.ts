@@ -8,7 +8,7 @@ import { Video } from '../../../models/video.models';  // Importiere das Video-I
   providedIn: 'root',
 })
 export class VideoService {
-  private baseUrl: string = `${environment.baseUrl}/api/`;
+  private baseUrl: string = `${environment.baseUrl}/api/videos/`;
 
   constructor(private http: HttpClient) {}
 
