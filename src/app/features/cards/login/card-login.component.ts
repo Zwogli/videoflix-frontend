@@ -64,7 +64,6 @@ export class CardLoginComponent {
   login(authenticationUser: { email: string; password: string }) {
     this.authService.login(authenticationUser).subscribe({
       next: (data) => {
-        console.log('Benutzer eingeloggt:', data);
         this.loading = false;
         this.router.navigate(['/home']);
       },
