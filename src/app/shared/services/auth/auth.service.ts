@@ -13,12 +13,13 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(authenticationUser: { email: string; password: string }): Observable<any> {
+  login(authenticationUser: {
+    email: string;
+    password: string;
+  }): Observable<any> {
     return this.http.post<any>(this.authUrl, authenticationUser).pipe(
       tap((response) => {
-        console.log('Benutzer eingeloggt:', response);
-        // Speichere den Token im sessionStorage
-        sessionStorage.setItem('authToken', response.token); 
+        sessionStorage.setItem('authToken', response.token);
         this.router.navigate(['/home']);
       })
     );
