@@ -11,6 +11,11 @@
     color: $color-white;
     cursor: default;
   }
+
+  .no-videos-message {
+    color: $color-white;
+    font-weight: bold;
+  }
 }
 
 .video-card {
