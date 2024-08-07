@@ -10,12 +10,33 @@ import { VideoService } from '../../../shared/services/video/video.service';
 })
 export class HomeComponent {
   videos: Video[] = [];
+  featuredVideo: Video | null = null;
 
   constructor(private videoService: VideoService) {}
 
   ngOnInit(): void {
-    this.videoService.getGlobalVideos().subscribe((data: Video[]) => {
-      this.videos = data;
+    this.loadVideos();
+  }
+
+  loadVideos(): void {
+    this.videoService.getGlobalVideos().subscribe({
+      next: (data: Video[]) => {
+        this.videos = data;
+
+        // Wähle das erste Video als Featured-Video aus
+        if (this.videos.length > 0) {
+          this.featuredVideo = this.videos[0];
+        }
+      },
+      error: (err) => {
+        console.error('Fehler beim Laden der Videos:', err);
+      }
     });
+  }
+
+  playVideo(videoFile: string): void {
+    // todo Implementiere die Logik, um das Video abzuspielen
+    console.log('Spiele Video ab:', videoFile);
+    // Du könntest hier einen Video-Player anzeigen oder eine Navigation zu einer Video-Seite auslösen
   }
 }
