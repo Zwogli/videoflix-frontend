@@ -17,6 +17,9 @@
 .galerys {
   display: flex;
   flex-direction: column;
+  margin: -12rem 10% 0 10%;
+  z-index: 10;
+  position: relative;
   app-global-video-galery {
     margin-bottom: 2rem;
   }
