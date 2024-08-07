@@ -31,6 +31,8 @@ import { CardLoginHelpComponent } from './features/cards/login-help/card-login-h
 import { DialogComponent } from './shared/components/dialog/dialog/dialog.component';
 import { VerificationComponent } from './features/pages/auth/verification/verification.component';
 import { ResetPasswordComponent } from './features/pages/auth/reset-password/reset-password.component';
+import { FeaturedVideoComponent } from './features/components/featured-video/featured-video.component';
+import { GlobalVideoGaleryComponent } from './features/components/global-video-galery/global-video-galery.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { ResetPasswordComponent } from './features/pages/auth/reset-password/res
     DialogComponent,
     VerificationComponent,
     ResetPasswordComponent,
+    FeaturedVideoComponent,
+    GlobalVideoGaleryComponent,
   ],
   imports: [
     BrowserModule,
