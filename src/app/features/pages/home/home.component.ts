@@ -29,7 +29,6 @@ export class HomeComponent {
       next: (data: Video[]) => {
         this.globalVideos = data;
 
-        // Wähle das erste Video als Featured-Video aus
         if (this.globalVideos.length > 0) {
           this.featuredVideo = this.globalVideos[0];
         }
@@ -44,10 +43,6 @@ export class HomeComponent {
     this.videoService.getLocalVideos().subscribe({
       next: (data: Video[]) => {
         this.localVideos = data;
-
-        if (this.localVideos.length <= 0) {
-          // this.featuredVideo = this.globalVideos[0];
-        }
       },
       error: (err) => {
         console.error('Fehler beim Laden der Localen Videos:', err);
