@@ -28,15 +28,22 @@ export class HomeComponent {
     this.videoService.getGlobalVideos().subscribe({
       next: (data: Video[]) => {
         this.globalVideos = data;
-
-        if (this.globalVideos.length > 0) {
-          this.featuredVideo = this.globalVideos[0];
-        }
+        this.loadFeatureVideo();
       },
       error: (err) => {
         console.error('Fehler beim Laden der Globalen Videos:', err);
       }
     });
+  }
+
+  loadFeatureVideo(): void{
+    if (this.hasVideos()) {
+      this.featuredVideo = this.globalVideos[0];
+    }
+  }
+
+  hasVideos(){
+    return this.globalVideos.length > 0
   }
 
   loadLocalVideos(): void {
