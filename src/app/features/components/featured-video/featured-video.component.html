@@ -10,6 +10,11 @@
       <h1>{{ featuredVideo.title }}</h1>
       <p>{{ featuredVideo.description }}</p>
       <button class="btn-prim" (click)="playVideo(featuredVideo.file)">
+        <img
+            class="play-arrow"
+            src="../../../../assets/icons/arrow-16.png"
+            alt="play-arrow"
+          />
         Play
       </button>
     </div>

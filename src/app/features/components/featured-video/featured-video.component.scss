@@ -30,7 +30,7 @@
 
   .featured-video-info {
     position: absolute;
-    top: 50%;
+    top: calc(50% - #{$header-height-small});
     left: 0; // Offset from the left for centering
     margin-left: 10%;
     width: 60%; // Adjust width as needed
@@ -52,13 +52,27 @@
   }
 
   .btn-prim {
-    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 2rem;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
-    &:hover {
-      background-color: #b00610;
+    .play-arrow {
+      transform: rotate(90deg);
+      margin: 0 0.5rem 0 0;
+      width: 1rem;
+      height: 1rem;
     }
+  }
+}
+
+@media (min-width: $view-mobile-max-width) {
+  .featured-video-info {
+    top: calc(50% - #{$header-height-large});
+
   }
 }
