@@ -9,7 +9,7 @@ import { VideoService } from '../../../shared/services/video/video.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  videos: Video[] = [];
+  globalVideos: Video[] = [];
   featuredVideo: Video | null = null;
 
   constructor(private videoService: VideoService) {}
@@ -21,11 +21,11 @@ export class HomeComponent {
   loadVideos(): void {
     this.videoService.getGlobalVideos().subscribe({
       next: (data: Video[]) => {
-        this.videos = data;
+        this.globalVideos = data;
 
         // Wähle das erste Video als Featured-Video aus
-        if (this.videos.length > 0) {
-          this.featuredVideo = this.videos[0];
+        if (this.globalVideos.length > 0) {
+          this.featuredVideo = this.globalVideos[0];
         }
       },
       error: (err) => {

@@ -7,5 +7,5 @@ import { Video } from '../../../models/video.models';
   styleUrls: ['./global-video-galery.component.scss']
 })
 export class GlobalVideoGaleryComponent {
-  @Input() videos: Video[] = [];
+  @Input() globalVideos: Video[] = [];
 }
