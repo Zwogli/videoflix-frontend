@@ -1,6 +1,6 @@
 <div class="video-gallery">
     <h1>Deine Videos zum anschauen</h1>
-      <div *ngFor="let video of videos" class="video-card">
+      <div *ngFor="let video of localVideos" class="video-card">
         <img
           [src]="video.thumbnail"
           [alt]="video.title"

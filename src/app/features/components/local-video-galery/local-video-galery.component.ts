@@ -7,5 +7,5 @@ import { Video } from '../../../models/video.models';
   styleUrls: ['./local-video-galery.component.scss']
 })
 export class LocalVideoGaleryComponent {
-  @Input() videos: Video[] = [];
+  @Input() localVideos: Video[] = [];
 }

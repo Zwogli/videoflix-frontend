@@ -10,6 +10,7 @@ import { VideoService } from '../../../shared/services/video/video.service';
 })
 export class HomeComponent {
   globalVideos: Video[] = [];
+  localVideos: Video[] = [];
   featuredVideo: Video | null = null;
 
   constructor(private videoService: VideoService) {}
@@ -19,6 +20,11 @@ export class HomeComponent {
   }
 
   loadVideos(): void {
+    this.loadGloabalVideos();
+    this.loadLocalVideos();
+  }
+
+  loadGloabalVideos(): void {
     this.videoService.getGlobalVideos().subscribe({
       next: (data: Video[]) => {
         this.globalVideos = data;
@@ -29,7 +35,22 @@ export class HomeComponent {
         }
       },
       error: (err) => {
-        console.error('Fehler beim Laden der Videos:', err);
+        console.error('Fehler beim Laden der Globalen Videos:', err);
+      }
+    });
+  }
+
+  loadLocalVideos(): void {
+    this.videoService.getLocalVideos().subscribe({
+      next: (data: Video[]) => {
+        this.localVideos = data;
+
+        if (this.localVideos.length <= 0) {
+          // this.featuredVideo = this.globalVideos[0];
+        }
+      },
+      error: (err) => {
+        console.error('Fehler beim Laden der Localen Videos:', err);
       }
     });
   }

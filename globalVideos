@@ -1,2 +1,12 @@
 
 C:\Dev\backend\08-videoflix\videoflix-frontend>git pull 
+Already up to date.
+
+C:\Dev\backend\08-videoflix\videoflix-frontend>git add . 
+
+C:\Dev\backend\08-videoflix\videoflix-frontend>git commit -m "Rename videos -" 
+[main 8b4b53d] Rename videos -
+ 5 files changed, 9 insertions(+), 7 deletions(-)
+ create mode 100644 globalVideos
+
+C:\Dev\backend\08-videoflix\videoflix-frontend>git push 
