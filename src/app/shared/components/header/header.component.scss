@@ -11,6 +11,10 @@ header {
   }
 }
 
+.nav {
+  @include flex-center(row, center, center);
+}
+
 button {
   height: 32px !important;
 }
