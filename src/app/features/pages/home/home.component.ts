@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Video } from '../../../models/video.models';
 import { VideoService } from '../../../shared/services/video/video.service';
+import { VideoOverlayComponent } from '../../components/video-overlay/video-overlay.component';
 
 
 @Component({
@@ -12,6 +13,12 @@ export class HomeComponent {
   globalVideos: Video[] = [];
   localVideos: Video[] = [];
   featuredVideo: Video | null = null;
+
+  overlayVideoFile: string = '';
+  overlayVideoTitle: string = '';
+  overlayVideoDescription: string = '';
+
+  @ViewChild('videoOverlay') videoOverlay!: VideoOverlayComponent;
 
   constructor(private videoService: VideoService) {}
 
@@ -57,9 +64,10 @@ export class HomeComponent {
     });
   }
 
-  playVideo(videoFile: string): void {
-    // todo Implementiere die Logik, um das Video abzuspielen
-    console.log('Spiele Video ab:', videoFile);
-    // Du könntest hier einen Video-Player anzeigen oder eine Navigation zu einer Video-Seite auslösen
+  playVideo(video: Video): void {
+    this.overlayVideoFile = video.file;
+    this.overlayVideoTitle = video.title;
+    this.overlayVideoDescription = video.description;
+    this.videoOverlay.open(video.file, video.title, video.description);
   }
 }

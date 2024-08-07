@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Video } from '../../../models/video.models';
 
 @Component({
@@ -8,9 +8,9 @@ import { Video } from '../../../models/video.models';
 })
 export class FeaturedVideoComponent {
   @Input() featuredVideo!: Video; // The featured video is expected as input from the parent component
+  @Output() play = new EventEmitter<Video>();
 
-  playVideo(videoFile: string): void {
-    console.log('Spiele Video ab:', videoFile);
-    // todo Implementiere hier die Logik, um das Video abzuspielen, z. B. mit einem Video-Player
+  playVideo(): void {
+    this.play.emit(this.featuredVideo);
   }
 }

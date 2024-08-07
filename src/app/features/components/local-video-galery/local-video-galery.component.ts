@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Video } from '../../../models/video.models'; 
 
 @Component({
@@ -8,4 +8,9 @@ import { Video } from '../../../models/video.models';
 })
 export class LocalVideoGaleryComponent {
   @Input() localVideos: Video[] = [];
+  @Output() play = new EventEmitter<Video>();
+
+  playVideo(video: Video): void {
+    this.play.emit(video);
+  }
 }
