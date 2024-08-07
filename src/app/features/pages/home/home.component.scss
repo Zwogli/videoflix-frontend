@@ -14,7 +14,13 @@
   margin-bottom: 40px; // Abstand zur Galerie
 }
 
-
+.galerys {
+  display: flex;
+  flex-direction: column;
+  app-global-video-galery {
+    margin-bottom: 2rem;
+  }
+}
 
 @media (min-width: $view-mobile-max-width) {
   .page-content {

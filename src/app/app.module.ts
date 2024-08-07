@@ -33,6 +33,7 @@ import { VerificationComponent } from './features/pages/auth/verification/verifi
 import { ResetPasswordComponent } from './features/pages/auth/reset-password/reset-password.component';
 import { FeaturedVideoComponent } from './features/components/featured-video/featured-video.component';
 import { GlobalVideoGaleryComponent } from './features/components/global-video-galery/global-video-galery.component';
+import { LocalVideoGaleryComponent } from './features/components/local-video-galery/local-video-galery.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { GlobalVideoGaleryComponent } from './features/components/global-video-g
     ResetPasswordComponent,
     FeaturedVideoComponent,
     GlobalVideoGaleryComponent,
+    LocalVideoGaleryComponent,
   ],
   imports: [
     BrowserModule,

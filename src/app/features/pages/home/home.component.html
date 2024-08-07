@@ -4,7 +4,10 @@
   <main class="main-content">
     <div class="vid-content">
       <app-featured-video [featuredVideo]="featuredVideo!"></app-featured-video>
-      <app-global-video-galery [videos]="videos"></app-global-video-galery>
+      <div class="galerys">
+        <app-global-video-galery [videos]="videos"></app-global-video-galery>
+        <app-local-video-galery></app-local-video-galery>
+      </div>
     </div>
 
     <app-footer></app-footer>
