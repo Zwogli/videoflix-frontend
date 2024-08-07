@@ -1,1 +1,14 @@
-<p>featured-video works!</p>
+<div class="featured-video" *ngIf="featuredVideo">
+  <img
+    [src]="featuredVideo.thumbnail"
+    [alt]="featuredVideo.title"
+    class="featured-thumbnail"
+  />
+  <div class="featured-video-info">
+    <h1>{{ featuredVideo.title }}</h1>
+    <p>{{ featuredVideo.description }}</p>
+    <button class="btn-play" (click)="playVideo(featuredVideo.file)">
+      Play
+    </button>
+  </div>
+</div>

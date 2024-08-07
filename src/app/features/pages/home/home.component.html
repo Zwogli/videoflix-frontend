@@ -4,20 +4,7 @@
   <main class="main-content">
     <div class="vid-content">
       <!-- Featured Video Section -->
-      <div class="featured-video" *ngIf="featuredVideo">
-        <img
-          [src]="featuredVideo.thumbnail"
-          [alt]="featuredVideo.title"
-          class="featured-thumbnail"
-        />
-        <div class="featured-video-info">
-          <h1>{{ featuredVideo.title }}</h1>
-          <p>{{ featuredVideo.description }}</p>
-          <button class="btn-play" (click)="playVideo(featuredVideo.file)">
-            Play
-          </button>
-        </div>
-      </div>
+      <app-featured-video></app-featured-video>
       <div class="video-gallery">
         <div *ngFor="let video of videos" class="video-card">
           <img
