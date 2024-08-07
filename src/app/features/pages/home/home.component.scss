@@ -10,7 +10,6 @@
 .vid-content {
   @include flex-center(column);
   width: 100%;
-  height: calc(100dvh - #{$header-height-small});
   margin-top: -#{$header-height-small};
   margin-bottom: 40px; // Abstand zur Galerie
 }
@@ -19,6 +18,7 @@
 .featured-video {
   position: relative;
   width: 100%;
+  height: 100dvh;
   background-color: #000;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -57,7 +57,6 @@
     min-height: calc(100dvh - #{$header-height-large});
   }
   .vid-content {
-    height: calc(100dvh - #{$header-height-large});
     margin-top: -#{$header-height-large};
   }
 }
