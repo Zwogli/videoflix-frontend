@@ -1,1 +1,13 @@
-<p>global-video-galery works!</p>
+<div class="video-gallery">
+    <div *ngFor="let video of videos" class="video-card">
+      <img
+        [src]="video.thumbnail"
+        [alt]="video.title"
+        class="video-thumbnail"
+      />
+      <div class="video-info">
+        <h3>{{ video.title }}</h3>
+        <p>{{ video.description }}</p>
+      </div>
+    </div>
+  </div>
