@@ -39,6 +39,7 @@ import { FeaturedVideoComponent } from './features/components/featured-video/fea
 import { GlobalVideoGaleryComponent } from './features/components/global-video-galery/global-video-galery.component';
 import { LocalVideoGaleryComponent } from './features/components/local-video-galery/local-video-galery.component';
 import { VideoOverlayComponent } from './features/components/video-overlay/video-overlay.component';
+import { UploadVideoComponent } from './features/pages/upload-video/upload-video.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { VideoOverlayComponent } from './features/components/video-overlay/video
     GlobalVideoGaleryComponent,
     LocalVideoGaleryComponent,
     VideoOverlayComponent,
+    UploadVideoComponent,
   ],
   imports: [
     BrowserModule,

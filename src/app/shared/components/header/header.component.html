@@ -6,12 +6,12 @@
 
   <!-- Logo logged in -->
   <!-- <div class="nav-left"> -->
-    <img
-      src="../../../../assets/logos/logo_long.png"
-      alt="videoflix-logo"
-      *ngIf="isAuthenticated()"
-    />
-    <!-- <ul>
+  <img
+    src="../../../../assets/logos/logo_long.png"
+    alt="videoflix-logo"
+    *ngIf="isAuthenticated()"
+  />
+  <!-- <ul>
       <li>Startseite</li>
       <span>|</span>
       <li>Meine Videos</li>
@@ -46,9 +46,9 @@
           class="dropdown-menu"
           [ngClass]="{ 'dropdown-menu': true, show: dropdownOpen }"
         >
-        <li><a routerLink="/home">Startseite</a></li>
-        <li><a routerLink="/localVideos">Meine Videos</a></li>
-        <li><a (click)="logout()">Logout</a></li>
+          <li><a routerLink="/home">Startseite</a></li>
+          <li><a routerLink="/upload">Meine Videos</a></li>
+          <li><a (click)="logout()">Logout</a></li>
         </ul>
       </li>
     </ul>

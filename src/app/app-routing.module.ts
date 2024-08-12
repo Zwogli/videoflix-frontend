@@ -11,6 +11,7 @@ import { PrivacyPolicyComponent } from './features/pages/legals/privacy-policy/p
 import { RegisterComponent } from './features/pages/auth/register/register.component';
 import { VerificationComponent } from './features/pages/auth/verification/verification.component';
 import { ResetPasswordComponent } from './features/pages/auth/reset-password/reset-password.component';
+import { UploadVideoComponent } from './features/pages/upload-video/upload-video.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent }, // Standardroute zur Landing-Page
@@ -23,6 +24,7 @@ const routes: Routes = [
   },
   { path: 'reset-password/:user_id/:token', component: ResetPasswordComponent }, // 'reset-password/:user_id/:token'
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }, // Route zur Home-Page
+  { path: 'upload', component: UploadVideoComponent, canActivate: [AuthGuard] }, // Route zur Home-Page
   { path: 'legal/impress', component: ImpressComponent },
   { path: 'legal/privacy', component: PrivacyPolicyComponent },
   { path: '**', redirectTo: '' }, // Fallback route, wenn keine Route übereinstimmt
