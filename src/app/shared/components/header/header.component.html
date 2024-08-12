@@ -14,7 +14,7 @@
   <!-- Header rigth -->
   <div class="nav">
     <button
-      *ngIf="isInvisibleLoginBtn()"
+      *ngIf="isInvisibleLoginBtn() && !isAuthenticated()"
       class="btn-prim"
       [routerLink]="['/login']"
     >
