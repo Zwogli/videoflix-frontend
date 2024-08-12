@@ -1,5 +1,13 @@
 <header>
-  <img src="../../../../assets/logos/logo_long.png" alt="videoflix-logo" />
+  <a [routerLink]="['/login']">
+    <img src="../../../../assets/logos/logo_long.png" alt="videoflix-logo" />
+  </a>
+  <!-- features/pages/auth/login/login.component.html -->
+  <img
+    src="../../../../assets/logos/logo_long.png"
+    alt="videoflix-logo"
+    *ngIf="isAuthenticated()"
+  />
 
   <div class="nav">
     <button
@@ -10,8 +18,8 @@
       Einloggen
     </button>
 
-    <ul class="nav-menu">
-      <li *ngIf="isAuthenticated()">
+    <ul class="nav-menu" *ngIf="isAuthenticated()">
+      <li>
         <button class="menu-btn" (click)="toggleDropdown($event)">
           <img src="../../../../assets/icons/profil.png" alt="Profile img" />
           <img
