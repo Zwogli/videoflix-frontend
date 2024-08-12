@@ -58,7 +58,11 @@
       </label>
     </div>
 
-    <button [class.loading]="loading" [disabled]="loading" class="btn-prim">
+    <button
+      [class.loading]="loading"
+      [disabled]="!isFormValid || loading"
+      class="btn-prim"
+    >
       <span *ngIf="!loading">Video hochladen</span>
       <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
     </button>
