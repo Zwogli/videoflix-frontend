@@ -26,7 +26,7 @@ form {
     @include flex-center(column, center, flex-start);
     gap: 0.5rem;
   }
-  
+
   input[type="email"],
   input[type="password"] {
     width: calc(100% - 2rem - 2px);
@@ -55,5 +55,6 @@ form {
 @media (min-width: $view-mobile-max-width) {
   .card {
     width: calc(500px - 8rem);
+    margin: 2rem 0;
   }
 }
