@@ -1,1 +1,66 @@
-<p>upload-video-card works!</p>
+<div class="card">
+  <form
+    class="card-container"
+    autocomplete="off"
+    #registerForm="ngForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <h1>Video hochladen</h1>
+
+    <div>
+      <label for="titel">Video Titel:</label>
+      <input
+        name="title"
+        type="text"
+        placeholder="Dein Video Titel"
+        autocomplete="off"
+        required
+        [(ngModel)]="title"
+        [ngClass]="{ 'input-error': titleError }"
+      />
+      <label class="errors" for="title" *ngIf="titleError">
+        <img src="../../../../../assets/icons/error-16.png" alt="error" />
+        Hmm..., etwas stimmt mit deinem Video Titel nicht.
+      </label>
+    </div>
+
+    <div>
+      <label for="description">Video Beschreibung:</label>
+      <input
+        name="description"
+        type="text"
+        placeholder="Deine Video
+      Beschreibung"
+        autocomplete="off"
+        required
+        [(ngModel)]="description"
+        [ngClass]="{ 'input-error': descriptionError }"
+      />
+      <label class="errors" for="description" *ngIf="descriptionError">
+        <img src="../../../../../assets/icons/error-16.png" alt="error" />
+        Eine kurze Erläuterung des Videos wäre doch nett.
+      </label>
+    </div>
+
+    <div>
+      <!-- [(ngModel)]="fileSelector" -->
+      <input
+        name="fileSelector"
+        type="file"
+        placeholder="Datai auswählen"
+        autocomplete="off"
+        required
+        [ngClass]="{ 'input-error': fileSelectorError }"
+      />
+      <label class="errors" for="email" *ngIf="fileSelectorError">
+        <img src="../../../../../assets/icons/error-16.png" alt="error" />
+        Etwas ist schiefgelaufen..., versuch es noch einmal.
+      </label>
+    </div>
+
+    <button [class.loading]="loading" [disabled]="loading" class="btn-prim">
+      <span *ngIf="!loading">Video hochladen</span>
+      <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+    </button>
+  </form>
+</div>
