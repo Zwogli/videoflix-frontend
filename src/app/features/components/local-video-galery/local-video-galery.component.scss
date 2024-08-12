@@ -24,6 +24,7 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   background-color: $color-black;
+  box-shadow: 0px 0px 5px $color-hover-black-70;
   cursor: pointer;
 
   &:hover {
