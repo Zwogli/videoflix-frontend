@@ -40,6 +40,7 @@ import { GlobalVideoGaleryComponent } from './features/components/global-video-g
 import { LocalVideoGaleryComponent } from './features/components/local-video-galery/local-video-galery.component';
 import { VideoOverlayComponent } from './features/components/video-overlay/video-overlay.component';
 import { UploadVideoComponent } from './features/pages/upload-video/upload-video.component';
+import { UploadVideoCardComponent } from './features/cards/upload-video-card/upload-video-card.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { UploadVideoComponent } from './features/pages/upload-video/upload-video
     LocalVideoGaleryComponent,
     VideoOverlayComponent,
     UploadVideoComponent,
+    UploadVideoCardComponent,
   ],
   imports: [
     BrowserModule,
