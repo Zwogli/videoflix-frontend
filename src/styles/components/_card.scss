@@ -1,7 +1,15 @@
 .card {
   color: $color-white;
   background-color: $color-black-70;
-  border-radius: $border-radius-base;
-  margin: 2rem;
+  // border-radius: $border-radius-base;
+  // margin: 2rem;
   padding: 2rem;
+}
+
+
+@media (min-width: $view-mobile-max-width){
+  .card{
+    border-radius: $border-radius-base;
+    margin: 2rem;
+  }
 }
