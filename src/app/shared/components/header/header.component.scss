@@ -55,6 +55,7 @@ button {
   color: $color-white;
   list-style: none;
   padding: 1rem;
+
   li {
     margin-bottom: 1rem;
     a {
@@ -66,6 +67,13 @@ button {
       color: $color-primary-hover;
     }
   }
+
+  li.active a {
+    font-weight: bold;
+    text-shadow: 0 0 2px $color-dark-black;
+    color: $color-primary;
+  }
+
   li:last-of-type {
     margin-bottom: unset;
   }

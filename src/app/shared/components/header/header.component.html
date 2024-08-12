@@ -5,19 +5,13 @@
   </a>
 
   <!-- Logo logged in -->
-  <!-- <div class="nav-left"> -->
   <img
     src="../../../../assets/logos/logo_long.png"
     alt="videoflix-logo"
     *ngIf="isAuthenticated()"
   />
-  <!-- <ul>
-      <li>Startseite</li>
-      <span>|</span>
-      <li>Meine Videos</li>
-    </ul> -->
-  <!-- </div> -->
 
+  <!-- Header rigth -->
   <div class="nav">
     <button
       *ngIf="isInvisibleLoginBtn()"
@@ -46,8 +40,12 @@
           class="dropdown-menu"
           [ngClass]="{ 'dropdown-menu': true, show: dropdownOpen }"
         >
-          <li><a routerLink="/home">Startseite</a></li>
-          <li><a routerLink="/upload">Meine Videos</a></li>
+          <li routerLinkActive="active">
+            <a routerLink="/home">Startseite</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/upload">Meine Videos</a>
+          </li>
           <li><a (click)="logout()">Logout</a></li>
         </ul>
       </li>
