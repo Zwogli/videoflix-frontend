@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  listExcludedRoutes: Array<string> = ['/login', '/home'];
+  listExcludedRoutes: Array<string> = ['/login', '/home', '/upload'];
   dropdownOpen = false;
 
   constructor(private router: Router, private authService: AuthService) {}
@@ -32,7 +32,6 @@ export class HeaderComponent {
   logout(): void {
     this.authService.logout();
   }
-
 
   closeDropdown(): void {
     this.dropdownOpen = false;
