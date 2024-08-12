@@ -1,8 +1,10 @@
 <header>
-  <a [routerLink]="['/login']">
+  <!-- Logo with link -->
+  <a [routerLink]="['/login']" *ngIf="!isAuthenticated()">
     <img src="../../../../assets/logos/logo_long.png" alt="videoflix-logo" />
   </a>
-  <!-- features/pages/auth/login/login.component.html -->
+
+  <!-- Logo without link -->
   <img
     src="../../../../assets/logos/logo_long.png"
     alt="videoflix-logo"
