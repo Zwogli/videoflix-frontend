@@ -11,13 +11,12 @@ export class UploadVideoCardComponent {
   title: string = '';
   description: string = '';
 
-  fileSelector: File | null = null;
-
   titleError: boolean = false;
   descriptionError: boolean = false;
   fileSelectorError: boolean = false;
-
   loading: boolean = false;
+
+  fileSelector: File | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -74,7 +73,7 @@ export class UploadVideoCardComponent {
     return formData;
   }
 
-  postLocalVideo(formData: FormData){
+  postLocalVideo(formData: FormData) {
     this.http.post<VideoUpload>('/api/videos/upload/', formData).subscribe({
       next: (response) => {
         console.log('Video hochgeladen:', response);
