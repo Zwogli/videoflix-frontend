@@ -19,11 +19,7 @@ export class UploadVideoCardComponent {
 
   onSubmit() {
     if (!this.isFormValid) {
-      // Fehler behandeln
-      this.titleError = this.title.trim() === '';
-      this.descriptionError = this.description.trim() === '';
-      this.fileSelectorError = this.fileSelector === null;
-      return;
+      this.errorManager();
     }
 
     this.loading = true;
@@ -37,6 +33,13 @@ export class UploadVideoCardComponent {
       this.description.trim() !== '' &&
       this.fileSelector !== null
     );
+  }
+
+  errorManager() {
+    this.titleError = this.title.trim() === '';
+    this.descriptionError = this.description.trim() === '';
+    this.fileSelectorError = this.fileSelector === null;
+    return;
   }
 
   onFileSelected(event: any): void {
