@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
+import { HttpService } from 'src/app/shared/services/http/http.service';
 import { VideoUpload } from 'src/app/models/video-upload.model';
 
 @Component({
@@ -18,7 +19,10 @@ export class UploadVideoCardComponent {
 
   fileSelector: File | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    // private http: HttpClient,
+    private httpService: HttpService
+  ) {}
 
   onSubmit() {
     if (!this.isFormValid) {
@@ -66,25 +70,44 @@ export class UploadVideoCardComponent {
   }
 
   private createFormData(videoData: VideoUpload): FormData {
+    // const formData = new FormData();
+    // formData.append('title', videoData.title);
+    // formData.append('description', videoData.description);
+    // formData.append('file', videoData.file);
+
+    // return formData;
     const formData = new FormData();
     formData.append('title', videoData.title);
     formData.append('description', videoData.description);
     formData.append('file', videoData.file);
 
+    // Log detailed file information
+    if (videoData.file) {
+      console.log('File Details:');
+      // console.log('Name:', videoData.file.name);
+      // console.log('Type:', videoData.file.type);
+      // console.log('Size:', videoData.file.size);
+      console.log('File:', videoData.file);
+    }
+
     return formData;
   }
 
   postLocalVideo(formData: FormData) {
-    this.http.post<VideoUpload>('/api/videos/upload/', formData).subscribe({
-      next: (response) => {
-        console.log('Video hochgeladen:', response);
-        // response ist vom Typ Video, mit file als string (URL oder Pfad)
-        this.loading = false;
-      },
-      error: (error) => {
-        console.error('Fehler beim Hochladen:', error);
-        this.loading = false;
-      },
-    });
+    console.log(formData);
+
+    this.httpService
+      .post<VideoUpload>('/api/videos/upload/', formData)
+      .subscribe({
+        next: (response) => {
+          console.log('Video hochgeladen:', response);
+          // response ist vom Typ Video, mit file als string (URL oder Pfad)
+          this.loading = false;
+        },
+        error: (error) => {
+          console.error('Fehler beim Hochladen:', error);
+          this.loading = false;
+        },
+      });
   }
 }
