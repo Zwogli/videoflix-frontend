@@ -19,6 +19,11 @@ export class HttpService {
     return headers;
   }
 
+  private getFileUploadHeaders(): HttpHeaders {
+    // Empty headers for file uploads, as FormData sets the content type
+    return new HttpHeaders();
+  }
+
   get<T>(endpoint: string): Observable<T> {
     return this.http.get<T>(`${this.baseUrl}/${endpoint}`, {
       headers: this.getHeaders(),
@@ -28,6 +33,12 @@ export class HttpService {
   post<T>(endpoint: string, body: any): Observable<T> {
     return this.http.post<T>(`${this.baseUrl}/${endpoint}`, body, {
       headers: this.getHeaders(),
+    });
+  }
+
+  postFile<T>(endpoint: string, formData: FormData): Observable<T> {
+    return this.http.post<T>(`${this.baseUrl}/${endpoint}`, formData, {
+      headers: this.getFileUploadHeaders(),  // Leere Header für Datei-Uploads
     });
   }
 

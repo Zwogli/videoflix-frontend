@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/shared/services/http/http.service';
 import { VideoUpload } from 'src/app/models/video-upload.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-upload-video-card',
@@ -19,10 +20,7 @@ export class UploadVideoCardComponent {
 
   fileSelector: File | null = null;
 
-  constructor(
-    // private http: HttpClient,
-    private httpService: HttpService
-  ) {}
+  constructor(private httpService: HttpService, private router: Router) {}
 
   onSubmit() {
     if (!this.isFormValid) {
@@ -70,25 +68,10 @@ export class UploadVideoCardComponent {
   }
 
   private createFormData(videoData: VideoUpload): FormData {
-    // const formData = new FormData();
-    // formData.append('title', videoData.title);
-    // formData.append('description', videoData.description);
-    // formData.append('file', videoData.file);
-
-    // return formData;
     const formData = new FormData();
     formData.append('title', videoData.title);
     formData.append('description', videoData.description);
     formData.append('file', videoData.file);
-
-    // Log detailed file information
-    if (videoData.file) {
-      console.log('File Details:');
-      // console.log('Name:', videoData.file.name);
-      // console.log('Type:', videoData.file.type);
-      // console.log('Size:', videoData.file.size);
-      console.log('File:', videoData.file);
-    }
 
     return formData;
   }
@@ -97,12 +80,12 @@ export class UploadVideoCardComponent {
     console.log(formData);
 
     this.httpService
-      .post<VideoUpload>('/api/videos/upload/', formData)
+      .postFile<VideoUpload>('/api/videos/upload/', formData)
       .subscribe({
         next: (response) => {
           console.log('Video hochgeladen:', response);
-          // response ist vom Typ Video, mit file als string (URL oder Pfad)
           this.loading = false;
+          this.router.navigate(['/']);
         },
         error: (error) => {
           console.error('Fehler beim Hochladen:', error);
