@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Video } from '../../../models/video.model';
+import { VideoDownload } from '../../../models/video-download.model';
 
 @Component({
   selector: 'app-local-video-galery',
@@ -7,10 +7,10 @@ import { Video } from '../../../models/video.model';
   styleUrls: ['./local-video-galery.component.scss'],
 })
 export class LocalVideoGaleryComponent {
-  @Input() localVideos: Video[] = [];
-  @Output() play = new EventEmitter<Video>();
+  @Input() localVideos: VideoDownload[] = [];
+  @Output() play = new EventEmitter<VideoDownload>();
 
-  playVideo(video: Video): void {
+  playVideo(video: VideoDownload): void {
     this.play.emit(video);
   }
 }

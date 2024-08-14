@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Video } from '../../../models/video.model'; // Importiere das Video-Interface
+import { VideoDownload } from '../../../models/video-download.model'; // Importiere das Video-Interface
 
 @Injectable({
   providedIn: 'root',
@@ -12,11 +12,11 @@ export class VideoService {
 
   constructor(private http: HttpClient) {}
 
-  getGlobalVideos(): Observable<Video[]> {
-    return this.http.get<Video[]>(`${this.baseUrl}global-videos/`);
+  getGlobalVideos(): Observable<VideoDownload[]> {
+    return this.http.get<VideoDownload[]>(`${this.baseUrl}global-videos/`);
   }
 
-  getLocalVideos(): Observable<Video[]> {
-    return this.http.get<Video[]>(`${this.baseUrl}local-videos/`);
+  getLocalVideos(): Observable<VideoDownload[]> {
+    return this.http.get<VideoDownload[]>(`${this.baseUrl}local-videos/`);
   }
 }

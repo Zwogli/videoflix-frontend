@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Video } from '../../../models/video.model';
+import { VideoDownload } from '../../../models/video-download.model';
 import { VideoService } from '../../../shared/services/video/video.service';
 import { VideoOverlayComponent } from '../../components/video-overlay/video-overlay.component';
 
@@ -9,9 +9,9 @@ import { VideoOverlayComponent } from '../../components/video-overlay/video-over
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  globalVideos: Video[] = [];
-  localVideos: Video[] = [];
-  featuredVideo: Video | null = null;
+  globalVideos: VideoDownload[] = [];
+  localVideos: VideoDownload[] = [];
+  featuredVideo: VideoDownload | null = null;
 
   overlayVideoFile: string = '';
   overlayVideoTitle: string = '';
@@ -32,7 +32,7 @@ export class HomeComponent {
 
   loadGloabalVideos(): void {
     this.videoService.getGlobalVideos().subscribe({
-      next: (data: Video[]) => {
+      next: (data: VideoDownload[]) => {
         this.globalVideos = data;
         this.loadFeatureVideo();
       },
@@ -54,7 +54,7 @@ export class HomeComponent {
 
   loadLocalVideos(): void {
     this.videoService.getLocalVideos().subscribe({
-      next: (data: Video[]) => {
+      next: (data: VideoDownload[]) => {
         this.localVideos = data;
       },
       error: (err) => {
@@ -63,7 +63,7 @@ export class HomeComponent {
     });
   }
 
-  playVideo(video: Video): void {
+  playVideo(video: VideoDownload): void {
     this.overlayVideoFile = video.file;
     this.overlayVideoTitle = video.title;
     this.overlayVideoDescription = video.description;

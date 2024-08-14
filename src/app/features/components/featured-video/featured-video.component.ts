@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Video } from '../../../models/video.model';
+import { VideoDownload } from '../../../models/video-download.model';
 
 @Component({
   selector: 'app-featured-video',
@@ -7,8 +7,8 @@ import { Video } from '../../../models/video.model';
   styleUrls: ['./featured-video.component.scss'],
 })
 export class FeaturedVideoComponent {
-  @Input() featuredVideo!: Video; // The featured video is expected as input from the parent component
-  @Output() play = new EventEmitter<Video>();
+  @Input() featuredVideo!: VideoDownload; // The featured video is expected as input from the parent component
+  @Output() play = new EventEmitter<VideoDownload>();
 
   playVideo(): void {
     this.play.emit(this.featuredVideo);

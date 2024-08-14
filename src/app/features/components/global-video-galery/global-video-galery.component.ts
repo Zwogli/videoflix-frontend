@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Video } from '../../../models/video.model';
+import { VideoDownload } from '../../../models/video-download.model';
 
 @Component({
   selector: 'app-global-video-galery',
@@ -7,10 +7,10 @@ import { Video } from '../../../models/video.model';
   styleUrls: ['./global-video-galery.component.scss'],
 })
 export class GlobalVideoGaleryComponent {
-  @Input() globalVideos: Video[] = [];
-  @Output() play = new EventEmitter<Video>();
+  @Input() globalVideos: VideoDownload[] = [];
+  @Output() play = new EventEmitter<VideoDownload>();
 
-  playVideo(video: Video): void {
+  playVideo(video: VideoDownload): void {
     this.play.emit(video);
   }
 }
