@@ -35,7 +35,7 @@ export class UploadVideoCardComponent {
     return (
       this.title.trim() !== '' &&
       this.description.trim() !== '' &&
-      this.fileSelector !== null
+      !!this.fileSelector
     );
   }
 
@@ -59,6 +59,7 @@ export class UploadVideoCardComponent {
     if (file) {
       this.fileSelector = file;
       this.fileSelectorError = false;
+      console.log('File selected:', file);
     } else {
       this.fileSelectorError = true;
     }

@@ -51,6 +51,7 @@
         autocomplete="off"
         required
         [ngClass]="{ 'input-error': fileSelectorError }"
+        (change)="onFileSelected($event)"
       />
       <label class="errors" for="email" *ngIf="fileSelectorError">
         <img src="../../../../../assets/icons/error-16.png" alt="error" />
