@@ -85,7 +85,7 @@ export class UploadVideoCardComponent {
         next: (response) => {
           console.log('Video hochgeladen:', response);
           this.loading = false;
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
         },
         error: (error) => {
           console.error('Fehler beim Hochladen:', error);
