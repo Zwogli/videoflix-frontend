@@ -1,13 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { Video } from '../../../models/video.models';
+import { Video } from '../../../models/video.model';
 import { VideoService } from '../../../shared/services/video/video.service';
 import { VideoOverlayComponent } from '../../components/video-overlay/video-overlay.component';
-
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
   globalVideos: Video[] = [];
@@ -39,18 +38,18 @@ export class HomeComponent {
       },
       error: (err) => {
         console.error('Fehler beim Laden der Globalen Videos:', err);
-      }
+      },
     });
   }
 
-  loadFeatureVideo(): void{
+  loadFeatureVideo(): void {
     if (this.hasVideos()) {
       this.featuredVideo = this.globalVideos[0];
     }
   }
 
-  hasVideos(){
-    return this.globalVideos.length > 0
+  hasVideos() {
+    return this.globalVideos.length > 0;
   }
 
   loadLocalVideos(): void {
@@ -60,7 +59,7 @@ export class HomeComponent {
       },
       error: (err) => {
         console.error('Fehler beim Laden der Localen Videos:', err);
-      }
+      },
     });
   }
 
