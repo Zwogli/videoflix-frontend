@@ -1,5 +1,6 @@
 <div class="video-gallery">
   <h1>Videos zu anschauen</h1>
+  <div class="gallery">
     <div *ngFor="let video of globalVideos" class="video-card">
       <img
         [src]="video.thumbnail"
@@ -13,3 +14,4 @@
       </div>
     </div>
   </div>
+</div>

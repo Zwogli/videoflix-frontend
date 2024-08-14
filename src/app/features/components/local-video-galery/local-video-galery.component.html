@@ -1,20 +1,24 @@
 <div class="video-gallery">
   <h1>Deine Videos zum anschauen</h1>
 
-  <div *ngIf="localVideos.length === 0" class="no-videos-message">
-    <p>Du hast noch keine lokalen Videos.</p>
-  </div>
+  <div class="gallery">
 
-  <div *ngFor="let video of localVideos" class="video-card">
-    <img
-      [src]="video.thumbnail"
-      [alt]="video.title"
-      class="video-thumbnail"
-      (click)="playVideo(video)"
-    />
-    <div class="video-info">
-      <h3>{{ video.title }}</h3>
-      <p>{{ video.description }}</p>
+    <div *ngIf="localVideos.length === 0" class="no-videos-message">
+      <p>Du hast noch keine lokalen Videos.</p>
+    </div>
+  
+    <div *ngFor="let video of localVideos" class="video-card">
+      <img
+        [src]="video.thumbnail"
+        [alt]="video.title"
+        class="video-thumbnail"
+        (click)="playVideo(video)"
+      />
+      <div class="video-info">
+        <h3>{{ video.title }}</h3>
+        <p>{{ video.description }}</p>
+      </div>
     </div>
   </div>
+
 </div>
