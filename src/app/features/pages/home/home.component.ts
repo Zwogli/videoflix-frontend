@@ -17,6 +17,14 @@ export class HomeComponent {
   overlayVideoTitle: string = '';
   overlayVideoDescription: string = '';
 
+  overlayVideo:VideoDownload ={
+    id: 0,
+    title: '',
+    description: '',
+    thumbnail: '',
+    file: ''
+  };
+
   @ViewChild('videoOverlay') videoOverlay!: VideoOverlayComponent;
 
   constructor(private videoService: VideoService) {}
@@ -64,9 +72,7 @@ export class HomeComponent {
   }
 
   playVideo(video: VideoDownload): void {
-    this.overlayVideoFile = video.file;
-    this.overlayVideoTitle = video.title;
-    this.overlayVideoDescription = video.description;
-    this.videoOverlay.open(video.file, video.title, video.description);
+    this.overlayVideo = video;
+    this.videoOverlay.open();
   }
 }
