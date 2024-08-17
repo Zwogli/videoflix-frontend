@@ -12,7 +12,7 @@ export class VideoOverlayComponent {
 
   isVisible = false;
 
-  constructor(private httpService: HttpService){}
+  constructor(private httpService: HttpService) {}
 
   open(): void {
     this.isVisible = true;
@@ -22,9 +22,11 @@ export class VideoOverlayComponent {
     this.isVisible = false;
   }
 
+  // todo style delete local video
   deleteVideo() {
     if (confirm('Möchten Sie dieses Video wirklich löschen?')) {
-      this.httpService.delete(`/api/videos/local-videos/${this.video.id}/`)
+      this.httpService
+        .delete(`/api/videos/local-videos/${this.video.id}/`)
         .subscribe({
           next: (response) => {
             console.log('Video erfolgreich gelöscht', response);
@@ -33,7 +35,7 @@ export class VideoOverlayComponent {
           },
           error: (error) => {
             console.error('Fehler beim Löschen des Videos:', error);
-          }
+          },
         });
     }
   }
