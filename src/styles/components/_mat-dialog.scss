@@ -1,0 +1,11 @@
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: $color-black !important;
+}
+
+.mdc-dialog__surface {
+  padding: 1rem;
+  color: $color-white;
+  h1 {
+    margin: 0 0 1rem 0;
+  }
+}
