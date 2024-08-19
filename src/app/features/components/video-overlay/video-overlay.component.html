@@ -1,12 +1,16 @@
 <div class="overlay" *ngIf="isVisible">
   <div class="overlay-content">
-    <button class="close-button" (click)="close()">×</button>
+    <div class="video-close">
+      <button class="close-button" (click)="close()">
+        <img src="../../../../assets/icons/x-mark-32.png" alt="close icon" />
+      </button>
+    </div>
     <video controls autoplay>
       <source [src]="video.file" type="video/mp4" />
       Ihr Browser unterstützt das Video-Tag nicht.
     </video>
     <div class="video-delete">
-      <button (click)="deleteVideo()" class="delete-button">
+      <button (click)="deleteVideo()" class="button-delete">
         <img src="../../../../assets/icons/delete-32.png" alt="delete icon" />
       </button>
     </div>
