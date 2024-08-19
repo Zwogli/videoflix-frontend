@@ -4,5 +4,5 @@ export interface VideoDownload {
   description: string;
   thumbnail: string;
   file: string;
-  isLocal: boolean;
+  is_local: boolean;
 }

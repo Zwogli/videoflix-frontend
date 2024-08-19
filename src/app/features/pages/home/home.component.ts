@@ -23,7 +23,7 @@ export class HomeComponent {
     description: '',
     thumbnail: '',
     file: '',
-    isLocal: false,
+    is_local: false,
   };
 
   @ViewChild('videoOverlay') videoOverlay!: VideoOverlayComponent;
@@ -74,6 +74,6 @@ export class HomeComponent {
 
   playVideo(video: VideoDownload): void {
     this.overlayVideo = video;
-    this.videoOverlay.open();
+    this.videoOverlay.open(video);
   }
 }

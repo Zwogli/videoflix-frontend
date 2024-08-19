@@ -14,8 +14,10 @@ export class VideoOverlayComponent {
 
   constructor(private httpService: HttpService) {}
 
-  open(): void {
+  open(video: VideoDownload): void {
+    this.video = video;
     this.isVisible = true;
+    console.log(this.video);
   }
 
   close(): void {
