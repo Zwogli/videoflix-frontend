@@ -40,6 +40,11 @@ video {
   margin: 1rem 0;
 }
 
+.video-delete{
+  display: flex;
+  justify-content: flex-end;
+}
+
 .video-info {
   text-align: center;
 }

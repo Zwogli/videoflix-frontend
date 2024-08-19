@@ -5,14 +5,14 @@
       <source [src]="video.file" type="video/mp4" />
       Ihr Browser unterstützt das Video-Tag nicht.
     </video>
+    <div class="video-delete">
+      <button (click)="deleteVideo()" class="delete-button">
+        <img src="../../../../assets/icons/delete-32.png" alt="delete icon" />
+      </button>
+    </div>
     <div class="video-info">
       <h1>{{ video.title }}</h1>
       <p>{{ video.description }}</p>
-    </div>
-    <div>
-      <button (click)="deleteVideo()" class="delete-button">
-        <i class="fa fa-trash"></i> Löschen
-      </button>
     </div>
   </div>
 </div>
