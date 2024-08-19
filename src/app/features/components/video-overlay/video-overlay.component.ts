@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { HttpService } from 'src/app/shared/services/http/http.service';
 import { VideoDownload } from '../../../models/video-download.model';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,6 +11,7 @@ import { ConfirmDeleteDialogComponent } from '../../../shared/components/dialog/
 })
 export class VideoOverlayComponent {
   @Input() video!: VideoDownload;
+  @Output() videoDeleted = new EventEmitter<number>();
 
   isVisible = false;
 
@@ -41,6 +42,7 @@ export class VideoOverlayComponent {
       .subscribe({
         next: (response) => {
           console.log('Video erfolgreich gelöscht', response);
+          this.videoDeleted.emit(this.video.id);
           this.close();
         },
         error: (error) => {

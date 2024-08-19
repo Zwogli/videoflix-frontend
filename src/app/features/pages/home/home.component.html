@@ -24,6 +24,7 @@
 
   <app-video-overlay
     [video]="overlayVideo"
+    (videoDeleted)="onVideoDeleted($event)"
     #videoOverlay
   ></app-video-overlay>
 </div>

@@ -34,6 +34,10 @@ export class HomeComponent {
     this.loadVideos();
   }
 
+  onVideoDeleted(videoId: number): void {
+    this.localVideos = this.localVideos.filter(video => video.id !== videoId);
+  }
+
   loadVideos(): void {
     this.loadGloabalVideos();
     this.loadLocalVideos();
