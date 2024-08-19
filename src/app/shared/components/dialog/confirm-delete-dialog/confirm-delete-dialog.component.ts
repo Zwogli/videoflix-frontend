@@ -10,10 +10,10 @@ export class ConfirmDeleteDialogComponent {
   constructor(public dialogRef: MatDialogRef<ConfirmDeleteDialogComponent>) {}
 
   onConfirm(): void {
-    this.dialogRef.close(true); // Schließe den Dialog und sende true zurück
+    this.dialogRef.close(true);
   }
 
   onCancel(): void {
-    this.dialogRef.close(false); // Schließe den Dialog und sende false zurück
+    this.dialogRef.close(false);
   }
 }
