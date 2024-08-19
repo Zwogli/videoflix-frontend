@@ -17,12 +17,13 @@ export class HomeComponent {
   overlayVideoTitle: string = '';
   overlayVideoDescription: string = '';
 
-  overlayVideo:VideoDownload ={
+  overlayVideo: VideoDownload = {
     id: 0,
     title: '',
     description: '',
     thumbnail: '',
-    file: ''
+    file: '',
+    isLocal: false,
   };
 
   @ViewChild('videoOverlay') videoOverlay!: VideoOverlayComponent;

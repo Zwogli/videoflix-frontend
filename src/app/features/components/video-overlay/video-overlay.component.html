@@ -9,7 +9,7 @@
       <source [src]="video.file" type="video/mp4" />
       Ihr Browser unterstützt das Video-Tag nicht.
     </video>
-    <div class="video-delete">
+    <div class="video-delete" *ngIf="video.isLocal">
       <button (click)="deleteVideo()" class="button-delete">
         <img src="../../../../assets/icons/delete-32.png" alt="delete icon" />
       </button>
