@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { HttpService } from 'src/app/shared/services/http/http.service';
 import { VideoDownload } from '../../../models/video-download.model';
+import { MatDialog } from '@angular/material/dialog';
+// import { ConfirmDeleteDialogComponent } from '../../../shared/components/dialog/confirm-delete-dialog';
 
 @Component({
   selector: 'app-video-overlay',
@@ -12,7 +14,7 @@ export class VideoOverlayComponent {
 
   isVisible = false;
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, public dialog: MatDialog) {}
 
   open(video: VideoDownload): void {
     this.video = video;
