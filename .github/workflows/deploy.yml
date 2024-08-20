@@ -32,4 +32,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "dist/videoflix-frontend/" # file to upload
-          server-dir: "/videoflix.mathias-kohler.de" # path to ftp-server
+          server-dir: "/videoflix.mathias-kohler.de/" # path to ftp-server
