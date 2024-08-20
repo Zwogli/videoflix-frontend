@@ -28,7 +28,7 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: "ftp://${{ secrets.FTP_USERNAME }}@mathias-kohler.de"
+          server: "ftp://w01e658d.kasserver.com"
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "dist/videoflix-frontend/" # file to upload
