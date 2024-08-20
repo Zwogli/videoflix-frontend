@@ -1,4 +1,4 @@
-name: Deploy to FTP
+name: 🚀 Deploy website on push
 
 on:
   push:
@@ -6,12 +6,13 @@ on:
       - main # The branch to which the workflow reacts
 
 jobs:
-  deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -24,10 +25,10 @@ jobs:
       - name: Build project
         run: npm run build -- --configuration production
 
-      - name: Deploy to FTP server
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          ftp-server: "ftp://{{ secrets.FTP_USERNAME }}@mathias-kohler.de"
+          ftp-server: "ftp://mathias-kohler.de"
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "dist/videoflix-frontend" # file to upload
