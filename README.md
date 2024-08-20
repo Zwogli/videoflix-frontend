@@ -1,6 +1,6 @@
 # VideoflixFrontend
 
-A Fontend project based on Netflix that works together with the videoflix-backend.
+A Frontend project based on Netflix that works together with the videoflix-backend.
 
 ## Project
 
@@ -29,7 +29,7 @@ To make the basic structure better and clearer, I took inspiration from other pr
 
 #### The beginning
 
-My plan for programming was to leave logic and functions out of the equation for the time being. The individual parts were divided into reusable components and stand-alone components. 
+My plan for programming was to leave logic and functions out of the equation for the time being. The individual parts were divided into reusable components and stand-alone components.
 This created the foundation of the front end.
 
 ## Angular
