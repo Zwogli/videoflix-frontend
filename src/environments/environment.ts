@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://35.234.78.80',
+  baseUrl: 'https://videoflix-server.mathias-kohler.de',
 };
 
 // local baseUrl: 'http://127.0.0.1:8000',
