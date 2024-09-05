@@ -4,11 +4,11 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://x-server.mathias-kohler.de',
+  baseUrl: 'https://35.234.78.80',
 };
 
 // local baseUrl: 'http://127.0.0.1:8000',
-// VM IP: 'http://35.234.78.80',
+// VM IP: 'https://35.234.78.80',
 
 /*
  * For easier debugging in development mode, you can import the following file
