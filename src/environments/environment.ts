@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://127.0.0.1:8000',
+  baseUrl: 'http://35.234.78.80',
 };
+
+// local baseUrl: 'http://127.0.0.1:8000',
 
 /*
  * For easier debugging in development mode, you can import the following file
