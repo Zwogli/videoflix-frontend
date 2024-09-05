@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://x-server.mathias-kohler.de',
+  baseUrl: 'https://x-server.mathias-kohler.de',
 };
 
 // local baseUrl: 'http://127.0.0.1:8000',
