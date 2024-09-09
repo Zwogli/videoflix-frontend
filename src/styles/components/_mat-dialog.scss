@@ -2,6 +2,22 @@
   background-color: $color-black !important;
 }
 
+.mat-mdc-dialog-container .mdc-dialog__content {
+  color: $color-white !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__title {
+  color: $color-white;
+}
+
+.mat-mdc-button:not(:disabled) {
+  color: $color-white;
+}
+
+.mat-mdc-button {
+  background: $color-primary;
+}
+
 .mdc-dialog__surface {
   padding: 1rem;
   color: $color-white;

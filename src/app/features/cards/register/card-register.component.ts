@@ -90,7 +90,6 @@ export class CardRegisterComponent {
       .post<User>('auth/registration/', authenticationUser)
       .subscribe({
         next: (data) => {
-          console.log('Benutzer erstellt:', data);
           this.loading = false;
           this.navigateToLoginWithMessage(this.messageVerification());
         },
