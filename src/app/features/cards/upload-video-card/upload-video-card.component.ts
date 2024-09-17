@@ -77,13 +77,13 @@ export class UploadVideoCardComponent {
   }
 
   postLocalVideo(formData: FormData) {
-    console.log(formData);
+    // console.log(formData);
 
     this.httpService
       .postFile<VideoUpload>('api/videos/upload/', formData)
       .subscribe({
         next: (response) => {
-          console.log('Video hochgeladen:', response);
+          // console.log('Video hochgeladen:', response);
           this.loading = false;
           this.router.navigate(['/home']);
         },
