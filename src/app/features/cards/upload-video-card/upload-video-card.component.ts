@@ -80,7 +80,7 @@ export class UploadVideoCardComponent {
     console.log(formData);
 
     this.httpService
-      .postFile<VideoUpload>('/api/videos/upload/', formData)
+      .postFile<VideoUpload>('api/videos/upload/', formData)
       .subscribe({
         next: (response) => {
           console.log('Video hochgeladen:', response);
