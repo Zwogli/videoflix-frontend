@@ -9,7 +9,8 @@ import { VideoDownload } from '../../../models/video-download.model';
 export class LocalVideoGaleryComponent {
   @Input() localVideos: VideoDownload[] = [];
   @Output() play = new EventEmitter<VideoDownload>();
-  defaultThumbnail: string = '/static/images/coming-soon.jpg?v=1';
+  defaultThumbnail: string =
+    'https://videoflix-server.mathias-kohler.de/static/images/coming-soon_640.jpg?v=1';
 
   playVideo(video: VideoDownload): void {
     this.play.emit(video);
