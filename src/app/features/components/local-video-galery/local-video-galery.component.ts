@@ -9,6 +9,7 @@ import { VideoDownload } from '../../../models/video-download.model';
 export class LocalVideoGaleryComponent {
   @Input() localVideos: VideoDownload[] = [];
   @Output() play = new EventEmitter<VideoDownload>();
+  defaultThumbnail: string = '/static/images/coming-soon.jpg?v=1';
 
   playVideo(video: VideoDownload): void {
     this.play.emit(video);
