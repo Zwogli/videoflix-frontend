@@ -9,7 +9,7 @@
   
     <div *ngFor="let video of localVideos" class="video-card">
       <img
-        [src]="video.thumbnail ? video.thumbnail : '/static/images/coming-soon.jpg'"
+        [src]="video.thumbnail ? video.thumbnail : '/static/images/coming-soon.jpg?v=1'"
         [alt]="video.title"
         class="video-thumbnail"
         (click)="playVideo(video)"
