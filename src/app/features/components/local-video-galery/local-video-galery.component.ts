@@ -34,7 +34,7 @@ export class LocalVideoGaleryComponent {
 
 startCheckingThumbnailStatus(): void {
   if (this.videoId !== undefined) {
-    interval(3000).pipe(
+    interval(60).pipe(
       switchMap(() => this.localThumbnailService.checkThumbnailStatus(this.videoId)), // Wechselt zum Observable für den Status des Thumbnails
       tap(response => {
         if (response.thumbnailCreated) {
