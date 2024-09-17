@@ -14,7 +14,7 @@ export class LocalVideoGaleryComponent {
   @Output() play = new EventEmitter<VideoDownload>();
   defaultThumbnail: string =
     'https://videoflix-server.mathias-kohler.de/static/images/coming-soon.jpg?v=1';
-  videoId!: number;
+  videoId?: number;
   thumbnailCreated: boolean = false;
 
   constructor(
@@ -26,16 +26,16 @@ export class LocalVideoGaleryComponent {
     const videoIdParam = this.route.snapshot.paramMap.get('id');
     if (videoIdParam) {
         this.videoId = +videoIdParam; // Konvertiere die ID in eine Zahl
+        this.startCheckingThumbnailStatus();
     } else {
         console.error('Video ID not found in route parameters.');
     }
-    this.startCheckingThumbnailStatus();
 }
 
 startCheckingThumbnailStatus(): void {
   if (this.videoId !== undefined) {
-    interval(60).pipe(
-      switchMap(() => this.localThumbnailService.checkThumbnailStatus(this.videoId)), // Wechselt zum Observable für den Status des Thumbnails
+    interval(3000).pipe(
+      switchMap(() => this.localThumbnailService.checkThumbnailStatus(this.videoId as number)), // Wechselt zum Observable für den Status des Thumbnails
       tap(response => {
         if (response.thumbnailCreated) {
           this.thumbnailCreated = true;
