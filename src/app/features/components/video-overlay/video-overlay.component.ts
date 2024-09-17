@@ -38,7 +38,7 @@ export class VideoOverlayComponent {
 
   sendDeleteRequest(): void {
     this.httpService
-      .delete(`/api/videos/local-videos/${this.video.id}/`)
+      .delete(`api/videos/local-videos/${this.video.id}/`)
       .subscribe({
         next: (response) => {
           console.log('Video erfolgreich gelöscht', response);
