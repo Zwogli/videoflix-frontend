@@ -61,7 +61,7 @@ export class UploadVideoCardComponent {
     if (file) {
       this.fileSelector = file;
       this.fileSelectorError = false;
-      console.log('File selected:', file);
+      // console.log('File selected:', file);
     } else {
       this.fileSelectorError = true;
     }
