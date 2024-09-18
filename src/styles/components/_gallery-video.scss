@@ -31,12 +31,21 @@
     box-shadow: 0 4px 8px $color-hover-black-70;
   }
 
-  .video-thumbnail {
+  .video-thumbnail-container {
     width: 100%;
-    border-radius: 8px;
-    height: auto;
-    display: block;
-    object-fit: cover;
+    height: 200px; // Beispielhöhe
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    .video-thumbnail {
+      width: 100%;
+      border-radius: 8px;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
   }
 
   .video-info {
