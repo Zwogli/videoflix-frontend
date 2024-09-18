@@ -25,32 +25,37 @@ export class LocalVideoGaleryComponent {
   ngOnInit(): void {
     const videoIdParam = this.route.snapshot.paramMap.get('id');
     if (videoIdParam) {
-        this.videoId = +videoIdParam; // Konvertiere die ID in eine Zahl
-        this.startCheckingThumbnailStatus();
-    } else {
-        console.error('Video ID not found in route parameters.');
+      this.videoId = +videoIdParam; // Konvertiere die ID in eine Zahl
+      this.startCheckingThumbnailStatus();
     }
-}
-
-startCheckingThumbnailStatus(): void {
-  if (this.videoId !== undefined) {
-    interval(3000).pipe(
-      switchMap(() => this.localThumbnailService.checkThumbnailStatus(this.videoId as number)), // Wechselt zum Observable für den Status des Thumbnails
-      tap(response => {
-        if (response.thumbnailCreated) {
-          this.thumbnailCreated = true;
-          console.log('Thumbnail wurde erstellt!');
-        }
-      })
-    ).subscribe({
-      error: (error) => {
-        console.error('Fehler beim Abrufen des Thumbnail-Status:', error);
-      }
-    });
-  } else {
-    console.error('Video-ID ist nicht definiert');
+    console.debug('Video ID Param:', videoIdParam);
   }
-}
+
+  startCheckingThumbnailStatus(): void {
+    if (this.videoId !== undefined) {
+      interval(10000)
+        .pipe(
+          switchMap(() =>
+            this.localThumbnailService.checkThumbnailStatus(
+              this.videoId as number
+            )
+          ), // Wechselt zum Observable für den Status des Thumbnails
+          tap((response) => {
+            if (response.thumbnailCreated) {
+              this.thumbnailCreated = true;
+              console.log('Thumbnail wurde erstellt!');
+            }
+          })
+        )
+        .subscribe({
+          error: (error) => {
+            console.error('Fehler beim Abrufen des Thumbnail-Status:', error);
+          },
+        });
+    } else {
+      console.error('Video-ID ist nicht definiert');
+    }
+  }
 
   playVideo(video: VideoDownload): void {
     this.play.emit(video);

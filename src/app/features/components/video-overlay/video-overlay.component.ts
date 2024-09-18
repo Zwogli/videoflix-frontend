@@ -41,7 +41,7 @@ export class VideoOverlayComponent {
       .delete(`api/videos/local-videos/${this.video.id}/`)
       .subscribe({
         next: (response) => {
-          console.log('Video erfolgreich gelöscht', response);
+          // console.log('Video erfolgreich gelöscht', response);
           this.videoDeleted.emit(this.video.id);
           this.close();
         },
