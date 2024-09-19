@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ValidationService } from 'src/app/shared/validation/validation.service';
 import { HttpService } from 'src/app/shared/services/http/http.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-login-help',
@@ -16,7 +17,8 @@ export class CardLoginHelpComponent {
   constructor(
     private validService: ValidationService,
     private httpService: HttpService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router,
   ) {}
 
   submitSendMail() {
@@ -40,6 +42,7 @@ export class CardLoginHelpComponent {
           );
           this.loading = false;
           this.showSnackbar('E-Mail wurde erfolgreich gesendet.', false);
+          this.router.navigate(['/login']);
         },
         error: (error) => {
           console.error('Fehler beim Senden der E-Mail:', error);

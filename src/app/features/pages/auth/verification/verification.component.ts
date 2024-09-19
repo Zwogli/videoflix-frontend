@@ -47,8 +47,5 @@ export class VerificationComponent {
 
   navigateToLogin(): void {
     this.router.navigate(['/login']);
-    /* this.router.navigate(['/login'], {
-      queryParams: { message: 'verification-success' },
-    }); */
   }
 }
