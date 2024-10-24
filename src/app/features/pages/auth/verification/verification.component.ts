@@ -35,7 +35,7 @@ export class VerificationComponent {
     const url = `${environment.baseUrl}/auth/verify/${userId}/${token}/`;
     this.http.get(url, { responseType: 'text' }).subscribe({
       next: (response) => {
-        // console.log('Serverantwort:', response);
+        console.log('Serverantwort:', response);
         this.verificationSuccess = true;
       },
       error: (error) => {
