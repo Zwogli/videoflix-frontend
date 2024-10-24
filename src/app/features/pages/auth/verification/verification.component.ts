@@ -33,10 +33,14 @@ export class VerificationComponent {
 
   verifyEmail(userId: string, token: string): void {
     const url = `${environment.baseUrl}/auth/verify/${userId}/${token}/`;
-    this.http.get(url, { responseType: 'text' }).subscribe({
+    this.http.get<VerificationResponse>(url).subscribe({
       next: (response) => {
         console.log('Serverantwort:', response);
-        this.verificationSuccess = true;
+        if (response.message === 'Your email has been verified.') {
+          this.verificationSuccess = true;
+        } else {
+          this.verificationSuccess = false; // Fehlerfall
+        }
       },
       error: (error) => {
         // console.error('Fehler bei der Verifizierung:', error);
