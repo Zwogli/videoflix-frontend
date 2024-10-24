@@ -1,4 +1,4 @@
-interface VerificationResponse {
+export interface VerificationResponse {
     message?: string;
     error?: string;
   }

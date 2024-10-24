@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { VerificationResponse } from '../../../../models/verificationResponse.model';
 
 @Component({
   selector: 'app-verification',
