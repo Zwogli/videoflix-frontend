@@ -18,7 +18,8 @@
 }
 
 .video-card {
-  width: calc(25% - 20px); // 4 Videos pro Reihe, minus der Lücke
+  width: calc(25% - 20px); // 4 videos per row, minus space
+  min-height: fit-content;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease;
