@@ -19,45 +19,17 @@ export class LocalVideoGaleryComponent {
 
   constructor(
     private localThumbnailService: LocalThumbnailService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
-  ngOnInit(): void {
-    const videoIdParam = this.route.snapshot.paramMap.get('id');
-    if (videoIdParam) {
-      this.videoId = +videoIdParam; // Konvertiere die ID in eine Zahl
-      this.startCheckingThumbnailStatus();
-    }
-    console.debug('Video ID Param:', videoIdParam);
-  }
-
-  startCheckingThumbnailStatus(): void {
-    if (this.videoId !== undefined) {
-      const pollingSubscription = interval(10000)
-        .pipe(
-          switchMap(() => this.localThumbnailService.checkThumbnailStatus(this.videoId as number)),
-          tap((response) => {
-            if (response.thumbnailCreated) {
-              this.thumbnailCreated = true;
-              console.log('Thumbnail wurde erstellt!');
-              // Verwende die vom Backend bereitgestellte URL für das Thumbnail
-              const video = this.localVideos.find((v) => v.id === this.videoId);
-              if (video) {
-                video.thumbnail = response.thumbnailUrl; // Setze die neue URL
-              }
-              pollingSubscription.unsubscribe(); // Stoppe das Polling
-            }
-          })
-        )
-        .subscribe({
-          error: (error) => {
-            console.error('Fehler beim Abrufen des Thumbnail-Status:', error);
-          },
-        });
-    } else {
-      console.error('Video-ID ist nicht definiert');
-    }
-  }
+  // ngOnInit(): void {
+  //   const videoIdParam = this.route.snapshot.paramMap.get('id');
+  //   if (videoIdParam) {
+  //     this.videoId = +videoIdParam; // Konvertiere die ID in eine Zahl
+  //     this.startCheckingThumbnailStatus();
+  //   }
+  //   console.debug('Video ID Param:', videoIdParam);
+  // }
 
   // startCheckingThumbnailStatus(): void {
   //   if (this.videoId !== undefined) {
@@ -84,6 +56,16 @@ export class LocalVideoGaleryComponent {
   //     console.error('Video-ID ist nicht definiert');
   //   }
   // }
+
+  ngOnInit(): void {
+    this.loadVideos();
+  }
+
+  loadVideos(): void {
+    this.localThumbnailService.getLocalVideos().subscribe((data: VideoDownload[]) => {
+      this.localVideos = data;
+    });
+  }
 
   playVideo(video: VideoDownload): void {
     this.play.emit(video);
