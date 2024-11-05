@@ -33,17 +33,19 @@ export class LocalVideoGaleryComponent {
 
   startCheckingThumbnailStatus(): void {
     if (this.videoId !== undefined) {
-      interval(10000)
+      const pollingSubscription = interval(10000)
         .pipe(
-          switchMap(() =>
-            this.localThumbnailService.checkThumbnailStatus(
-              this.videoId as number
-            )
-          ), // Wechselt zum Observable für den Status des Thumbnails
+          switchMap(() => this.localThumbnailService.checkThumbnailStatus(this.videoId as number)),
           tap((response) => {
             if (response.thumbnailCreated) {
               this.thumbnailCreated = true;
               console.log('Thumbnail wurde erstellt!');
+              // Verwende die vom Backend bereitgestellte URL für das Thumbnail
+              const video = this.localVideos.find((v) => v.id === this.videoId);
+              if (video) {
+                video.thumbnail = response.thumbnailUrl; // Setze die neue URL
+              }
+              pollingSubscription.unsubscribe(); // Stoppe das Polling
             }
           })
         )
@@ -56,6 +58,32 @@ export class LocalVideoGaleryComponent {
       console.error('Video-ID ist nicht definiert');
     }
   }
+
+  // startCheckingThumbnailStatus(): void {
+  //   if (this.videoId !== undefined) {
+  //     interval(10000)
+  //       .pipe(
+  //         switchMap(() =>
+  //           this.localThumbnailService.checkThumbnailStatus(
+  //             this.videoId as number
+  //           )
+  //         ), // Wechselt zum Observable für den Status des Thumbnails
+  //         tap((response) => {
+  //           if (response.thumbnailCreated) {
+  //             this.thumbnailCreated = true;
+  //             console.log('Thumbnail wurde erstellt!');
+  //           }
+  //         })
+  //       )
+  //       .subscribe({
+  //         error: (error) => {
+  //           console.error('Fehler beim Abrufen des Thumbnail-Status:', error);
+  //         },
+  //       });
+  //   } else {
+  //     console.error('Video-ID ist nicht definiert');
+  //   }
+  // }
 
   playVideo(video: VideoDownload): void {
     this.play.emit(video);
