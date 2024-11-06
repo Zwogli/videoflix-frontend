@@ -9,7 +9,7 @@ import { VideoDownload } from '../../../models/video-download.model';
 })
 export class LocalThumbnailService {
   private baseUrl = `${environment.baseUrl}`;
-  private apiEndpoint = `${this.baseUrl}/api/videos/thumbnail-status/`
+  private apiEndpoint = `${this.baseUrl}/api/videos/thumbnail-status/`;
 
   constructor(private http: HttpClient) {}
 
@@ -18,6 +18,13 @@ export class LocalThumbnailService {
   // }
 
   checkThumbnailStatus(videoId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/api/videos/thumbnail-status/${videoId}`);
+    console.log(
+      'Test Check Thumbnail Status funktion url: ',
+      `${this.baseUrl}/api/videos/thumbnail-status/${videoId}`
+    );
+
+    return this.http.get(
+      `${this.baseUrl}/api/videos/thumbnail-status/${videoId}`
+    );
   }
 }
