@@ -14,6 +14,8 @@ export class LocalVideoGaleryComponent {
   @Output() play = new EventEmitter<VideoDownload>();
   defaultThumbnail: string =
     'https://videoflix-server.mathias-kohler.de/static/images/coming-soon.jpg?v=1';
+    // * Testpolling
+    // 'https://videoflix-server.mathias-kohler.de/static/images/coming-soon.jpg?v=1';
   videoId?: number;
   thumbnailCreated: boolean = false;
 
