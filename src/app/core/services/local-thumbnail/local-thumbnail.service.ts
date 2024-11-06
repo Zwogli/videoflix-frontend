@@ -13,11 +13,11 @@ export class LocalThumbnailService {
 
   constructor(private http: HttpClient) {}
 
-  getLocalVideos(): Observable<VideoDownload[]> {
-    return this.http.get<VideoDownload[]>(this.apiEndpoint);
-  }
-
-  // checkThumbnailStatus(videoId: number): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}/api/videos/thumbnail-status/${videoId}`);
+  // getLocalVideos(): Observable<VideoDownload[]> {
+  //   return this.http.get<VideoDownload[]>(this.apiEndpoint);
   // }
+
+  checkThumbnailStatus(videoId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/videos/thumbnail-status/${videoId}`);
+  }
 }
