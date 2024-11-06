@@ -30,7 +30,7 @@ export class LocalVideoGaleryComponent {
       this.videoId = +videoIdParam; // Konvertiere die ID in eine Zahl
       this.startCheckingThumbnailStatus();
     }
-    console.debug('Video ID Param:', videoIdParam);
+    console.log('Video ID Param:', videoIdParam);
   }
 
   startCheckingThumbnailStatus(): void {
