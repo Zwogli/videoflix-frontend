@@ -59,12 +59,15 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
           )
           .subscribe((response) => {
             if (response.thumbnail_created) {
+              console.log('Thumbnail aktualisiert:', response.thumbnail);
               video.thumbnail = `${
                 response.thumbnail
               }?v=${new Date().getTime()}`; // Cache-Busting
               // Neues Array zuweisen, damit Angular Änderungen erkennt
               this.localVideos = [...this.localVideos];
               this.cdr.detectChanges();
+            } else {
+              console.log('Thumbnail noch nicht erstellt:', response);
             }
           });
       }
