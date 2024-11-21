@@ -35,7 +35,6 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
     if (changes['localVideos'] && this.localVideos.length > 0) {
       this.startPollingForThumbnails();
     }
-    console.log('start polling localVideos aktualisiert:', this.localVideos);
   }
 
   playVideo(video: VideoDownload): void {
@@ -58,6 +57,7 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
             })
           )
           .subscribe((response) => {
+            console.log('Polling Response:', response); 
             if (response.status === 'done') {
               console.log('Thumbnail aktualisiert:', response.thumbnail_url);
               video.thumbnail = `${
