@@ -48,20 +48,20 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
         interval(5000)
           .pipe(
             switchMap(() => this.pollingService.checkThumbnailStatus(video.id)),
-            takeWhile((response) => !response.thumbnail_created, true),
+            takeWhile((response) => response.status !== 'done', true),
             catchError((error) => {
               console.error(
                 `Fehler beim Polling für Video ${video.id}:`,
                 error
               );
-              return of({ thumbnail_created: false, thumbnail: '' });
+              return of({ status: 'error', thumbnail_url: '' });
             })
           )
           .subscribe((response) => {
-            if (response.thumbnail_created) {
-              console.log('Thumbnail aktualisiert:', response.thumbnail);
+            if (response.status === 'done') {
+              console.log('Thumbnail aktualisiert:', response.thumbnail_url);
               video.thumbnail = `${
-                response.thumbnail
+                response.thumbnail_url
               }?v=${new Date().getTime()}`; // Cache-Busting
               // Neues Array zuweisen, damit Angular Änderungen erkennt
               this.localVideos = [...this.localVideos];

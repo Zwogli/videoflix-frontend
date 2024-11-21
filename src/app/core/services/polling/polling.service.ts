@@ -12,8 +12,8 @@ export class PollingService {
 
   constructor(private http: HttpClient) { }
 
-  checkThumbnailStatus(videoId: number): Observable<{ thumbnail_created: boolean; thumbnail: string }> {
-    return this.http.get<{ thumbnail_created: boolean; thumbnail: string }>(
+  checkThumbnailStatus(videoId: number): Observable<{ status: string; thumbnail_url: string }> {
+    return this.http.get<{ status: string; thumbnail_url: string }>(
       `${this.apiEndpoint}/thumbnail-status-test/${videoId}/`
     );
   }
