@@ -1,4 +1,12 @@
-import { Component, Input, Output, EventEmitter, SimpleChanges, OnChanges, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+  OnChanges,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { VideoDownload } from '../../../models/video-download.model';
 import { ActivatedRoute } from '@angular/router'; // Catch video_id
 import { interval, of } from 'rxjs';
@@ -10,7 +18,6 @@ import { PollingService } from '../../../core/services/polling/polling.service';
   templateUrl: './local-video-galery-test.component.html',
   styleUrls: ['./local-video-galery-test.component.scss'],
 })
-
 export class LocalVideoGaleryTestComponent implements OnChanges {
   @Input() localVideos: VideoDownload[] = []; // Data load via input
   @Output() play = new EventEmitter<VideoDownload>();
@@ -28,7 +35,7 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
     if (changes['localVideos'] && this.localVideos.length > 0) {
       this.startPollingForThumbnails();
     }
-    console.log('localVideos aktualisiert:', this.localVideos);
+    console.log('start polling localVideos aktualisiert:', this.localVideos);
   }
 
   playVideo(video: VideoDownload): void {
@@ -36,6 +43,7 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
   }
 
   startPollingForThumbnails(): void {
+    console.log('polling localVideos status:', this.localVideos);
     this.localVideos.forEach((video) => {
       if (!video.thumbnail) {
         interval(5000)
