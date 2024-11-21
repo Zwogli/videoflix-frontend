@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router'; // Catch video_id
 import { interval, of } from 'rxjs';
 import { switchMap, takeWhile, catchError } from 'rxjs/operators';
 import { PollingService } from '../../../core/services/polling/polling.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-local-video-galery-test',
@@ -22,6 +23,7 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
   @Input() localVideos: VideoDownload[] = []; // Data load via input
   @Output() play = new EventEmitter<VideoDownload>();
 
+  private baseUrl = `${environment.baseUrl}`;
   defaultThumbnail: string =
     'https://videoflix-server.mathias-kohler.de/static/images/coming-soon.jpg?v=1';
 
@@ -57,10 +59,10 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
             })
           )
           .subscribe((response) => {
-            console.log('Polling Response:', response); 
+            console.log('Polling Response:', response);
             if (response.status === 'done') {
               console.log('Thumbnail aktualisiert:', response.thumbnail_url);
-              video.thumbnail = `${
+              video.thumbnail = `${this.baseUrl}${
                 response.thumbnail_url
               }?v=${new Date().getTime()}`; // Cache-Busting
               // Neues Array zuweisen, damit Angular Änderungen erkennt
