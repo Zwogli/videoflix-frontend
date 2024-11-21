@@ -62,7 +62,7 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
             console.log('Polling Response:', response);
             if (response.status === 'done') {
               console.log('Thumbnail aktualisiert:', response.thumbnail_url);
-              video.thumbnail = `${this.baseUrl}${
+              video.thumbnail = `${
                 response.thumbnail_url
               }?v=${new Date().getTime()}`; // Cache-Busting
               // Neues Array zuweisen, damit Angular Änderungen erkennt
