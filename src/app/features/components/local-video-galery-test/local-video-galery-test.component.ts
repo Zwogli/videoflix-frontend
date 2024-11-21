@@ -43,7 +43,6 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
   }
 
   startPollingForThumbnails(): void {
-    console.log('polling localVideos status:', this.localVideos);
     this.localVideos.forEach((video) => {
       if (!video.thumbnail) {
         interval(5000)
@@ -63,7 +62,9 @@ export class LocalVideoGaleryTestComponent implements OnChanges {
               video.thumbnail = `${
                 response.thumbnail
               }?v=${new Date().getTime()}`; // Cache-Busting
-              this.cdr.detectChanges(); // View manuell aktualisieren
+              // Neues Array zuweisen, damit Angular Änderungen erkennt
+              this.localVideos = [...this.localVideos];
+              this.cdr.detectChanges();
             }
           });
       }
