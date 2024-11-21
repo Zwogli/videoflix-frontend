@@ -1,8 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges, OnChanges, ChangeDetectorRef } from '@angular/core';
 import { VideoDownload } from '../../../models/video-download.model';
 import { ActivatedRoute } from '@angular/router'; // Catch video_id
-import { catchError, interval, of, switchMap, takeWhile } from 'rxjs';
-import { ChangeDetectorRef } from '@angular/core';
+import { interval, of } from 'rxjs';
+import { switchMap, takeWhile, catchError } from 'rxjs/operators';
 import { PollingService } from '../../../core/services/polling/polling.service';
 
 @Component({
@@ -10,8 +10,9 @@ import { PollingService } from '../../../core/services/polling/polling.service';
   templateUrl: './local-video-galery-test.component.html',
   styleUrls: ['./local-video-galery-test.component.scss'],
 })
-export class LocalVideoGaleryTestComponent {
-  @Input() localVideos: VideoDownload[] = [];
+
+export class LocalVideoGaleryTestComponent implements OnChanges {
+  @Input() localVideos: VideoDownload[] = []; // Data load via input
   @Output() play = new EventEmitter<VideoDownload>();
 
   defaultThumbnail: string =
@@ -23,8 +24,11 @@ export class LocalVideoGaleryTestComponent {
     private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit(): void {
-    this.startPollingForThumbnails();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['localVideos'] && this.localVideos.length > 0) {
+      this.startPollingForThumbnails();
+    }
+    console.log('localVideos aktualisiert:', this.localVideos);
   }
 
   playVideo(video: VideoDownload): void {
