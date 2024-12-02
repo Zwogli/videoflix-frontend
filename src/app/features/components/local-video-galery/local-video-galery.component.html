@@ -1,3 +1,24 @@
+<!-- <div class="video-gallery">
+  <h1>Deine Videos zum anschauen</h1>
+
+  <div class="gallery">
+
+    <div *ngIf="localVideos.length === 0" class="no-videos-message">
+      <p>Du hast noch keine lokalen Videos.</p>
+    </div>
+  
+    <div *ngFor="let video of localVideos" class="video-card">
+      <img
+        [src]="video.thumbnail ? video.thumbnail : defaultThumbnail"
+        [alt]="video.title"
+        class="video-thumbnail"
+        (click)="playVideo(video)"
+      />
+    </div>
+  </div>
+
+</div> -->
+
 <div class="video-gallery">
   <h1>Deine Videos zum anschauen</h1>
 
@@ -18,3 +39,4 @@
   </div>
 
 </div>
+

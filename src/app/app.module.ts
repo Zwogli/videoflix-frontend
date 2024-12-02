@@ -42,7 +42,7 @@ import { VideoOverlayComponent } from './features/components/video-overlay/video
 import { UploadVideoComponent } from './features/pages/upload-video/upload-video.component';
 import { UploadVideoCardComponent } from './features/cards/upload-video-card/upload-video-card.component';
 import { ConfirmDeleteDialogComponent } from './shared/components/dialog/confirm-delete-dialog/confirm-delete-dialog.component';
-import { LocalVideoGaleryTestComponent } from './features/components/local-video-galery-test/local-video-galery-test.component';
+// import { LocalVideoGaleryTestComponent } from './features/components/local-video-galery-test/local-video-galery-test.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,7 @@ import { LocalVideoGaleryTestComponent } from './features/components/local-video
     UploadVideoComponent,
     UploadVideoCardComponent,
     ConfirmDeleteDialogComponent,
-    LocalVideoGaleryTestComponent,
+    // LocalVideoGaleryTestComponent,
   ],
   imports: [
     BrowserModule,
