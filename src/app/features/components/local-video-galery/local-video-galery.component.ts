@@ -65,7 +65,7 @@ export class LocalVideoGaleryComponent {
               video.thumbnail = `${
                 response.thumbnail_url
               }?v=${new Date().getTime()}`; // Cache-Busting
-              // Neues Array zuweisen, damit Angular Änderungen erkennt
+              // Set new Array that Angular detect changes
               this.localVideos = [...this.localVideos];
               this.cdr.detectChanges();
             } else {
